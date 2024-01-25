@@ -1,40 +1,80 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
-#register {
-  background-color: $bg-main;
+.auth {
   height: 100vh;
-  a {
-    &:hover {
+  padding: 2rem;
+  background: $bg-main;
+  //header
+  .header {
+    h2 {
+      color: $third-color;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 34.1px;
+    }
+    a {
+      margin: 1rem 0;
+      color: #fff;
+      transition: all 0.2s ease-in;
+      &:hover {
+        border: 5px solid $bg-third;
+        i {
+          color: $third-color !important;
+        }
+      }
+    }
+    .bg-active {
       border: 5px solid $bg-third;
-      .icon-auth {
+      i {
         color: $bg-third;
       }
     }
   }
 
+  //form
+  .input-group {
+    position: relative;
+    color: #fff !important;
+    input {
+      background: $main-color !important;
+      color: #fff !important;
+      border-left: none !important;
+      padding: 8px;
+    }
+    span {
+      background: $main-color !important;
+      color: #fff !important;
+      border-right: none !important;
+      font-size: 25px;
+    }
+    .eye-icon {
+      position: absolute;
+      top: 25%;
+      right: 3%;
+      z-index: 100;
+    }
+  }
+  label {
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 21.82px;
+    font-size: 16px;
+  }
   button {
+    background: $btn-whiteColor;
+    transition: all 0.2s ease-in;
+    padding: 10px 24px;
+    font-weight: 500;
     &:hover {
-      color: $bg-main;
+      background: $main-color;
+      color: $btn-whiteColor;
+      border: 2px solid $btn-whiteColor;
     }
   }
 
-  .bg-img {
-    border-radius: 16px;
-    width: 540px;
-    height: 580px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .eye-icon {
-    position: absolute;
-    top: 30%;
-    right: 3%;
-    z-index: 100;
-  }
-
-  .pointer {
-    cursor: pointer;
+  //image
+  .image {
+    border-radius: 20px;
+    background: $secondary-color;
   }
 }
