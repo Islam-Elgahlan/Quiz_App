@@ -7,14 +7,10 @@ body {
 
 
 @include response(desktop){
-  font-size: 85%;
   }
   @include response(tablet){
-  font-size: 70%;
   }
   @include response(mobile){
-    font-size: 60%;
   }
   @include response(smallPhone){
-    font-size: 50%;
   }
