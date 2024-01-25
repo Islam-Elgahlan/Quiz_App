@@ -1,0 +1,20 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+@include response(desktop){
+  font-size: 85%;
+  }
+  @include response(tablet){
+  font-size: 70%;
+  }
+  @include response(mobile){
+    font-size: 60%;
+  }
+  @include response(smallPhone){
+    font-size: 50%;
+  }
