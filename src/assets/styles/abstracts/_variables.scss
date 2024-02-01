@@ -1,6 +1,8 @@
-$main-color: #0D1321;
-$secondary-color: #FFEDDF;
-$third-color: #C5D86D;
+$main-color: #0d1321;
+$secondary-color: #ffeddf;
+$third-color: #c5d86d;
+$btn-color: #333333;
+$btn-whiteColor: #F5F5F5;
 
 $bg-main: $main-color;
 $bg-secondary: $secondary-color;
@@ -9,3 +11,35 @@ $bg-third: $third-color;
 $text-main: $main-color;
 $text-secondary: $secondary-color;
 $text-third: $third-color;
+$btnColor: $btn-color;
+$btnWhiteColor: $btn-whiteColor;
+
+.bg-main {
+  background-color: $bg-main;
+}
+.bg-secondaryColor {
+  background-color: $bg-secondary;
+}
+.bg-third {
+  background-color: $bg-third;
+}
+
+.text-main {
+  color: $text-main;
+}
+.text-secondaryColor {
+  color: $text-secondary;
+}
+.text-third {
+  color: $text-third;
+}
+
+.btn-color{
+    background-color: $btnColor;
+}
+
+.btn-whiteColor{
+    background-color: $btnWhiteColor;
+}
+
+
