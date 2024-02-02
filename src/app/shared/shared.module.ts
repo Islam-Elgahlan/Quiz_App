@@ -4,10 +4,15 @@ import { MaterialModule } from './material/material/material.module';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent,
+    SidebarComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -18,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
   exports: [
     RouterLink,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NavbarComponent,
+    SidebarComponent
   ]
 })
 export class SharedModule { }
