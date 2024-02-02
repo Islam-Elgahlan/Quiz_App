@@ -72,9 +72,19 @@
     }
   }
 
+  // //image
+  // .image {
+  //   border-radius: 20px;
+  //   background: $secondary-color;
+  // }
+
   //image
-  .image {
-    border-radius: 20px;
-    background: $secondary-color;
-  }
+.img-bg {
+  background: $secondary-color;
+  border-radius: 20px;
+  width: 640px;
+  height: 680px;
 }
+}
+
+
