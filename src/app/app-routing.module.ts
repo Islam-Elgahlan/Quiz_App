@@ -2,18 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule)
-
-  },
-
+  { path: '', redirectTo:'auth', pathMatch:'full'},
   {
     path: 'auth',
     loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule)
   },
   {
-
     path: 'instructor',
     // canActivate:[adminGuard],
     loadChildren: () => import('./core/pages/instructor/instructor.module').then(m => m.InstructorModule)

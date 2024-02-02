@@ -1,79 +1,131 @@
-<section id="register" >
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-5">
-                    <img src="../../../../../assets/images/Logo-white.png" class="w-25 text-white mt-3" alt="Logo">
-                </div>
-                <h2 class="text-third">Create your account and start using QuizWiz!</h2>
-                <a class="btn btn-color text-secondaryColor px-3 pt-2 me-3">
-                    <i class="fa-regular fa-user fa-3x icon-auth"></i>
-                    <p class="me-5 mt-3">Sign In</p>
-                </a>
-                <a class="btn btn-color text-secondaryColor px-3 pt-2">
-                    <i class="fa-solid fa-user-plus fa-3x icon-auth"></i>
-                    <p class="me-5 mt-3">Sign Up</p>
-                </a>
-
-                <form class="mt-2 text-secondaryColor">
-                    <div class="d-flex">
-                        <div class="form-group w-50">
-                            <label for="firstName">Your first name</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-main" id="basic-addon1"><i class="fa-solid fa-user text-secondaryColor"></i></span>
-                                <input type="text" id="firstName" formControlName="firstName" class="form-control bg-main text-white" placeholder="Type your first name"
-                                    aria-label="userName" aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-                        <div class="form-group ms-3 w-50">
-                            <label for="lasrName">Your last name</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-main" id="basic-addon1"><i class="fa-solid fa-user text-secondaryColor"></i></span>
-                                <input type="text" id="lasrName" formControlName="lasrName" class="form-control bg-main text-white" placeholder="Type your last name"
-                                    aria-label="userName" aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Your email address</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-main" id="basic-addon1"><i class="fa-solid fa-envelope text-secondaryColor"></i></span>
-                            <input type="email" id="email" formControlName="email" class="form-control bg-main text-white" placeholder="Type your email"
-                                aria-label="userName" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="role">Your role</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-main" id="basic-addon1"><i class="fa-solid fa-envelope text-secondaryColor"></i></span>
-                            <input type="text" id="role" formControlName="role" class="form-control bg-main text-white" placeholder="Choose your role"
-                                aria-label="userName" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <div class="input-group mb-3 position-relative">
-                            <span class="input-group-text bg-main" id="basic-addon1"><i class="fa-solid fa-key text-secondaryColor"></i></span>
-                            <input [type]="hide? 'password':'text'" id="password" formControlName="password" class="form-control bg-main text-white" placeholder="Type your password"
-                                aria-label="userName" aria-describedby="basic-addon1">
-                            <span (click)="hide=!hide" class="eye-icon pointer"><i class="fa-solid"
-                                    [class]="hide?'fa-eye-slash':'fa-eye'"></i></span>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-whiteColor mb-2" >Sign Up <i class="fa-solid fa-circle-check"></i></button>
-                    
-                </form>
-
-            </div>
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <div class="bg-img bg-secondaryColor ms-5">
-                    <img src="../../../../../assets/images/Login_Image.png" class="w-75 h-75 " alt="register">
-                </div>
-            </div>
+<section id="register" class="auth">
+  <div class="container-fluid">
+    <div class="row justify-content-around">
+      <div class="col-md-6">
+        <div class="mb-5">
+          <img
+            src="../../../../../assets/images/Logo-white.png"
+            class="w-25 text-white mt-3"
+            alt="Logo"
+          />
         </div>
+        <div class="header">
+          <h2>Continue your learning journey with QuizWiz!</h2>
+          <a class="btn btn-color pt-2 px-5 ms-0 me-4" routerLink="/auth/login">
+            <i class="fa-solid fa-user-tie fa-3x mt-2"></i>
+            <p class="mt-2 text-center">Sign In</p>
+          </a>
+          <a class="btn btn-color px-5 pt-2 bg-active">
+            <i class="fa-solid fa-user-plus fa-3x mt-2"></i>
+            <p class="mt-2 text-center">Sign Up</p>
+          </a>
+        </div>
+        <form class="mt-2 text-secondaryColor">
+          <div class="d-flex">
+            <div class="form-group w-50">
+              <label for="firstName">Your first name</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-main" id="basic-addon1"
+                  ><i class="fa-solid fa-user text-secondaryColor"></i
+                ></span>
+                <input
+                  type="text"
+                  id="firstName"
+                  formControlName="firstName"
+                  class="form-control bg-main text-white"
+                  placeholder="Type your first name"
+                  aria-label="userName"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+            <div class="form-group ms-3 w-50">
+              <label for="lasrName">Your last name</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-main" id="basic-addon1"
+                  ><i class="fa-solid fa-user text-secondaryColor"></i
+                ></span>
+                <input
+                  type="text"
+                  id="lasrName"
+                  formControlName="lasrName"
+                  class="form-control bg-main text-white"
+                  placeholder="Type your last name"
+                  aria-label="userName"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your email address</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-main" id="basic-addon1"
+                ><i class="fa-solid fa-envelope text-secondaryColor"></i
+              ></span>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-control bg-main text-white"
+                placeholder="Type your email"
+                aria-label="userName"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Your role</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-main" id="basic-addon1"
+                ><i class="fa-solid fa-envelope text-secondaryColor"></i
+              ></span>
+              <input
+                type="text"
+                id="role"
+                formControlName="role"
+                class="form-control bg-main text-white"
+                placeholder="Choose your role"
+                aria-label="userName"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group mb-3 position-relative">
+              <span class="input-group-text bg-main" id="password"
+                ><i class="fa-solid fa-key"></i
+              ></span>
+              <input
+                [type]="hide ? 'password' : 'text'"
+                class="form-control"
+                formControlName="password"
+                placeholder="Password"
+              />
+              <span (click)="hide = !hide" class="eye-icon pointer"
+                ><i
+                  class="fa-solid fs-5"
+                  [class]="hide ? 'fa-eye-slash' : 'fa-eye'"
+                ></i>
+              </span>
+            </div>
+          </div>
+          <button class="btn btn-whiteColor mb-2">
+            Sign Up <i class="fa-solid fa-circle-check"></i>
+          </button>
+        </form>
+      </div>
+      <div class="col-md-5">
+        <img
+          src="../../../../../assets/images/Login_Image.png"
+          class="w-100 h-100 image my-3"
+          alt="register"
+        />
+      </div>
     </div>
+  </div>
 </section>
