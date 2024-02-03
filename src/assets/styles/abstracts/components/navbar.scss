@@ -1,0 +1,47 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
+#navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 25px 20px;
+
+  .dash-item {
+    font-family: "Nunito";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27.28px;
+    position: relative;
+  }
+
+  .pointer{
+    cursor: pointer;
+  }
+
+  .dash-brd{
+    content: "";
+    width: 1px;
+    height: 114px;
+    position: absolute;
+    right: 20%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .quiz-item {
+    padding: 15px 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    font-family: "Nunito";
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24.55px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+    #navbar {
+      padding: 20px 5px !important;
+
+    }
+    
+  }

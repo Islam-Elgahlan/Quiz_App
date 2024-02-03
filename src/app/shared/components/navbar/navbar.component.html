@@ -1,20 +1,19 @@
-<section id="navbar" class="text-black p-3">
+<section id="navbar">
     <div class="container-fluid">
         <div class="row justify-content-between align-items-center">
-            <div class="col-2">
-                <mat-button-toggle value="justify" aria-label="Text align justify">
-                    <mat-icon>format_align_justify</mat-icon>
-                </mat-button-toggle>
-                <img src="../.././../../assets/images/Logo icon.png" class="w-25 mx-3">
+            <div class="col-2 dash-item">
+                <h2>Dashboard</h2>
             </div>
-            <div class="col-4 ">
+            <div class="col-md-6">
                 <div class="d-flex align-items-center justify-content-end">
-                    <div>
-                        <img [src]="" alt="">
+                    <div class="quiz-item me-5 pointer">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="mx-2 h4">New quiz</span>
                     </div>
-                    <div class="ms-2">
-                        <h6 class="m-0">Instructor</h6>
-                        <span class="text-muted"></span>
+                    <span class="dash-brd"></span>
+                    <div class="ms-5 dash-item  px-5">
+                        <h2 class="m-0">Nwabuikwu Chizuruoke</h2>
+                        <span class="text-muted">Instructor</span>
                     </div>
                     <div>
                         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
