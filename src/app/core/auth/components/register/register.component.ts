@@ -9,4 +9,6 @@ export class RegisterComponent {
 
   hide:boolean=true;
 
+  
+
 }
