@@ -1,13 +1,12 @@
 <section id="sidebar">
   <div class="container-fluid p-0">
     <div class="row">
-      
       <div class="w-50 mx-auto mb-0" (click)="onClicked()" [ngClass]="isOpened ? '' : 'w-75'">
         <img src="../../../../assets/images/Logo-icon.svg" class="w-75 pointer py-3">
       </div>
       <div class="">
-        <ng-container *ngFor="let item of menu">
-          <a class="d-block text-decoration-none" [routerLink]="item.link" routerLinkActive="bg-active">
+        <ng-container *ngFor="let item of menu" routerLinkActive="bg-active">
+          <a class="d-block text-decoration-none" [routerLink]="item.link" >
             <!-- *ngIf="item.isActive" -->
             <div class="item d-flex align-items-center" [class]="isOpened?'':'justify-content-center ms-0'">
               <span><i class="fs-2 p-2" [class]="item.icon"></i></span>
@@ -15,24 +14,6 @@
             </div>
           </a>
         </ng-container>
-<section id="sidebar"  >
-    <div class="container-fluid p-0">
-      <div class="row">
-           <div class="w-50 mx-auto mb-0" (click)="onClicked()" [ngClass]="isOpened ? '' : 'w-75'">
-            <img src="../../../../assets/images/Logo-icon.svg" class="w-75 pointer py-3">
-        </div>
-        <div class="">
-          <ng-container *ngFor="let item of menu" routerLinkActive="bg-active">
-            <a class="d-block text-decoration-none" [routerLink]="item.link"
-              >
-              <!-- *ngIf="item.isActive" -->
-              <div class="item d-flex align-items-center"  [class]="isOpened?'':'justify-content-center ms-0'">
-                <span><i class="fs-2 p-2" [class]="item.icon"></i></span>
-                <span class="icon-name" [ngClass]="{ 'd-none': !isOpened }">{{item.title}}</span>
-              </div>
-            </a>
-          </ng-container>
-        </div>         
       </div>
     </div>
   </div>
