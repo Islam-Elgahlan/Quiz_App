@@ -11,7 +11,7 @@
               >
               <!-- *ngIf="item.isActive" -->
               <div class="item d-flex align-items-center"  [class]="isOpened?'':'justify-content-center ms-0'">
-                <span><i class="fs-2 p-2" [class]="item.icon"></i></span>
+                <span><i class="p-2" [class]="item.icon"></i></span>
                 <span class="icon-name" [ngClass]="{ 'd-none': !isOpened }">{{item.title}}</span>
               </div>
             </a>

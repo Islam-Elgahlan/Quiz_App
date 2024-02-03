@@ -7,7 +7,7 @@
 
   .dash-item {
     // font-family: "Nunito";
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20px;
     line-height: 27.28px;
     position: relative;
@@ -20,19 +20,18 @@
   .dash-brd{
     content: "";
     width: 1px;
-    height: 114px;
+    height: 60px;
     position: absolute;
-    right: 20%;
+    right: 30%;
     top: 0;
     background-color: rgba(0, 0, 0, 0.2);
   }
 
   .quiz-item {
     padding: 5px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 30px;
     // font-family: "Nunito";
-    font-weight: 700;
     font-weight: 500;
     font-size: 18px;
     line-height: 24.55px;
