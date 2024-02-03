@@ -2,10 +2,10 @@
 
 #navbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 25px 20px;
+  padding: 0px 20px;
 
   .dash-item {
-    font-family: "Nunito";
+    // font-family: "Nunito";
     font-weight: 700;
     font-size: 20px;
     line-height: 27.28px;
@@ -27,11 +27,10 @@
   }
 
   .quiz-item {
-    padding: 15px 40px;
+    padding: 5px 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-    font-family: "Nunito";
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
     line-height: 24.55px;
   }

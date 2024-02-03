@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { InstructorRoutingModule } from './instructor-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardInstructComponent } from './components/dashboard-instruct/dashboard-instruct.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardInstructComponent
   ],
   imports: [
     CommonModule,
