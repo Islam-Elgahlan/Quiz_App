@@ -8,14 +8,11 @@ const routes: Routes = [
     loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'instructor',
+    path: 'dashboard',
     // canActivate:[adminGuard],
-    loadChildren: () => import('./core/pages/instructor/instructor.module').then(m => m.InstructorModule)
+    loadChildren: () => import('./core/pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
-  {
-    path: 'learner',
-    loadChildren: () => import('./core/pages/learner/learner.module').then(m => m.LearnerModule)
-  },
+  
 ];
 
 @NgModule({
