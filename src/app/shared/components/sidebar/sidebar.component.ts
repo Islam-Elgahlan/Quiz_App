@@ -72,13 +72,13 @@ export class SidebarComponent {
    },
    {
     title: 'Students',
-    icon: 'fa-solid fa-list-check',
+    icon: 'fa-solid fa-users',
     link: '/dashboard/instructor/students',
    //  isActive: this.isManager()
   },
   {
     title: 'Questions',
-    icon: 'fa-solid fa-list-check',
+    icon: 'fa-solid fa-file-circle-question',
     link: '/dashboard/instructor/questions',
    //  isActive: this.isManager()
   },
