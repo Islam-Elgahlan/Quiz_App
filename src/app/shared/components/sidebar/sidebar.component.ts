@@ -100,12 +100,6 @@ export class SidebarComponent {
   //   link: '/dashboard/employee/tasks',
   //   // isActive: this.isEmployee()
   // }
-  {
-    title: 'Help',
-    icon: 'fa-regular fa-circle-question',
-    link: '/dashboard/help',
-   //  isActive: this.isManager()
-  },
   
  ]
  onClicked() {
