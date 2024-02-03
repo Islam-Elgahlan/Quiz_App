@@ -1,13 +1,48 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent}
+  { path: '', component: DashboardComponent },
+  {
+    path: 'groups',
+    loadChildren: () =>
+      import('../instructor/modules/groupes/groupes.module').then(
+        (m) => m.GroupesModule
+      ),
+  },
+  {
+    path: 'questions',
+    loadChildren: () =>
+      import('../instructor/modules/questions/questions.module').then(
+        (m) => m.QuestionsModule
+      ),
+  },
+  {
+    path: 'quizzes',
+    loadChildren: () =>
+      import('../instructor/modules/quizes/quizes.module').then(
+        (m) => m.QuizesModule
+      ),
+  },
+  {
+    path: 'results',
+    loadChildren: () =>
+      import('../instructor/modules/results/results.module').then(
+        (m) => m.ResultsModule
+      ),
+  },
+  {
+    path: 'students',
+    loadChildren: () =>
+      import('../instructor/modules/students/students.module').then(
+        (m) => m.StudentsModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class InstructorRoutingModule { }
+export class InstructorRoutingModule {}
