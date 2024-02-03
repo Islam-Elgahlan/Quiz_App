@@ -1,1 +1,44 @@
-<p>navbar works!</p>
+<section id="navbar" class="text-black p-3">
+    <div class="container-fluid">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-2">
+                <mat-button-toggle value="justify" aria-label="Text align justify">
+                    <mat-icon>format_align_justify</mat-icon>
+                </mat-button-toggle>
+                <img src="../.././../../assets/images/Logo icon.png" class="w-25 mx-3">
+            </div>
+            <div class="col-4 ">
+                <div class="d-flex align-items-center justify-content-end">
+                    <div>
+                        <img [src]="" alt="">
+                    </div>
+                    <div class="ms-2">
+                        <h6 class="m-0">Instructor</h6>
+                        <span class="text-muted"></span>
+                    </div>
+                    <div>
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon>expand_more</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button routerLink="/dashboard/profile/" mat-menu-item>
+                                <mat-icon>account_circle</mat-icon>
+                                <span>Profile</span>
+                            </button>
+                            <button routerLink="/auth/change-password" mat-menu-item>
+                                <mat-icon>lock-open</mat-icon>
+                                <span>Change Password</span>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-icon>logout</mat-icon>
+                                <span>Logout</span>
+                            </button>
+                        </mat-menu>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
