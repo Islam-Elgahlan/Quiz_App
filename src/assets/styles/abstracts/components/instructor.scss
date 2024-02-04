@@ -1,0 +1,11 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
+#quizze{
+
+    .quizze-item{
+        border: 2px solid rgba($color: #000000, $alpha: 0.2);
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+}
+

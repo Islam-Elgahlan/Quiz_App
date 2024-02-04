@@ -5,9 +5,9 @@ import { SetupComponent } from './components/setup/setup.component';
 import { QuizDetailsComponent } from './components/quiz-details/quiz-details.component';
 
 const routes: Routes = [
-  {path:'',component:QuizzesComponent},
-  {path:'setup',component:SetupComponent},
-  {path:'quizDetails',component:QuizDetailsComponent},
+  {path:'', title:'Quizzes', component:QuizzesComponent},
+  {path:'setup', title:'SetUp-Quizze',component:SetupComponent},
+  {path:'quizDetails', title:'Quizze-Details', component:QuizDetailsComponent},
 
 
 ];
