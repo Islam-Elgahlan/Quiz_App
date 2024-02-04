@@ -4,10 +4,10 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 20px;
   font-weight: 500;
-  .col-md-8{
+  .col-md-8 {
     position: relative;
   }
-  .info::before{
+  .info::before {
     content: "";
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -22,21 +22,19 @@
   }
 }
 
-
 @media (max-width: 1000px) {
-    #navbar {
-      padding: 5px 5px !important;
-      transition: all .1s ease !important;
-      .new-quiz{
-        .text-nowrap{
-          display: none;
-        }
+  #navbar {
+    padding: 5px 5px !important;
+    transition: all 0.1s ease !important;
+    .new-quiz {
+      .text-nowrap {
+        display: none;
       }
     }
+  }
 }
 @media (max-width: 760px) {
   #navbar {
     padding: 20px 5px !important;
-
   }
 }

@@ -6,8 +6,8 @@ import { QuizDetailsComponent } from './components/quiz-details/quiz-details.com
 
 const routes: Routes = [
   {path:'', title:'Quizzes', component:QuizzesComponent},
-  {path:'setup', title:'SetUp-Quizze',component:SetupComponent},
-  {path:'quizDetails', title:'Quizze-Details', component:QuizDetailsComponent},
+  {path:'setup',component:SetupComponent},
+  {path:'quizDetails', component:QuizDetailsComponent},
 
 
 ];
