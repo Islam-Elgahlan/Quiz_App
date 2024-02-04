@@ -47,41 +47,41 @@ export class SidebarComponent {
  menu:IMenu[]=[
    {
      title: 'Dashboard',
-     icon: 'fa-solid fa-house',
-     link: '/dashboard/instructor',
+     icon: 'Dashboard-icon.svg',
+     link: '/dashboard/instructor/dashboared-instruct',
     //  isActive: this.isManager()
    },
 
    {
      title: 'Groups',
-     icon: 'fa-solid fa-users',
+     icon: 'Students-icon.svg',
      link: '/dashboard/instructor/groups',
     //  isActive: this.isManager()
    },
    {
      title: 'Quizzes',
-     icon: 'fa-regular fa-note-sticky',
+     icon: 'Quiz-icon.svg',
      link: '/dashboard/instructor/quizzes',
     //  isActive: this.isManager()
    },
    {
      title: 'Results',
-     icon: 'fa-solid fa-list-check',
+     icon: 'Results-icon.svg',
      link: '/dashboard/instructor/results',
     //  isActive: this.isManager()
    },
    {
     title: 'Students',
-    icon: 'fa-solid fa-users',
+    icon: 'Students-icon.svg',
     link: '/dashboard/instructor/students',
    //  isActive: this.isManager()
   },
-  {
-    title: 'Questions',
-    icon: 'fa-solid fa-file-circle-question',
-    link: '/dashboard/instructor/questions',
-   //  isActive: this.isManager()
-  },
+  // {
+  //   title: 'Questions',
+  //   icon: 'Question-icon.svg',
+  //   link: '/dashboard/instructor/questions',
+  //  //  isActive: this.isManager()
+  // },
   //  {
   //   title: 'Home',
   //   icon: 'fa-solid fa-house',

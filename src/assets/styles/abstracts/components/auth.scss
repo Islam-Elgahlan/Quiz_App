@@ -40,18 +40,25 @@
       color: #fff !important;
       border-left: none !important;
       padding: 8px;
+      border: 3px solid #fff;
+      &::placeholder{
+        color:#fff;
+        font-size: 14px !important;
+     }
     }
     span {
       background: $main-color !important;
       color: #fff !important;
       border-right: none !important;
       font-size: 25px;
+      border: 3px solid #fff;
     }
     .eye-icon {
       position: absolute;
       top: 25%;
       right: 3%;
       z-index: 100;
+      border: none;
     }
   }
   label {
