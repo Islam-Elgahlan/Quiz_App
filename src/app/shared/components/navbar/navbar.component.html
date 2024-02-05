@@ -1,87 +1,52 @@
 <section id="navbar">
-    <!-- <div class="container-fluid">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-sm-2 dash-item">
-                <h2>Dashboard</h2>
+  <div class="container pb-1 pt-2">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md-2">Dashboard</div>
+      <div class="col-md-6">
+        <div class="row justify-content-end align-items-center">
+          <div class="col-md-4 new-quiz">
+            <div
+              class="px-4 py-2 pointer d-flex justify-content-center align-items-center"
+            >
+              <span
+                ><img src="../../../../assets/images/new-quiz-icon.svg"
+              /></span>
+              <span class="px-3 text-nowrap">New quiz</span>
             </div>
-            <div class="col-sm-6">
-                <div class="row align-items-center justify-content-end ">
-                    <div class="col-md-3 quiz-item pointer d-flex align-items-center">
-                        <span><img src="../../../../assets/images/new-quiz-icon.svg" alt=""></span>
-                        <span class=" px-3 text-nowrap">New quiz</span>
-                    </div>
-                    <span class="dash-brd"></span>
-                    <div class="col-md-6 ms-3 dash-item das-right px-3">
-                        <h2 class="m-0 text-nowrap">Nwabuikwu Chizuruoke</h2>
-                        <span class="text-muted">Instructor</span>
-                    </div>
-                    <div class="col-md-2">
-                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                            <mat-icon>expand_more</mat-icon>
-                        </button>
-                        <mat-menu #menu="matMenu">
-                            <button routerLink="/dashboard/profile/" mat-menu-item>
-                                <mat-icon>account_circle</mat-icon>
-                                <span>Profile</span>
-                            </button>
-                            <button routerLink="/auth/change-password" mat-menu-item>
-                                <mat-icon>lock-open</mat-icon>
-                                <span>Change Password</span>
-                            </button>
-                            <button mat-menu-item>
-                                <mat-icon>logout</mat-icon>
-                                <span>Logout</span>
-                            </button>
-                        </mat-menu>
-
-                    </div>
-                </div>
-
+          </div>
+          <div
+            class="col-md-8 d-flex align-items-center justify-content-between"
+          >
+            <div class="info px-2">
+              <h2 class="m-0 text-nowrap">Nwabuikwu Chizuruoke</h2>
+              <span class="text-third">Instructor</span>
             </div>
+            <div class="mx-0">
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu"
+              >
+                <mat-icon>expand_more</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button routerLink="/dashboard/profile/" mat-menu-item>
+                  <mat-icon>account_circle</mat-icon>
+                  <span>Profile</span>
+                </button>
+                <button routerLink="/auth/change-password" mat-menu-item>
+                  <mat-icon>lock-open</mat-icon>
+                  <span>Change Password</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>logout</mat-icon>
+                  <span>Logout</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
         </div>
-    </div> -->
-    <div class="container pb-1 pt-2">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-md-2">
-                Dashboard
-            </div>
-            <div class="col-md-6">
-                <div class="row justify-content-end align-items-center">
-                    <div class="col-md-3 new-quiz">
-                        <div class=" px-4 py-2 pointer d-flex justify-content-center align-items-center">
-                            <span><img src="../../../../assets/images/new-quiz-icon.svg"></span>
-                            <span class="px-3 text-nowrap">New quiz</span>
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-8 d-flex align-items-center justify-content-between">
-                        <div class="info px-2">
-                            <h2 class="m-0 text-nowrap">Nwabuikwu Chizuruoke</h2>
-                            <span class="text-third">Instructor</span>
-                        </div>
-                        <div class="mx-0">
-                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                                <mat-icon>expand_more</mat-icon>
-                            </button>
-                            <mat-menu #menu="matMenu">
-                                <button routerLink="/dashboard/profile/" mat-menu-item>
-                                    <mat-icon>account_circle</mat-icon>
-                                    <span>Profile</span>
-                                </button>
-                                <button routerLink="/auth/change-password" mat-menu-item>
-                                    <mat-icon>lock-open</mat-icon>
-                                    <span>Change Password</span>
-                                </button>
-                                <button mat-menu-item>
-                                    <mat-icon>logout</mat-icon>
-                                    <span>Logout</span>
-                                </button>
-                            </mat-menu>
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </section>

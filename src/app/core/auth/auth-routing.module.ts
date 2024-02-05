@@ -8,11 +8,11 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login',title:'Quiz-Login', component: LoginComponent },
-  { path: 'register',title:'Quiz-Register', component: RegisterComponent },
-  { path: 'forgetPassword',title:'Staycation-ForgetPassword', component: ForgetPasswordComponent },
-  { path: 'resetPassword',title:'Staycation-ResetPassword', component: ResetPasswordComponent },
-  { path: 'changePassword',title:'Staycation-ChangePassword', component: ChangePasswordComponent },
+  { path: 'login',title:'Quiz | Login', component: LoginComponent },
+  { path: 'register',title:'Quiz | Register', component: RegisterComponent },
+  { path: 'forgetPassword',title:'Staycation | ForgetPassword', component: ForgetPasswordComponent },
+  { path: 'resetPassword',title:'Staycation | ResetPassword', component: ResetPasswordComponent },
+  { path: 'changePassword',title:'Staycation | ChangePassword', component: ChangePasswordComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

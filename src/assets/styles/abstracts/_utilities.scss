@@ -3,3 +3,19 @@
 .pointer {
     cursor: pointer;
 }
+//buttons
+button{
+    transition: all 0.2s ease-in;
+    border-radius: 10px;
+    padding: 6px 25px;
+    font-size: 16px;
+    &.primary{
+        color: #fff;
+        background: $main-color;
+    }
+    &.primary:hover{
+        color: $main-color;
+        background: #fff;
+        border: 3px solid $main-color;
+    }
+}

@@ -5,7 +5,6 @@
 }
 #sidebar {
   height: 100vh;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1071;
@@ -30,7 +29,7 @@
       color: #0d1321;
     }
     &:hover {
-      transition: all 0.2s !important;
+      transition: all 0.1s ease-in !important;
       border-right: 5px solid $main-color;
       img {
         color: $secondary-color;
@@ -39,16 +38,17 @@
         // background-size: cover;
         // background-position: center center;
         // background-repeat: no-repeat;
-        border: 3px solid $main-color;
+        border: 1px solid $main-color;
       }
     }
+    
   }
 }
 //active link style
 .bg-active {
   border-right: 5px solid $main-color;
   img {
-    border: 3px solid $main-color;
+    border: 1px solid $main-color;
   }
 }
 //media query
