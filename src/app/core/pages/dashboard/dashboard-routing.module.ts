@@ -5,12 +5,16 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
   {path:'',component:DashboardComponent,children:[
     {
+      path: '', redirectTo:'instructor', pathMatch:'full'},
+    {
       path: 'instructor',
+      title:'Quiz | Instructor',
       // canActivate:[adminGuard],
       loadChildren: () => import('../../pages/instructor/instructor.module').then(m => m.InstructorModule)
     },
     {
       path: 'learner',
+      title:'Quiz | Learner',
       loadChildren: () => import('../../pages/learner/learner.module').then(m => m.LearnerModule)
     }, 
   ]},

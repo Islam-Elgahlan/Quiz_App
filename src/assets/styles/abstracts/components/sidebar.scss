@@ -1,66 +1,71 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
 * {
-  transition: all 0.5s ease;
+  transition: all 0.4s;
 }
-
 #sidebar {
   height: 100vh;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1071;
-.item {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 20px 20px;
-  cursor: pointer;
-  color: #000;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24.55px;
-  span {
-    margin-left: 1rem;
-  }
-  i {
-    background: $secondary-color;
-    border-radius: 10px;
-    font-weight: 700 !important;
-    color: #0d1321;
-  }
-  &:hover {
-    border-right: 5px solid $main-color;
-    i {
-      color: $secondary-color;
-      background: $main-color;
-    }
-  }
-}
-
-  
-}
-.bg-active {
-    // .item {
-    //   a{
-       border-right: 5px solid $main-color;
-      // i {
-        color: $secondary-color;
-        background: $main-color;
-      // } 
-      // }
-      
-    // }
-  }
-@media (max-width: 970px) {
   .item {
-    padding: 20px 5px !important;
+    transition: all 0.1s ease !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 30px 20px;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24.55px;
+    span {
+      margin-left: 1rem;
+    }
+    img {
+      transition: all 0.1s ease !important;
+      background: $secondary-color;
+      border-radius: 10px;
+      font-weight: 700 !important;
+      color: #0d1321;
+    }
+    &:hover {
+      transition: all 0.1s ease-in !important;
+      border-right: 5px solid $main-color;
+      img {
+        color: $secondary-color;
+        // background-image: url(../../../../assets/images/Dashboard-hover.svg);
+        // background-color: $main-color;
+        // background-size: cover;
+        // background-position: center center;
+        // background-repeat: no-repeat;
+        border: 1px solid $main-color;
+      }
+    }
+    
+  }
+}
+//active link style
+.bg-active {
+  border-right: 5px solid $main-color;
+  img {
+    border: 1px solid $main-color;
+  }
+}
+//media query
+@media (max-width: 970px) {
+  .logo {
+    width: 50% !important;
+  }
+  .image {
+    width: 100% !important;
+  }
+  .item {
+    padding: 20px 25px !important;
   }
   .icon-name {
     display: none !important;
   }
-  i {
-    padding-left: 0;
-    margin-left: 0 !important;
-    font-size: x-large;
+  .icon {
+    margin: auto !important;
   }
 }

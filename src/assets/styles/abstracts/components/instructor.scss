@@ -146,6 +146,70 @@
         border-radius: 20px !important;
 
     }
-
 }
 
+//dashboard instructor
+#dash-instruct {
+  .image {
+    width: 22%;
+  }
+}
+//Quizzes
+#quizze {
+  .quizze-item {
+    border: 2px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+}
+#quiz-details {
+  font-family: "Inter", sans-serif !important;
+  nav {
+    font-weight: 600;
+    line-height: 19.36px;
+    // font-family: 'Inter', sans-serif !important;
+    font-size: 16px;
+  }
+  .header {
+    h3 {
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 29.05px;
+    }
+    .info {
+      font-weight: 500 !important;
+      font-size: 18px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      margin: 10px 0px;
+      .name {
+        width: 60%;
+        background: $secondary-color;
+        border-radius: 10px;
+        padding: 12px 15px;
+      }
+      .value {
+        padding: 12px 20px;
+      }
+    }
+    .description {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      .name {
+        font-weight: 500 !important;
+        font-size: 18px;
+        padding: 12px 15px;
+        width: 100%;
+        background: $secondary-color;
+        border-radius: 10px;
+        display: block !important;
+      }
+      .value {
+        padding: 5px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}
