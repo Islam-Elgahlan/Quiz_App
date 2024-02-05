@@ -2,44 +2,41 @@
 
 #navbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 8px 20px;
-
-  .dash-item {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 27.28px;
+  font-size: 20px;
+  font-weight: 500;
+  .col-md-8{
     position: relative;
   }
-
-  .pointer{
-    cursor: pointer;
-  }
-
-  .dash-brd{
+  .info::before{
     content: "";
-    width: 1px;
-    height: 75px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
     position: absolute;
-    right: 22%;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    bottom: 0;
+    left: 8px;
   }
 
-  .quiz-item {
-    padding: 5px 10px;
+  .new-quiz {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 30px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24.55px;
   }
 }
 
 
 @media (max-width: 1000px) {
     #navbar {
-      padding: 20px 5px !important;
-
+      padding: 5px 5px !important;
+      transition: all .1s ease !important;
+      .new-quiz{
+        .text-nowrap{
+          display: none;
+        }
+      }
     }
-    
+}
+@media (max-width: 760px) {
+  #navbar {
+    padding: 20px 5px !important;
+
   }
+}
