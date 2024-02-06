@@ -31,8 +31,4 @@ export class QuizzesComponent {
     });
   }
 
-  
-
-
->>>>>>> 8af9df43e2bfb22b959dabd1b43b51f4d76a07df
 }
