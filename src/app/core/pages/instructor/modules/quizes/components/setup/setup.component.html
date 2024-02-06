@@ -23,29 +23,69 @@
 
         <form class="mt-5">
             <h2 class="ms-2">Details</h2>
-            <div class="input-group">
-                <p class="input-text"><span class="header">Title:</span></p>
-                <input type="text" aria-label="title" class="form-control">
-            </div>
-            <div class="d-flex">
 
+            <div class="input-group input-group-lg">
+                <span class="input-group-text header" id="inputGroup-sizing-lg">Title:</span>
+                <input type="text" class="form-control" aria-label="title" aria-describedby="title">
             </div>
+
             <div class="d-flex mt-3">
-                <div class="input-group mb-3 select-group">
+                <div class="input-group mb-3 me-2 select-group header">
                     <label class="input-group-select p-3 " for="inputGroupSelect01">Duration (in minutes)</label>
-                    <select class="form-select p-3" id="inputGroupSelect01">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select p-3 header" id="inputGroupSelect01">
+                        <option selected>10</option>
+                        <option value="1">15</option>
                     </select>
-                  </div>
-                  
-                 
+                </div>
+                <div class="input-group mb-3 mx-2 select-group header">
+                    <label class="input-group-select p-3 " for="inputGroupSelect01">No. of questions</label>
+                    <select class="form-select p-3 header" id="inputGroupSelect01">
+                        <option selected>15</option>
+                        <option value="1">20</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3 ms-2 select-group header">
+                    <label class="input-group-select p-3 " for="inputGroupSelect01">Score per question</label>
+                    <select class="form-select p-3 header" id="inputGroupSelect01">
+                        <option selected>1</option>
+                        <option value="1">2</option>
+                    </select>
+                </div>
             </div>
-            <div class="input-group-textarea">
-                <p class="input-textarea"><span class="header">Description:</span></p>
-                <textarea class="form-control" cols="40" aria-label="With textarea"></textarea>
+
+            <div class="input-group">
+                <span class="input-group-text header">Description:</span>
+                <textarea class="form-control header" rows="4" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="input-group input-group-lg my-3 w-75">
+                <span class="input-group-text header" id="inputGroup-sizing-lg">Schedule</span>
+                <input type="date" class="form-control" aria-label="date" aria-describedby="date">
+                <input type="time" class="form-control" aria-label="time" aria-describedby="time">
+            </div>
+
+            <div class="d-flex mt-3">
+                <div class="input-group mb-3 me-2 select-group header">
+                    <label class="input-group-select p-3 " for="inputGroupSelect01">Difficulty level</label>
+                    <select class="form-select p-3 header" id="inputGroupSelect01">
+                        <option selected>entry</option>
+                        <option value="1">advanced</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3 mx-2 select-group header">
+                    <label class="input-group-select p-3 " for="inputGroupSelect01">Category type</label>
+                    <select class="form-select p-3 header" id="inputGroupSelect01">
+                        <option selected>FE</option>
+                        <option value="1">BE</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3 ms-2 select-group header">
+                    <label class="input-group-select p-3 " for="inputGroupSelect01">Group name</label>
+                    <select class="form-select p-3 header" id="inputGroupSelect01">
+                        <option selected>JSB</option>
+                        <option value="1">ITI</option>
+                    </select>
+                </div>
             </div>
         </form>
 
