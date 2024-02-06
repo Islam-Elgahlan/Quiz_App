@@ -6,12 +6,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { VectorComponent } from './icons/vector/vector.component';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    VectorComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ReactiveFormsModule,
     HttpClientModule,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    VectorComponent
   ]
 })
 export class SharedModule { }

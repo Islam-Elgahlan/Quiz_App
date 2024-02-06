@@ -1,4 +1,134 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
+// Quizze Home
+#quizze {
+  h2,
+  h4 {
+    font-weight: 600;
+  }
+  h2 {
+    // font-size: 18px;
+    line-height: 24.55px;
+  }
+  h4 {
+    font-size: 14px;
+    line-height: 19.1px;
+  }
+  .quizze-item {
+    border: 2px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .quizze-item-box {
+    border: 2px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 20px;
+  }
+
+  .img-quizze-bg {
+    background: $secondary-color;
+    border-radius: 20px;
+    padding: 15px;
+    // margin: 0;
+  }
+
+  th {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    background: rgba(13, 19, 33, 1);
+    color: #fff;
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  tr {
+    transition: all 0.1s ease;
+  }
+  tr:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+      0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    z-index: 2;
+    position: relative;
+  }
+
+  td {
+    padding: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+}
+// Setup
+#setup {
+  border-radius: 20px;
+  h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24.55px;
+  }
+  .setup-item {
+    margin-left: 115px;
+    margin-right: 15px;
+  }
+  .setup-item::after {
+    content: "";
+    width: 1px;
+    height: 135px;
+    position: absolute;
+    right: 30%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .setup-item::before {
+    content: "";
+    width: 1px;
+    height: 135px;
+    position: absolute;
+    right: 15%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  //   form
+  .form-control, .form-select {
+    border: none;
+    border-radius: none;
+  }
+  .header {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19.36px;
+  }
+
+  .input-group-text, .input-group-select  {
+    background-color: $bg-secondary;
+    border-radius: 20px;
+  }
+  .input-group-text {
+    width: 15%;
+  }
+  .input-group{
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+
+//   .input-textarea {
+//     background-color: $bg-secondary;
+//     border: 2px solid rgba(0, 0, 0, 0.2);
+//     width: 15%;
+//     height: 100%;
+//     padding: 20px;
+//     position: absolute;
+//     top: 0px;
+//     left: 0px;
+//     z-index: 22;
+//     border-radius: 20px;
+//   }
+
+}
 
 //dashboard instructor
 #dash-instruct {
