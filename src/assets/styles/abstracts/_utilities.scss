@@ -6,16 +6,25 @@
 //buttons
 button{
     transition: all 0.2s ease-in;
-    border-radius: 10px;
     padding: 6px 25px;
     font-size: 16px;
     &.primary{
         color: #fff;
         background: $main-color;
+        border-radius: 10px;
     }
     &.primary:hover{
         color: $main-color;
         background: #fff;
         border: 3px solid $main-color;
+    }
+    &.third{
+        color: $main-color;
+        background: $third-color;
+        border-radius: 20px;
+        border: none !important;
+    }
+    &.third:hover{
+        opacity: .8;
     }
 }

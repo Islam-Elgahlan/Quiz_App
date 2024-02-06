@@ -35,16 +35,19 @@
   .input-group {
     position: relative;
     color: #fff !important;
-    input {
+    input,select {
       background: $main-color !important;
       color: #fff !important;
       border-left: none !important;
       padding: 8px;
       border: 3px solid #fff;
-      &::placeholder{
+      &::placeholder {
         color:#fff;
-        font-size: 14px !important;
+        font-size: 13px !important;
      }
+    }
+    .default-option{
+      font-size: 13px !important;
     }
     span {
       background: $main-color !important;

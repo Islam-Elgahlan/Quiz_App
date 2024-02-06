@@ -55,9 +55,12 @@
                         <label for="role">Your role</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text bg-main" id="basic-addon1"><i
-                                    class="fa-solid fa-envelope text-secondaryColor"></i></span>
-                            <input type="text" id="role" formControlName="role" class="form-control bg-main text-white"
-                                placeholder="Choose your role" aria-label="userName" aria-describedby="basic-addon1" />
+                                class="fa-solid fa-envelope text-secondaryColor"></i></span>
+                            <select class="form-select">
+                                <option>Choose your role</option>
+                                <option class="my-3 p-3" value="1">{{RoleEnum.instructor}}</option>
+                                <option class="my-3 p-3" value="2">{{RoleEnum.learner}}</option>
+                            </select>
                         </div>
                     </div>
 
