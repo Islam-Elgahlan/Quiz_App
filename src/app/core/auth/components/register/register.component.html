@@ -50,7 +50,6 @@
                                 aria-label="userName" aria-describedby="basic-addon1" />
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label for="role">Your role</label>
                         <div class="input-group mb-3">
@@ -58,8 +57,8 @@
                                 class="fa-solid fa-envelope text-secondaryColor"></i></span>
                             <select class="form-select">
                                 <option>Choose your role</option>
-                                <option class="my-3 p-3" value="1">{{RoleEnum.instructor}}</option>
-                                <option class="my-3 p-3" value="2">{{RoleEnum.learner}}</option>
+                                <option  *ngFor="let role of userRoles" class="my-3 p-3 text-white" [value]="role">{{role}}</option>
+                                <!-- <option class="my-3 p-3" value="1"></option> -->
                             </select>
                         </div>
                     </div>
