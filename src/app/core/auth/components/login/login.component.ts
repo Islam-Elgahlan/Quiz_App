@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   })
   constructor(
     private _AuthService:AuthService,
-    private toastr:ToastrService
+    private toastr:ToastrService, private _Router:Router
   ){}
   onSubmit(data:FormGroup){
     this._AuthService.onLogIn(data.value).subscribe({
@@ -28,6 +29,7 @@ export class LoginComponent {
       },
       complete:()=>{
         this.toastr.success('loged in successfully')
+        this._Router.navigate(['/dashboard'])
       }
     })
   }
