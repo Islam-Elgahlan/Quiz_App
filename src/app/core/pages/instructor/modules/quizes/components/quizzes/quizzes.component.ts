@@ -10,17 +10,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class QuizzesComponent {
   constructor(private dialog:MatDialog){}
-  openSetupEndDialog(): void{
-      const dialogRef = this.dialog.open(SetupEndComponent, {
-        data: {},
-        width: '30%'
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        if(result){
-          console.log(result.id);
-        }
-      });
-    }  
 
 //setup dialog
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
