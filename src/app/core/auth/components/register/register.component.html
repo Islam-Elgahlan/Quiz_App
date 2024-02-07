@@ -16,16 +16,16 @@
                         <p class="mt-2 text-center">Sign Up</p>
                     </a>
                 </div>
-                <form class="mt-2 text-secondaryColor">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)" class="mt-2 text-secondaryColor">
                     <div class="d-flex">
                         <div class="form-group w-50">
                             <label for="firstName">Your first name</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-main" id="basic-addon1"><i
                                         class="fa-solid fa-user text-secondaryColor"></i></span>
-                                <input type="text" id="firstName" formControlName="last_name"
+                                <input type="text" id="firstName" formControlName="first_name"
                                     class="form-control bg-main text-white" placeholder="Type your first name"
-                                    aria-label="last_name" aria-describedby="basic-addon1" />
+                                    aria-label="first_name" aria-describedby="basic-addon1" />
                             </div>
                         </div>
                         <div class="form-group ms-3 w-50">
@@ -55,9 +55,9 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text bg-main" id="basic-addon1"><i
                                     class="fa-solid fa-envelope text-secondaryColor"></i></span>
-                            <select class="form-select">
+                            <select class="form-select" formControlName="role">
                                 <option>Choose your role</option>
-                                <option  *ngFor="let role of userRoles" class="my-3 p-3 text-white" [value]="role">{{role}}</option>
+                                <option  *ngFor="let role of role" class="my-3 p-3 text-white" [value]="role">{{role}}</option>
                                 <!-- <option class="my-3 p-3" value="1"></option> -->
                             </select>
                         </div>

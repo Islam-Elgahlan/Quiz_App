@@ -15,13 +15,14 @@ export class RegisterComponent implements OnInit {
 
   message: string = '"Welcome In QuizWiz!"';
   verifyEmail:any;
+  role:UserRole[] = [UserRole.Instructor,UserRole.Student];
   
   hide: boolean = true;
   // public RoleEnum = Role;
   // public Role = Role.instructor;
 
-  userRoles = Object.values(UserRole);
-  selectedRole: UserRole | undefined;
+  // userRoles = Object.values(UserRole);
+  // selectedRole: UserRole | undefined;
   // public RoleEnum = Role;
   // public Role = Role.instructor;
   // role1: string = this.RoleEnum[0]
@@ -33,7 +34,7 @@ export class RegisterComponent implements OnInit {
     constructor(private _AuthService:AuthService, private toastr:ToastrService, private _Router:Router){}
 
     ngOnInit(): void {
-      console.log(this.userRoles);
+      console.log(this.role);
     }
 
 
@@ -60,18 +61,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(data: FormGroup) {
     console.log(data.value);
-    let myData = new FormData();
-    myData.append('userName', data.value.userName);
-    myData.append('email', data.value.email);
-    myData.append('country', data.value.country);
-    myData.append('phoneNumber', data.value.phoneNumber);
-    myData.append('password', data.value.password);
-    myData.append('confirmPassword', data.value.confirmPassword);
 
-    this._AuthService.onRegister(myData).subscribe({
+    this._AuthService.onRegister(data.value).subscribe({
       next: (res: IRegister) => {
         console.log(res);
-        this.verifyEmail = localStorage.setItem('email', res.email);
 
       },
       error: (err: any) => {
@@ -84,9 +77,6 @@ export class RegisterComponent implements OnInit {
       },
     });
   }
-
-
-
 
 
 }
