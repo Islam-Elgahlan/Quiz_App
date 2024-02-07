@@ -1,4 +1,4 @@
-export enum Role {
-    instructor,
-    learner
+export enum UserRole {
+    instructor='instructor',
+    learner='learner'
 }

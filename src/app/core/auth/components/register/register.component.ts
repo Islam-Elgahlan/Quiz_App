@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Role } from '../../model/role.enum';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserRole } from '../../model/role.enum';
 
 @Component({
   selector: 'app-register',
@@ -9,14 +9,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   ngOnInit(): void {
+    console.log(this.userRoles);
     
-    console.log(this.RoleEnum);
 
   }
 
   hide:boolean=true;
-  public RoleEnum = Role;
-  public Role = Role.instructor;
+  // public RoleEnum = Role;
+  // public Role = Role.instructor;
+
+  userRoles = Object.values(UserRole);
+  selectedRole: UserRole | undefined;
+  // public RoleEnum = Role;
+  // public Role = Role.instructor;
+  // role1: string = this.RoleEnum[0]
+  
+  // get isInstructor() {
+  //   return this.Role === Role.instructor;
+  // }
+
 
 
   registerForm = new FormGroup({
@@ -39,6 +50,5 @@ export class RegisterComponent implements OnInit {
     ]),
 });
   
-  
-
+ 
 }
