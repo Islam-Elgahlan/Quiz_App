@@ -28,7 +28,7 @@ export class AuthService {
       this.role = localStorage.getItem('role');
     }
   }
-  onLogIn(data: FormGroup): Observable<any> {
-    return this._HttpClient.post('', data);
+  onLogIn(data: any): Observable<any> {
+    return this._HttpClient.post('auth/login', data);
   }
 }
