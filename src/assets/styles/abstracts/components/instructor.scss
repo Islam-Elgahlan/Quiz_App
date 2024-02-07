@@ -71,11 +71,9 @@
     margin-left: 115px;
     margin-right: 5px;
   }
-  // .setup-item{
-  //   span{
-  //     position: relative;
-  //   }
-  // }
+  .item-check{
+    margin-left: 60%;
+  }
   .setup-item::after {
     content: "";
     width: 1px;
