@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VectorComponent } from './icons/vector/vector.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
-    VectorComponent
+    VectorComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,
