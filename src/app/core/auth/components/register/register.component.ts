@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Role } from '../../model/role.enum';
+import { UserRole } from '../../model/role.enum';
 
 @Component({
   selector: 'app-register',
@@ -8,15 +8,20 @@ import { Role } from '../../model/role.enum';
 })
 export class RegisterComponent implements OnInit {
   ngOnInit(): void {
+    console.log(this.userRoles);
     
-    console.log(this.RoleEnum);
 
   }
 
   hide:boolean=true;
-  public RoleEnum = Role;
-  public Role = Role.instructor;
+  userRoles = Object.values(UserRole);
+  selectedRole: UserRole | undefined;
+  // public RoleEnum = Role;
+  // public Role = Role.instructor;
+  // role1: string = this.RoleEnum[0]
   
-  
+  // get isInstructor() {
+  //   return this.Role === Role.instructor;
+  // }
 
 }
