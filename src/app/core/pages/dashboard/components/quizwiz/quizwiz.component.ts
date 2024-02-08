@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-quizwiz',
+  templateUrl: './quizwiz.component.html',
+  styleUrls: ['./quizwiz.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class QuizwizComponent implements OnInit {
   receivedBoolean: boolean = true;
 
   constructor() { }

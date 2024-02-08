@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VectorComponent } from './icons/vector/vector.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     NavbarComponent,
     SidebarComponent,
     VectorComponent,
-    LogoutComponent
+    LogoutComponent,
+    DeleteComponent
   ],
   imports: [
     CommonModule,

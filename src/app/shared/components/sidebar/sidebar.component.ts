@@ -1,14 +1,14 @@
 import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-// import { ToastrService } from 'ngx-toastr';
-// import { AuthService } from 'src/app/core/auth/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/core/auth/services/auth.service';
 
 interface IMenu {
   title: string,
   icon: string,
   link: string,
-  // isActive: Boolean
+  isActive: Boolean
 }
 @Component({
   selector: 'app-sidebar',
@@ -23,83 +23,77 @@ export class SidebarComponent {
   is100vHeight:boolean=false;
 
   constructor(
-    // private _AuthService: AuthService, 
+    private _AuthService: AuthService, 
     private router: Router,
-    // private toastr: ToastrService, 
+    private toastr: ToastrService, 
     public dialog: MatDialog) { }
 
 
-  // isManager(): boolean {
-  //   return this._AuthService.role == 'Manager' ? true : false;
-  // }
-  // isEmployee(): boolean {
-  //   return this._AuthService.role == 'Employee' ? true : false;
-  // }
-  // ngOnInit() {
-  //   if (this.isManager()) {
-  //     this.router.navigate(['/dashboard/manager/home'])
-  //   }
-  //   else if (this.isEmployee()) {
-  //     this.router.navigate(['/dashboard/employee/home'])
-  //   }
-  // }
+  isInstructor(): boolean {
+    return this._AuthService.role == 'Instructor' ? true : false;
+  }
+  isStudent(): boolean {
+    return this._AuthService.role == 'Student' ? true : false;
+  }
+  ngOnInit() {
+    if (this.isInstructor()) {
+      this.router.navigate(['/quizwiz/instructor'])
+    }
+    else if (this.isStudent()) {
+      this.router.navigate(['/quizwiz/student'])
+    }
+  }
 
  menu:IMenu[]=[
    {
      title: 'Dashboard',
      icon: 'Dashboard-icon.svg',
-     link: '/dashboard/instructor/dashboared-instruct',
-    //  isActive: this.isManager()
+     link: '/quizwiz/instructor/dashboared',
+     isActive: this.isInstructor()
    },
 
    {
      title: 'Groups',
      icon: 'Students-icon.svg',
-     link: '/dashboard/instructor/groups',
-    //  isActive: this.isManager()
+     link: '/quizwiz/instructor/groups',
+     isActive: this.isInstructor()
    },
    {
      title: 'Quizzes',
      icon: 'Quiz-icon.svg',
-     link: '/dashboard/instructor/quizzes',
-    //  isActive: this.isManager()
+     link: '/quizwiz/instructor/quizzes',
+     isActive: this.isInstructor()
    },
    {
      title: 'Results',
      icon: 'Results-icon.svg',
-     link: '/dashboard/instructor/results',
-    //  isActive: this.isManager()
+     link: '/quizwiz/instructor/results',
+     isActive: this.isInstructor()
    },
    {
     title: 'Students',
     icon: 'Students-icon.svg',
-    link: '/dashboard/instructor/students',
-   //  isActive: this.isManager()
+    link: '/quizwiz/instructor/students',
+    isActive: this.isInstructor()
   },
-  // {
-  //   title: 'Questions',
-  //   icon: 'Question-icon.svg',
-  //   link: '/dashboard/instructor/questions',
-  //  //  isActive: this.isManager()
-  // },
-  //  {
-  //   title: 'Home',
-  //   icon: 'fa-solid fa-house',
-  //   link: '/dashboard/employee/home',
-  //   // isActive: this.isEmployee()
-  // },
-  // {
-  //   title: 'Projects',
-  //   icon: 'fa-solid fa-diagram-project',
-  //   link: '/dashboard/employee/projects',
-  //   // isActive: this.isEmployee()
-  // },
-  // {
-  //   title: 'Tasks',
-  //   icon: 'fa-solid fa-list-check',
-  //   link: '/dashboard/employee/tasks',
-  //   // isActive: this.isEmployee()
-  // }
+   {
+    title: 'Dashboard',
+    icon: 'Dashboard-icon.svg',
+    link: '/quizwiz/student/dashboard',
+    isActive: this.isStudent()
+  },
+  {
+    title: 'quiz',
+    icon: 'Quiz-icon.svg',
+    link: '/quizwiz/student/quiz',
+    isActive: this.isStudent()
+  },
+  {
+    title: 'Results',
+    icon: 'Results-icon.svg',
+    link: '/quizwiz/student/results',
+    isActive: this.isStudent()
+  }
   
  ]
  onClicked() {
