@@ -22,14 +22,14 @@ export class ListGroupsComponent implements OnInit {
     let params = {
 
     }
-    this._GroupsService.onGetAllGroups(params).subscribe({
+    this._GroupsService.onGetAllGroups().subscribe({
       next:(res)=>{
         console.log(res);
         
       }
     })
   }
-  
+
   //setup dialog
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(AddUpdateGroupComponent, {

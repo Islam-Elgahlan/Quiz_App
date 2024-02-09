@@ -11,8 +11,8 @@ constructor(
   private _HttpClient:HttpClient
 ){}
 
-  onGetAllGroups(params: any):Observable<any>{
-    return this._HttpClient.get('student', {params : params})
+  onGetAllGroups():Observable<any>{
+    return this._HttpClient.get('group')
   }
 
 }

@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class ChangePasswordComponent implements OnInit{
   hide: boolean = true;
   hideNew: boolean = true;
-  hideConfirm: boolean = true;
+  // hideConfirm: boolean = true;
 
   constructor(private _AuthService:AuthService, private toastr:ToastrService, private _Router:Router){}
 
