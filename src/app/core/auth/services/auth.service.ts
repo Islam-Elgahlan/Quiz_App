@@ -21,9 +21,6 @@ export class AuthService {
     let encoded: any = localStorage.getItem('userToken');
     let decoded: any = jwtDecode(encoded);
     console.log(decoded);
-
-    localStorage.setItem('role' , decoded.role);
-    localStorage.setItem('email' , decoded.email);
     
     this.getRole();
   }
@@ -44,7 +41,7 @@ export class AuthService {
   {
     return this._HttpClient.post('auth/register' , data)
   }
-  onChangePassword(data: IChangePassword):Observable<any>
+  onChangePassword(data: any):Observable<any>
   {
     return this._HttpClient.post('auth/change-password' , data)
   }
