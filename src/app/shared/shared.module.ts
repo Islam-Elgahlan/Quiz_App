@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material/material.module';
 import { RouterLink, RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VectorComponent } from './icons/vector/vector.component';
 import { LogoutComponent } from './components/logout/logout.component';
-
 
 @NgModule({
   declarations: [
@@ -23,6 +22,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     RouterLink,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
 
   ],
@@ -30,6 +30,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     RouterLink,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     NavbarComponent,
     SidebarComponent,
