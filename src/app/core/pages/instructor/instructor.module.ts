@@ -14,6 +14,7 @@ import { DashboardInstructComponent } from './components/dashboard-instruct/dash
     CommonModule,
     InstructorRoutingModule,
     SharedModule
-  ]
+  ],
+  exports:[DashboardInstructComponent]
 })
 export class InstructorModule { }
