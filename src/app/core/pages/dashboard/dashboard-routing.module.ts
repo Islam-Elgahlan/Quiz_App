@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { instructorGuard } from '../../guards/instructor.guard';
+import { studentGuard } from '../../guards/student.guard';
+import { QuizwizComponent } from './components/quizwiz/quizwiz.component';
 
 const routes: Routes = [
-  {path:'',component:DashboardComponent,children:[
+  {path:'',component:QuizwizComponent,children:[
     {
       path: '', redirectTo:'instructor', pathMatch:'full'},
     {
       path: 'instructor',
       title:'Quiz | Instructor',
-      // canActivate:[adminGuard],
+      canActivate:[instructorGuard],
       loadChildren: () => import('../../pages/instructor/instructor.module').then(m => m.InstructorModule)
     },
     {
-      path: 'learner',
-      title:'Quiz | Learner',
-      loadChildren: () => import('../../pages/learner/learner.module').then(m => m.LearnerModule)
+      path: 'student',
+      title:'Quiz | Student',
+      canActivate:[studentGuard],
+      loadChildren: () => import('../../pages/student/student.module').then(m => m.StudentModule)
     }, 
   ]},
   

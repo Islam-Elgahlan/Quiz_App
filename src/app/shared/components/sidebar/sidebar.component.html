@@ -17,8 +17,8 @@
             class="d-block text-decoration-none"
             [routerLink]="item.link"
             routerLinkActive="bg-active"
+            *ngIf="item.isActive"
           >
-            <!-- *ngIf="item.isActive" -->
             <div
               class="item d-flex align-items-center"
               [class]="isOpened ? '' : 'justify-content-center ms-0'"

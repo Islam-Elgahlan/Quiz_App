@@ -31,33 +31,9 @@
     padding: 15px;
     // margin: 0;
   }
-
-  th {
-    font-weight: 400;
-    text-wrap: nowrap;
-    padding: 10px;
-    border: 2px solid rgba(255, 255, 255, 1);
-    background: rgba(13, 19, 33, 1);
-    color: #fff;
-  }
   .dropdown-toggle::after {
-    display: none;
-  }
-
-  tr {
-    transition: all 0.1s ease;
-  }
-  tr:hover {
-    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
-      0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    z-index: 2;
-    position: relative;
-  }
-
-  td {
-    padding: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-  }
+      display: none;
+    }
 }
 // Setup
 #setup {
@@ -120,19 +96,6 @@
       border-right: none !important;
     }
   }
-
-//   .input-textarea {
-//     background-color: $bg-secondary;
-//     border: 2px solid rgba(0, 0, 0, 0.2);
-//     width: 15%;
-//     height: 100%;
-//     padding: 20px;
-//     position: absolute;
-//     top: 0px;
-//     left: 0px;
-//     z-index: 22;
-//     border-radius: 20px;
-//   }
 
 }
 
