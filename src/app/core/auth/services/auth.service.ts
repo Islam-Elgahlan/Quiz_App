@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   role: string | null = '';
+  token: string | null = '';
   constructor(private _HttpClient: HttpClient) {
     if (localStorage.getItem('role') !== null) {
       this.getProfile();
@@ -26,6 +27,7 @@ export class AuthService {
       localStorage.getItem('role')
     ) {
       this.role = localStorage.getItem('role');
+      this.token = localStorage.getItem('userToken')
     }
   }
   
