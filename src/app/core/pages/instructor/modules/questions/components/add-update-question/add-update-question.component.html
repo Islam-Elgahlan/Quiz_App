@@ -3,11 +3,12 @@
     <div class="row justify-content-between dialog-header">
       <div class="col-md-6 px-4 pt-4">
         <h2 *ngIf="addMode">Set up a new Question</h2>
-        <!-- <h2 *ngIf="updateMode">Update <span class="text-third"> {{groupDetails?.name}} </span>Group</h2> -->
+        <h2 *ngIf="updateMode">Update <span class="text-third"> {{questionDetails?.title}} </span>Question</h2>
+        <h2 *ngIf="viewMode"><span class="text-third"> {{questionDetails?.title}} </span>Question</h2>
       </div>
       <div class="col-md-3">
         <div class="d-flex justify-content-end">
-          <i class="fa-solid fa-check fs-1 fw-bold pointer py-3 px-4"></i>
+          <i class="fa-solid fa-check fs-1 fw-bold pointer py-3 px-4" (click)="onSubmit(questionForm)"></i>
           <i
             class="fa-solid fa-xmark fs-1 fw-bold pointer py-3 px-4"
             (click)="onNoClick()"
@@ -16,7 +17,7 @@
       </div>
     </div>
 
-    <form class="my-4 p-5">
+    <form [formGroup]="questionForm" class="my-4 p-5">
       <div class="input-group input-group-lg mb-3 d-flex flex-nowrap">
         <span class="input-group-text header" id="inputGroup-sizing-lg"
           >Title :</span
@@ -40,6 +41,7 @@
           >
         </span>
       </div>
+
       <div class="input-group mb-3">
         <span class="input-group-text header">Description</span>
         <textarea
@@ -49,7 +51,9 @@
           aria-label="With textarea"
         ></textarea>
       </div>
-      <div class="d-flex flex-nowrap">
+
+      <div formGroupName="options">
+        <div class="d-flex flex-nowrap">
         <div
           class="input-group input-group-lg mb-3 me-3 d-flex flex-nowrap w-50"
         >
@@ -96,70 +100,70 @@
             >
           </span>
         </div>
-      </div>
-      <div class="d-flex flex-nowrap">
-        <div
-          class="input-group input-group-lg mb-3 me-3 d-flex flex-nowrap w-50"
-        >
-          <span class="input-group-text header" id="inputGroup-sizing-lg"
-            >C</span
-          >
-          <input
-            formControlName="C"
-            type="text"
-            class="form-control"
-            aria-label="title"
-            aria-describedby="title"
-          />
-          <span
-            class="text-danger px-3"
-            *ngIf="
-              questionForm.get('C')?.errors && questionForm.get('C')?.touched
-            "
-          >
-            <span *ngIf="questionForm.get('C')?.getError('required')"
-              >Option C is required</span
-            >
-          </span>
         </div>
-        <div class="input-group input-group-lg mb-3 d-flex flex-nowrap w-50">
-          <span class="input-group-text header" id="inputGroup-sizing-lg"
-            >D</span
-          >
-          <input
-            formControlName="D"
-            type="text"
-            class="form-control"
-            aria-label="title"
-            aria-describedby="title"
-          />
-          <span
-            class="text-danger px-3"
-            *ngIf="
-              questionForm.get('D')?.errors && questionForm.get('D')?.touched
-            "
-          >
-            <span *ngIf="questionForm.get('D')?.getError('required')"
-              >Option D is required</span
+
+        <div class="d-flex flex-nowrap">
+            <div
+            class="input-group input-group-lg mb-3 me-3 d-flex flex-nowrap w-50"
             >
-          </span>
-        </div>
-      </div>
-      <div class="d-flex flex-nowrap">
-        <div class="w-50">
-          <div
-            class="input-group input-group-lg mb-3 me-3 d-flex flex-nowrap w-75"
-          >
-            <span class="input-group-text header w-75" id="inputGroup-sizing-lg"
-              >Right Answer</span
+            <span class="input-group-text header" id="inputGroup-sizing-lg"
+                >C</span
             >
             <input
-              formControlName="answer"
-              type="text"
-              class="form-control"
-              aria-label="title"
-              aria-describedby="title"
+                formControlName="C"
+                type="text"
+                class="form-control"
+                aria-label="title"
+                aria-describedby="title"
             />
+            <span
+                class="text-danger px-3"
+                *ngIf="
+                questionForm.get('C')?.errors && questionForm.get('C')?.touched
+                "
+            >
+                <span *ngIf="questionForm.get('C')?.getError('required')"
+                >Option C is required</span
+                >
+            </span>
+            </div>
+            <div class="input-group input-group-lg mb-3 d-flex flex-nowrap w-50">
+            <span class="input-group-text header" id="inputGroup-sizing-lg"
+                >D</span
+            >
+            <input
+                formControlName="D"
+                type="text"
+                class="form-control"
+                aria-label="title"
+                aria-describedby="title"
+            />
+            <span
+                class="text-danger px-3"
+                *ngIf="
+                questionForm.get('D')?.errors && questionForm.get('D')?.touched
+                "
+            >
+                <span *ngIf="questionForm.get('D')?.getError('required')"
+                >Option D is required</span
+                >
+            </span>
+            </div>
+        </div>
+
+      </div>
+      
+      <div class="d-flex flex-nowrap">
+          <div
+            class="input-group select-group input-group-lg mb-3 me-3 d-flex flex-nowrap"
+          >
+          <label class="input-group-select p-3 header text-nowrap" for="difficulty"
+          >Right Answer</label
+        >
+        <select class="form-select" formControlName="answer">
+            <option *ngFor="let item of answer" class="my-3 p-3 " [value]="item">{{item}}
+            </option>
+        </select>
             <span
               class="text-danger px-3"
               *ngIf="
@@ -172,30 +176,40 @@
               >
             </span>
           </div>
-        </div>
-        <div class="w-50">
-          <div class="input-group select-group d-flex flex-nowrap ms-3 w-75">
-            <label class="input-group-select p-3 header text-nowrap" for="type"
-              >Category type</label
+
+          <div
+            class="input-group select-group input-group-lg mb-3 me-3 d-flex flex-nowrap"
+          >
+          <label class="input-group-select p-3 header text-nowrap" for="difficulty"
+          >difficulty</label
+        >
+        <select class="form-select" formControlName="difficulty">
+            <option *ngFor="let item of difficulty" class="my-3 p-3 " [value]="item">{{item}}
+            </option>
+        </select>
+            <span
+              class="text-danger px-3"
+              *ngIf="
+                questionForm.get('difficulty')?.errors &&
+                questionForm.get('difficulty')?.touched
+              "
             >
-            <nz-select
-              nzShowSearch
-              nzAllowClear
-              formControlName="type"
-              nzValue="large"
-              [nzMaxTagCount]="2"
-              [nzMaxTagPlaceholder]="tagPlaceHolder"
-              nzMode="multiple"
-            >
-              <nz-option></nz-option>
-              <!-- <nz-option *ngFor="let item of typeList" [nzLabel]="item.first_name+' '+item.last_name" [nzValue]="item._id"></nz-option>
-                    <ng-container *ngFor="let student of grouptype">
-                        <nz-option [(ngModel)]="student.first_name" aria-selected="true" *ngIf="updateMode==true" [nzLabel]="student.first_name+' '+student.last_name" [nzValue]="student._id"></nz-option>  
-                    </ng-container> -->
-            </nz-select>
-            <ng-template #tagPlaceHolder let-selectedList
-              >and {{ selectedList.length }} more selected</ng-template
-            >
+              <span *ngIf="questionForm.get('difficulty')?.getError('required')"
+                >difficulty is required</span
+              >
+            </span>
+          </div>
+
+          <div
+            class="input-group select-group input-group-lg mb-3 me-3 d-flex flex-nowrap"
+          >
+          <label class="input-group-select p-3 header text-nowrap" for="difficulty"
+          >Category Type</label
+        >
+        <select class="form-select" formControlName="type">
+            <option *ngFor="let item of type" class="my-3 p-3 " [value]="item">{{item}}
+            </option>
+        </select>
             <span
               class="text-danger px-3"
               *ngIf="
@@ -204,11 +218,11 @@
               "
             >
               <span *ngIf="questionForm.get('type')?.getError('required')"
-                >type is required</span
+                >Type is required</span
               >
             </span>
           </div>
-        </div>
+          
       </div>
     </form>
   </div>

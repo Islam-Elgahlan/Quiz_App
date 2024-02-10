@@ -18,19 +18,6 @@ export class RegisterComponent implements OnInit {
   role: UserRole[] = [UserRole.Instructor, UserRole.Student];
 
   hide: boolean = true;
-  // public RoleEnum = Role;
-  // public Role = Role.instructor;
-
-  // userRoles = Object.values(UserRole);
-  // selectedRole: UserRole | undefined;
-  // public RoleEnum = Role;
-  // public Role = Role.instructor;
-  // role1: string = this.RoleEnum[0]
-
-  // get isInstructor() {
-  //   return this.Role === Role.instructor;
-  // }
-
   constructor(private _AuthService: AuthService, private toastr: ToastrService, private _Router: Router) { }
 
   ngOnInit(): void {

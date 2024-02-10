@@ -17,8 +17,8 @@ export class AddUpdateGroupComponent implements OnInit {
   addMode: boolean = true;
   updateMode: boolean =true;
   studentsList: IStudents[]=[];
-  groupStudents: IStudents[]=[];
-  groupDetails: IGroup|undefined;
+  groupStudents: IStudents[]|any=[];
+  groupDetails: IGroup|undefined|any;
   groupName: string = '';
   groupForm = new FormGroup({
     name: new FormControl(null,Validators.required),
@@ -64,7 +64,9 @@ export class AddUpdateGroupComponent implements OnInit {
         },complete:()=>{
           this.toastr.success('Group Updated Successfully')
           this.onNoClick()
-          location.reload();
+          setTimeout(function(){
+            location.reload();
+          }, 3000);
         }
       })
     } else{
@@ -76,7 +78,9 @@ export class AddUpdateGroupComponent implements OnInit {
       },complete:()=>{
         this.toastr.success('Group Created Successfully')
         this.onNoClick()
-        location.reload();
+        setTimeout(function(){
+          location.reload();
+        }, 3000);
       }
     })
     }
@@ -106,7 +110,11 @@ export class AddUpdateGroupComponent implements OnInit {
         this.groupDetails=res
         this.groupStudents=res.students
         this.groupName=res.name
-
+      },complete:()=>{
+        this.groupForm.patchValue({
+          name: this.groupDetails?.name,
+          students: this.groupStudents
+        })
       }
     })
   }
