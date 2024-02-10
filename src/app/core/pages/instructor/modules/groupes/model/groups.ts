@@ -4,5 +4,5 @@ export interface IGroup {
     _id: string,
     name: string,
     max_students: number,
-    students: IStudents
+    students: IStudents,
 }

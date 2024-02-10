@@ -1,7 +1,6 @@
 import { AddUpdateQuestionComponent } from '../add-update-question/add-update-question.component';
 import { QuestionsService } from './../../services/questions.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AddUpdateQuestionsComponent } from './../add-update-questions/add-update-questions.component';
 import { Component, OnInit } from '@angular/core';
 import { IQuestions } from '../../model/questions';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
@@ -35,7 +34,7 @@ export class QuestionsComponent implements OnInit {
 
   //add 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(AddUpdateQuestionsComponent, {
+    this.dialog.open(AddUpdateQuestionComponent, {
       width: '60%',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -43,7 +42,7 @@ export class QuestionsComponent implements OnInit {
   }
   // update 
   openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string, data: any): void {
-    this.dialog.open(AddUpdateQuestionsComponent,
+    this.dialog.open(AddUpdateQuestionComponent,
       {
         width: '60%',
         data: data._id,
@@ -54,7 +53,7 @@ export class QuestionsComponent implements OnInit {
   }
   // View
   openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, questions: IQuestions): void {
-    this.dialog.open(AddUpdateQuestionsComponent, {
+    this.dialog.open(AddUpdateQuestionComponent, {
       width: '60%',
       data: questions,
       enterAnimationDuration,

@@ -8,7 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
+  userName: string|null = localStorage.getItem('userName');
+  role: string|null = localStorage.getItem('role')
   constructor(public dialog: MatDialog){}
 
   openLogoutDialog(): void{

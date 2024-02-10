@@ -8,6 +8,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './core/inerceptors/global.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { FormsModule } from '@angular/forms';
+
+registerLocaleData(en);
 
 
 @NgModule({
@@ -25,6 +32,7 @@ import { SharedModule } from './shared/shared.module';
       timeOut: 4000,
       progressBar: true,
     }),
+    FormsModule,
   ],
   providers: [
     {
@@ -32,6 +40,7 @@ import { SharedModule } from './shared/shared.module';
       useClass: GlobalInterceptor,
       multi: true
     },
+    { provide: NZ_I18N, useValue: en_US },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

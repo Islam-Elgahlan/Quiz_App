@@ -6,6 +6,7 @@ export interface IStudents {
     status: string,
     role: string,
     group: IStudentsGroups,
+    length: number
 }
 
 export interface IStudentsGroups {
