@@ -26,7 +26,7 @@ updateQuestion(data:IQuestions,id:string):Observable<any>
 {
   return this._HttpClient.put(`question/${id}`, data)
 }
-deleteQuestion(id:any):Observable<any>
+deleteQuestion(id:string):Observable<any>
 {
   return this._HttpClient.delete(`question/${id}`)
 }
