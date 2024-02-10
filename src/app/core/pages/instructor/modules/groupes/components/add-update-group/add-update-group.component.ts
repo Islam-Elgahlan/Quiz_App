@@ -27,8 +27,8 @@ export class AddUpdateGroupComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AddUpdateGroupComponent>,
     private dialog:MatDialog,
-    private _GroupsService:GroupsService,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private _GroupsService:GroupsService,
     private toastr:ToastrService,
     private _StudentsService:StudentsService,
   ){}
