@@ -1,21 +1,88 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { SetupEndComponent } from '../../../quizes/components/setup-end/setup-end.component';
-import { DialogRef } from '@angular/cdk/dialog';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-DialogRef
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { GroupsService } from '../../sevice/groups.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { StudentsService } from '../../../students/services/students.service';
+import { IStudents } from '../../../students/model/students';
+import { IGroup } from '../../model/groups';
+
 @Component({
   selector: 'app-add-update-group',
   templateUrl: './add-update-group.component.html',
   styleUrls: ['./add-update-group.component.scss']
 })
-export class AddUpdateGroupComponent {
+export class AddUpdateGroupComponent implements OnInit {
+  addMode: boolean = true;
+  updateMode: boolean =true;
+  studentsList: IStudents[]=[];
+  groupStudents: IStudents[]=[];
+  groupDetails: IGroup|undefined;
+  groupName: string = '';
+  groupForm = new FormGroup({
+    name: new FormControl(null,Validators.required),
+    students: new FormControl([],Validators.required),
+  })
   constructor(
     public dialogRef: MatDialogRef<AddUpdateGroupComponent>,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private _GroupsService:GroupsService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private toastr:ToastrService,
+    private _StudentsService:StudentsService,
   ){}
-  onNoClick(): void {
-    this.dialogRef.close();
+  ngOnInit() {
+    this.getAllStudents()
+    if(this.data!==null){
+      this.getGroupById(this.data)
+      this.updateMode = true;
+      this.addMode = false;
+    }
+    else{
+      this.updateMode = false;
+      this.addMode = true;
+    }
   }
+  //all students
+  getAllStudents(){
+    this._StudentsService.getAllStudentsWithoutGroup().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.studentsList=res
+      }
+    })
+  }
+  //setup
+  onSubmit(data:FormGroup){
+    if(this.data!==null){
+      this._GroupsService.onUpdateGroup(this.data,data.value).subscribe({
+        next:(res)=>{
+          console.log(res);
+        },error:(err)=>{
+          this.toastr.error(err.error.message,'Error!')
+        },complete:()=>{
+          this.toastr.success('Group Updated Successfully')
+          this.onNoClick()
+          location.reload();
+        }
+      })
+    } else{
+      this._GroupsService.onAddGroup(data.value).subscribe({
+      next:(res)=>{
+        console.log(res);
+      },error:(err)=>{
+        this.toastr.error(err.error.message,'Error!')
+      },complete:()=>{
+        this.toastr.success('Group Created Successfully')
+        this.onNoClick()
+        location.reload();
+      }
+    })
+    }
+  }
+
+  //setup end
   openSetupEndDialog(): void{
     const dialogRef = this.dialog.open(SetupEndComponent, {
       data: {},
@@ -28,4 +95,19 @@ export class AddUpdateGroupComponent {
     });
     this.onNoClick()
   }  
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  //update group
+  getGroupById(id:string){
+    this._GroupsService.onGetGroupById(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.groupDetails=res
+        this.groupStudents=res.students
+        this.groupName=res.name
+
+      }
+    })
+  }
 }

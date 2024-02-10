@@ -22,7 +22,7 @@ export class StudentsComponent implements OnInit{
   }
 
   allStudents(){
-    this._studentService.getAllStudentsWithoutGroup().subscribe({
+    this._studentService.getAllStudents().subscribe({
       next:(res)=>{
         console.log(res);
         this.studentList = res;
@@ -31,7 +31,7 @@ export class StudentsComponent implements OnInit{
   }
 
   allStudentsGroups(){
-    this._studentService.getAllStudents().subscribe({
+    this._studentService.getAllStudentsWithoutGroup().subscribe({
       next:(res)=>{
         console.log(res);
         this.studentGroups = res;

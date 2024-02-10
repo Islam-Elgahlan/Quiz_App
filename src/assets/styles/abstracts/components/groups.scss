@@ -10,6 +10,13 @@
         i{
             color: #222222;
             cursor: pointer;
+            padding: 5px;
+            border-radius: 10px;
+            transition: all .3s ease;
+        }
+        i:hover{
+            background-color: $main-color;
+            color: $secondary-color;
         }
     }
 }

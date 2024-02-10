@@ -1,30 +1,49 @@
-<section id="add-group" class="px-5 pt-4 pb-5 setup">
+<section id="add-group" class="setup">
     <div class="container">
-        <div class="d-flex justify-content-between mb-5 pb-5">
-            <h2>Set up a new Group</h2>
-            <div class="d-flex justify-content-center">
-                <div class="setup-item pointer" (click)="openSetupEndDialog()">
-                    <span class="item-check"><i class="fa-solid fa-check fs-1 fw-bold"></i></span>
+        <div class="row justify-content-between dialog-header">
+            <div class="col-md-6 px-4 pt-4">
+                <h2 *ngIf="addMode">Set up a new Group</h2>
+                <h2 *ngIf="updateMode">Update <span class="text-third"> {{groupDetails?.name}} </span>Group</h2>
+            </div>
+            <div class="col-md-3">
+                <div class="d-flex justify-content-end">
+                    <i class="fa-solid fa-check fs-1 fw-bold pointer py-3 px-4" (click)="onSubmit(groupForm)"></i>
+                    <i class="fa-solid fa-xmark fs-1 fw-bold pointer py-3 px-4" (click)="onNoClick()"></i>
                 </div>
-
-                <div class="setup-item pointer" (click)="onNoClick()">
-                    <span><i class="fa-solid fa-xmark fs-1 fw-bold"></i></span>
-                </div>
+                    
             </div>
         </div>
 
-        <form class="my-5">
-            <div class="input-group input-group-lg mb-3">
+        <form [formGroup]="groupForm" class="my-4 p-5">
+            <div class="input-group input-group-lg mb-3 d-flex flex-nowrap">
                 <span class="input-group-text header" id="inputGroup-sizing-lg">Group Name:</span>
-                <input type="text" class="form-control" aria-label="title" aria-describedby="title">
+                <input [(ngModel)]="groupName" formControlName="name" type="text" class="form-control" aria-label="title" aria-describedby="title">
+                <span class="text-danger px-3" *ngIf="
+                  groupForm.get('name')?.errors &&
+                  groupForm.get('name')?.touched
+                ">
+                <span *ngIf="groupForm.get('name')?.getError('required')">Group Name is required</span>
+              </span>
             </div>
 
-                <div class="input-group select-group">
-                    <label class="input-group-select p-3 header" for="inputGroupSelect01">List Students</label>
-                    <select class="form-select" id="inputGroupSelect01">
-                        <option selected>10</option>
-                        <option value="1">15</option>
-                    </select>
+                <div class="input-group select-group d-flex flex-nowrap">
+                    <label class="input-group-select p-3 header text-nowrap" for="students">List Students</label>
+              <nz-select nzShowSearch nzAllowClear formControlName="students" nzValue="large" [nzMaxTagCount]="2"
+                [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple">
+                <nz-option *ngFor="let item of studentsList" [nzLabel]="item.first_name+' '+item.last_name" [nzValue]="item._id"></nz-option>
+                <ng-container *ngFor="let student of groupStudents">
+                    <nz-option [(ngModel)]="student.first_name" aria-selected="true" *ngIf="updateMode==true" [nzLabel]="student.first_name+' '+student.last_name" [nzValue]="student._id"></nz-option>  
+                </ng-container>
+                
+            </nz-select>
+              
+              <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+              <span class="text-danger px-3" *ngIf="
+                  groupForm.get('students')?.errors &&
+                  groupForm.get('students')?.touched
+                ">
+                <span *ngIf="groupForm.get('students')?.getError('required')">students is required</span>
+              </span>
                 </div>
 
         </form>

@@ -9,6 +9,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VectorComponent } from './icons/vector/vector.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { DeleteComponent } from './components/delete/delete.component';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { DeleteComponent } from './components/delete/delete.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-
+    NzDropDownModule,
+    NzSelectModule
   ],
   exports: [
     RouterLink,
@@ -36,7 +39,9 @@ import { DeleteComponent } from './components/delete/delete.component';
     HttpClientModule,
     NavbarComponent,
     SidebarComponent,
-    VectorComponent
+    VectorComponent,
+    NzDropDownModule,
+    NzSelectModule
   ]
 })
 export class SharedModule { }

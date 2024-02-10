@@ -11,7 +11,7 @@ constructor(private _HttpClient: HttpClient) { }
 
 getAllStudents():Observable<any>
 {
-  return this._HttpClient.get('group')
+  return this._HttpClient.get('student')
 }
 getAllStudentsWithoutGroup():Observable<any>
 {
