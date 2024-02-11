@@ -5,29 +5,27 @@ import { SetupEndComponent } from '../setup-end/setup-end.component';
 @Component({
   selector: 'app-setup',
   templateUrl: './setup.component.html',
-  styleUrls: ['./setup.component.scss']
+  styleUrls: ['./setup.component.scss'],
 })
 export class SetupComponent {
-
-  constructor(public dialogRef: MatDialogRef<SetupComponent>,
-    private dialog:MatDialog
-    ) {}
-
+  constructor(
+    public dialogRef: MatDialogRef<SetupComponent>,
+    private dialog: MatDialog
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-  openSetupEndDialog(): void{
+  openSetupEndDialog(): void {
     const dialogRef = this.dialog.open(SetupEndComponent, {
       data: {},
-      width: '30%'
+      width: '30%',
     });
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
         console.log(result.id);
       }
     });
-    this.onNoClick()
-  }  
-
+    this.onNoClick();
+  }
 }
