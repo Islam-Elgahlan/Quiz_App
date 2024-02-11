@@ -3,6 +3,8 @@ import { StudentsService } from '../../services/students.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUpdateStudentsComponent } from '../add-update-students/add-update-students.component';
 import { IStudents, IStudentsGroups } from '../../model/students';
+import { IGroup } from '../../../groupes/model/groups';
+import { GroupsService } from '../../../groupes/sevice/groups.service';
 
 @Component({
   selector: 'app-students',
@@ -12,13 +14,18 @@ import { IStudents, IStudentsGroups } from '../../model/students';
 export class StudentsComponent implements OnInit {
 
   studentList: IStudents[] | any;
-  studentGroups: IStudents | any
+  studentGroups: IStudents | any;
+  groups: IGroup[]= [];
 
-  constructor(private _studentService: StudentsService, private dialog: MatDialog) { }
+  constructor(private _studentService: StudentsService,
+    private dialog: MatDialog,
+    private _GroupsService:GroupsService
+    ) { }
 
   ngOnInit(): void {
     this.allStudentsWithoutGroups();
     this.allStudents();
+    this.getAllGroups()
   }
 
   allStudentsWithoutGroups() {
@@ -26,6 +33,13 @@ export class StudentsComponent implements OnInit {
       next: (res) => {
         console.log(res);
 
+      }
+    })
+  }
+  getAllGroups(){
+    this._GroupsService.onGetAllGroups().subscribe({
+      next:(res)=>{
+        this.groups = res        
       }
     })
   }

@@ -108,12 +108,12 @@ export class AddUpdateGroupComponent implements OnInit {
       next:(res)=>{
         console.log(res);
         this.groupDetails=res
-        this.groupStudents=res.students
+        this.groupStudents=res.students        
         this.groupName=res.name
       },complete:()=>{
         this.groupForm.patchValue({
           name: this.groupDetails?.name,
-          students: this.groupStudents
+          // students: this.groupDetails.students
         })
       }
     })
