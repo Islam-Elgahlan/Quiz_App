@@ -14,9 +14,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   message: string = '"Welcome In QuizWiz!"';
-  verifyEmail:any;
-  role:UserRole[] = [UserRole.Instructor,UserRole.Student];
-  
+  verifyEmail: any;
+  role: UserRole[] = [UserRole.Instructor, UserRole.Student];
+
   hide: boolean = true;
   // public RoleEnum = Role;
   // public Role = Role.instructor;
@@ -31,11 +31,11 @@ export class RegisterComponent implements OnInit {
   //   return this.Role === Role.instructor;
   // }
 
-    constructor(private _AuthService:AuthService, private toastr:ToastrService, private _Router:Router){}
+  constructor(private _AuthService: AuthService, private toastr: ToastrService, private _Router: Router) { }
 
-    ngOnInit(): void {
-      console.log(this.role);
-    }
+  ngOnInit(): void {
+    console.log(this.role);
+  }
 
 
   registerForm = new FormGroup({
@@ -65,6 +65,7 @@ export class RegisterComponent implements OnInit {
     this._AuthService.onRegister(data.value).subscribe({
       next: (res: IRegister) => {
         console.log(res);
+        this.verifyEmail = localStorage.setItem('email', res.email);
 
       },
       error: (err: any) => {
@@ -73,7 +74,7 @@ export class RegisterComponent implements OnInit {
       },
       complete: () => {
         this.toastr.success(this.message, 'Succeded');
-        this._Router.navigate(['/auth/login'])
+        this._Router.navigate(['/auth/login']);
       },
     });
   }

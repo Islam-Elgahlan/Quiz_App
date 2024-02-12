@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
+import { IChangePassword } from '../model/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,8 @@ export class AuthService {
   getProfile() {
     let encoded: any = localStorage.getItem('userToken');
     let decoded: any = jwtDecode(encoded);
+    console.log(decoded);
+    
     this.getRole();
   }
   getRole() {
@@ -30,7 +33,7 @@ export class AuthService {
       this.token = localStorage.getItem('userToken')
     }
   }
-  
+
   onLogIn(data: any): Observable<any> {
     return this._HttpClient.post('auth/login', data);
   }
@@ -38,4 +41,17 @@ export class AuthService {
   {
     return this._HttpClient.post('auth/register' , data)
   }
+  onChangePassword(data: any):Observable<any>
+  {
+    return this._HttpClient.post('auth/change-password' , data)
+  }
+  onResetPassword(data:string):Observable<any>
+  {
+    return this._HttpClient.post('auth/forgot-password', {email: data})
+  }
+  onRestPassword(data:any)
+ {
+  return this._HttpClient.post('auth/reset-password', data)
+
+ }
 }
