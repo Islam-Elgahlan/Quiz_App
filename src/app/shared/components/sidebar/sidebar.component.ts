@@ -69,16 +69,16 @@ export class SidebarComponent {
     link: '/quizwiz/instructor/results',
     isActive: this.isInstructor()
   },
-   {
-    title: 'Dashboard',
-    icon: 'Dashboard-icon.svg',
-    link: '/quizwiz/student/dashboard',
-    isActive: this.isStudent()
-  },
+  //  {
+  //   title: 'Dashboard',
+  //   icon: 'Dashboard-icon.svg',
+  //   link: '/quizwiz/student/dashboard',
+  //   isActive: this.isStudent()
+  // },
   {
-    title: 'quiz',
+    title: 'quizzes',
     icon: 'Quiz-icon.svg',
-    link: '/quizwiz/student/quiz',
+    link: '/quizwiz/student/quizzes',
     isActive: this.isStudent()
   },
   {
