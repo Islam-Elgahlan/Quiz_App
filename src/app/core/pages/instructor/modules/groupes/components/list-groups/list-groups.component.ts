@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GroupsService } from '../../sevice/groups.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUpdateGroupComponent } from '../add-update-group/add-update-group.component';
+import { IGroup } from '../../model/groups';
 
 @Component({
   selector: 'app-list-groups',
@@ -9,7 +10,7 @@ import { AddUpdateGroupComponent } from '../add-update-group/add-update-group.co
   styleUrls: ['./list-groups.component.scss']
 })
 export class ListGroupsComponent implements OnInit {
-  token: string | null = localStorage.getItem('userToken');
+  groups: IGroup[]= [];
   constructor(
     private _GroupsService:GroupsService,
     private dialog:MatDialog
@@ -25,6 +26,7 @@ export class ListGroupsComponent implements OnInit {
     this._GroupsService.onGetAllGroups().subscribe({
       next:(res)=>{
         console.log(res);
+        this.groups = res
         
       }
     })
