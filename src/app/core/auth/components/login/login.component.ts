@@ -31,7 +31,6 @@ export class LoginComponent {
   onSubmit(data: FormGroup) {
     this._AuthService.onLogIn(data.value).subscribe({
       next: (res) => {
-        console.log(res);
         localStorage.setItem('userToken', res.data.accessToken);
         localStorage.setItem('role', res.data.profile.role);
         localStorage.setItem('userName',res.data.profile.first_name + ' ' + res.data.profile.last_name);
