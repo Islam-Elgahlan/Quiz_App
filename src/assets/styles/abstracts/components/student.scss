@@ -1,11 +1,6 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
 #student {
-
-  .siudent-item{
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 16px;
-  }
     
   .add-item {
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -36,5 +31,10 @@
     &.third:hover{
         opacity: .8;
     }
+}
+
+.img-end{
+  position: absolute;
+  right: 50px;
 }
 }
