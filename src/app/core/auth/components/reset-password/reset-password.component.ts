@@ -13,13 +13,13 @@ export class ResetPasswordComponent {
   
   userEmail=localStorage.getItem('email');
   hide: boolean = true;
-  hideConfirm: boolean = true;
+  // hideConfirm: boolean = true;
   Message:string='';
   resetPasswordForm = new FormGroup({
     otp:new FormControl(null,[Validators.required]),
     email:new FormControl(this.userEmail,[Validators.required,Validators.email]),
     password:new FormControl(null, [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$'),]),
-    confirmPassword:new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+    // confirmPassword:new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
   },{validators: this.passwordMatchValidator,})
   constructor(private _AuthService:AuthService,private tostar:ToastrService,private router:Router  ){ }
 
