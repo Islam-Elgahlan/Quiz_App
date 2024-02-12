@@ -8,7 +8,7 @@ import { IQuizzes } from '../../model/quizzes';
   styleUrls: ['./setup-end.component.scss'],
 })
 export class SetupEndComponent implements OnInit{
-
+  role:string|null=localStorage.getItem('role')
   constructor(public dialogRef: MatDialogRef<SetupEndComponent>, @Inject(MAT_DIALOG_DATA) public data: any){}
 
   ngOnInit(): void {
@@ -17,8 +17,6 @@ export class SetupEndComponent implements OnInit{
   }
 
   // code:string=this.data;
-  
-
 
   onClose() {
     this.dialogRef.close();

@@ -23,21 +23,21 @@
         </div>
 
         <div class="d-flex mt-3">
-          <div class="input-group mb-3 me-2 select-group header">
+          <div class="input-group mb-3 me-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3" for="inputGroupSelect01">Duration (in minutes)</label>
             <select class="form-select p-3 header"  formControlName="duration" id="inputGroupSelect01">
               <option selected>30</option>
               <option value="1">60</option>
             </select>
           </div>
-          <div class="input-group mb-3 mx-2 select-group header">
+          <div class="input-group mb-3 mx-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">No. of questions</label>
             <select class="form-select p-3 header"  formControlName="questions_number" id="inputGroupSelect01">
               <option selected>1</option>
               <option value="1">2</option>
             </select>
           </div>
-          <div class="input-group mb-3 ms-2 select-group header">
+          <div class="input-group mb-3 ms-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Score per question</label>
             <select class="form-select p-3 header"  formControlName="score_per_question" id="inputGroupSelect01">
               <option selected>5</option>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="d-flex mt-3">
-          <div class="input-group mb-3 me-2 select-group header">
+          <div class="input-group mb-3 me-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Difficulty level</label>
             <select class="form-select p-3 header"  formControlName="difficulty" id="inputGroupSelect01">
               <option value="easy" selected>easy</option>
@@ -67,7 +67,7 @@
               <option value="hard">hard</option>
             </select>
           </div>
-          <div class="input-group mb-3 mx-2 select-group header">
+          <div class="input-group mb-3 mx-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Category type</label>
             <select class="form-select p-3 header"  formControlName="type" id="inputGroupSelect01">
               <option value="FE" selected>FE</option>
@@ -75,7 +75,7 @@
               <option value="DO">DO</option>
             </select>
           </div>
-          <div class="input-group mb-3 ms-2 select-group header">
+          <div class="input-group mb-3 ms-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Group name</label>
             <select class="form-select p-3 header"  formControlName="group" id="inputGroupSelect01">
               <option *ngFor="let item of groups" [value]="item._id">{{item.name}}</option>

@@ -3,12 +3,14 @@
     <div class="row justify-content-center">
       <div class="text-center">
         <span class="fs-1 fw-bold"><i class="fa-solid fa-circle-check text-main mb-3"></i></span>
-        <h3 class="fw-semibold fs-5">Quiz was successfully created</h3>
-        <div class="w-50 code m-auto d-flex justify-content-between align-items-center">
+        <h3 *ngIf="role=='Instructor'" class="fw-semibold fs-5">Quiz was successfully created</h3>
+        <div *ngIf="role=='Instructor'" class="w-50 code m-auto d-flex justify-content-between align-items-center">
           <span class="bg-secondaryColor code-title">Code: </span>
           <span>{{data}}</span>
           <span><i class="fa-solid fa-copy"></i></span>
         </div>
+        <h3 *ngIf="role=='Student'" class="fw-semibold fs-5">{{data.message}}</h3>
+        <h3 *ngIf="role=='Student'" class="fw-semibold fs-5 mb-0">Score: {{data.data?.score}}</h3>
       </div>
       <button (click)="onClose()" cdkFocusInitial class="w-25 mt-5 third">Close</button>
     </div>

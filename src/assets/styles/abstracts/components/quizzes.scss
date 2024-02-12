@@ -1,4 +1,5 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
+@import "/src/assets/styles/abstracts/mixins";
 // Quizze Home
 #quizze {
   h2,
@@ -49,6 +50,7 @@
       margin-top: 20px;
     }
   }
+// quiz details
   #quiz-details {
     font-family: "Inter", sans-serif !important;
     nav {
@@ -100,6 +102,7 @@
       }
     }
   }
+//end setup & join
   #end{
     .code{
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -114,6 +117,7 @@
       }
     }
   }
+// join quiz for student
 #join-quiz{
   .dialog-header{
     border-bottom: none !important;
@@ -125,10 +129,33 @@
       border-radius: 10px 10px 0px 0px;
     }
     .icons{
-      .d-flex>i:not(.second){
+      .icons-div>i:not(.second){
         border-right: 1px solid rgba(0, 0, 0, 0.2) !important;
       }
       
     }
   }
+}
+
+//responsive
+@include response(tablet) {
+  #quizzes-student{
+    .item{
+      flex-wrap: wrap !important;
+    }
+  }
+  #join-quiz{
+    form{
+      span{
+        width: 50% !important;
+      }
+    }
+    .dialog-header{
+      .icons{
+        padding: 10px 70px !important;
+      }
+    }
+  }
+}
+@include response(mobile) {
 }
