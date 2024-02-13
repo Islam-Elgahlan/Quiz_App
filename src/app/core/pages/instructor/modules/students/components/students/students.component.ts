@@ -7,6 +7,7 @@ import { IGroup } from '../../../groupes/model/groups';
 import { GroupsService } from '../../../groupes/sevice/groups.service';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { ToastrService } from 'ngx-toastr';
+import { AddToGroupComponent } from '../add-to-group/add-to-group.component';
 
 @Component({
   selector: 'app-students',
@@ -78,12 +79,21 @@ export class StudentsComponent implements OnInit {
   //add update dialog
   openDialog(
     enterAnimationDuration: string,
-    exitAnimationDuration: string
+    exitAnimationDuration: string,
+    data:any
   ): void {
-    this.dialog.open(AddUpdateStudentsComponent, {
-      width: '60%',
+    const dialogRef = this.dialog.open(AddToGroupComponent, {
+      width: '40%',
+      data:data,
       enterAnimationDuration,
       exitAnimationDuration,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        setTimeout(function () {
+          location.reload();
+        }, 3000);
+      }
     });
   }
 
@@ -118,7 +128,7 @@ export class StudentsComponent implements OnInit {
   //delete from group
   openDeleteFromGroupDialog(
     enterAnimationDuration: string, exitAnimationDuration: string,
-     id: string,groupId: string, name: string,groupName:string
+     id: string,groupId: string, name: string,groupName:string,fromGroup:boolean
   ): void {
     const dialogRef = this.dialog.open(DeleteComponent, {
       data: {id,groupId,name,groupName},
@@ -139,7 +149,7 @@ export class StudentsComponent implements OnInit {
         this.toastr.error(err.error.message,'Error!')
       },
       complete:()=>{
-        this.toastr.success('Student deleted successfully')
+        this.toastr.success('Student deleted from group successfully')
         this.allStudents()
       }
     })

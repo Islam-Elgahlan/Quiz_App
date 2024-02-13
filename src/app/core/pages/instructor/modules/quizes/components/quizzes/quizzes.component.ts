@@ -18,6 +18,7 @@ export class QuizzesComponent implements OnInit {
 
   quizzeList: IQuizzes | any;
   quizzes: IQuizzes | any;
+  allQuizzes: IQuizzes[]|any=[]
   groups: IGroup[] = [];
 
   constructor(private dialog: MatDialog, private _quizzesService: QuizzesService,
@@ -26,6 +27,7 @@ export class QuizzesComponent implements OnInit {
   ngOnInit(): void {
     this.getUpcommingQuizzes();
     this.getCompletedQuizzes();
+    this.getAllQuizzes()
   }
 
   getUpcommingQuizzes() {
@@ -46,6 +48,15 @@ export class QuizzesComponent implements OnInit {
     });
   }
 
+  getAllQuizzes(){
+    this._quizzesService.getAllQuizze().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.allQuizzes=res
+      }
+    })
+  }
+
   //setup dialog
   openDialog(
     enterAnimationDuration: string,
@@ -59,19 +70,19 @@ export class QuizzesComponent implements OnInit {
   }
 
   //delete group
-  openDeleteDialog(questionData: any): void {
+  openDeleteDialog(id:string,name:string): void {
     const dialogRef = this.dialog.open(DeleteComponent, {
-      data: questionData,
+      data: {id,name},
       width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.deleteRooms(result._id);
+        this.deleteQuiz(result.id);
       }
     });
   }
-  deleteRooms(id: string) {
+  deleteQuiz(id: string) {
     this._quizzesService.deleteQuizze(id).subscribe({
       next: (res) => {
       },

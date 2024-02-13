@@ -22,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 const MaterialComponents = [
@@ -39,13 +40,14 @@ const MaterialComponents = [
   MatSidenavModule,
   MatListModule,
   MatCheckboxModule,
-  MatMenuModule
-,MatSlideToggleModule,
-MatDatepickerModule,
-MatNativeDateModule,
-MatStepperModule,
-MatButtonToggleModule,
-ClipboardModule
+  MatMenuModule,
+  MatSlideToggleModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatStepperModule,
+  MatButtonToggleModule,
+  ClipboardModule,
+  MatTooltipModule
 ]
 
 
