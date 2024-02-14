@@ -18,6 +18,7 @@ import { SetupEndComponent } from './components/setup-end/setup-end.component';
   imports: [
     CommonModule,
     QuizesRoutingModule,
+    SharedModule
   ]
 })
 export class QuizesModule { }
