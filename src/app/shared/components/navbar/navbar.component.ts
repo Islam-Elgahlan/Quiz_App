@@ -19,9 +19,7 @@ export class NavbarComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      if(result){
 
-      }
     });
   }
 
