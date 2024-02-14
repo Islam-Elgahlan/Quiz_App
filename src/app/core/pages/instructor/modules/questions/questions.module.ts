@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { QuestionsRoutingModule } from './questions-routing.module';
 import { QuestionsComponent } from './components/questions/questions.component';
-import { AddUpdateQuestionsComponent } from './components/add-update-questions/add-update-questions.component';
+import { AddUpdateQuestionComponent } from './components/add-update-question/add-update-question.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddUpdateQuestionsComponent } from './components/add-update-questions/a
   ],
   imports: [
     CommonModule,
-    QuestionsRoutingModule
+    QuestionsRoutingModule,
+    SharedModule
   ]
 })
 export class QuestionsModule { }

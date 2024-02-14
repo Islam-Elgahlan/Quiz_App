@@ -1,3 +1,4 @@
+import { AddUpdateQuestionComponent } from '../add-update-question/add-update-question.component';
 import { QuestionsService } from './../../services/questions.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUpdateQuestionsComponent } from './../add-update-questions/add-update-questions.component';
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
+
 export class QuestionsComponent implements OnInit {
 
   questions: IQuestions | any;
