@@ -1,44 +1,62 @@
-
 <section id="question">
-    <div class="container border rounded my-3">
-        <div class="d-flex justify-content-between mt-3">
-            <h3 class="mt-2">Bank Of Questions</h3>
-            <div class="pointer d-flex justify-content-end align-items-center mt-3">
-                <div class="add-item p-2">
-                    <span><img src="../../../../../../../../assets/images/add.png" /></span>
-                    <span class="px-3 text-nowrap h6" (click)="openDialog('500ms', '500ms')">Add Question</span>
-                </div>
-            </div>
+  <div class="container border rounded my-3">
+    <div class="d-flex justify-content-between mt-3">
+      <h3 class="mt-2">Bank Of Questions</h3>
+      <div class="pointer d-flex justify-content-end align-items-center mt-3">
+        <div class="add-item p-2">
+          <span
+            ><img src="../../../../../../../../assets/images/add.png"
+          /></span>
+          <span
+            class="px-3 text-nowrap h6"
+            (click)="openDialog('500ms', '500ms')"
+            >Add Question</span
+          >
         </div>
-
-        <div class="quizze-item me-5">
-            <table class="table border rounded mt-3">
-                <thead class="bg-main p-3 text-secondaryColor ">
-                    <th>Question Title</th>
-                    <th>Question Desc</th>
-                    <th>Question difficulty level</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </thead>
-                <tbody>
-                    <tr class="border rounded" *ngFor="let item of questions">
-                        <td>{{item.title}}</td>
-                        <td>{{item.description}}</td>
-                        <td>{{item.difficulty}}</td>
-                        <td>12 / 02 / 2023</td>
-                        <td>
-                            <div class="actions text-center fs-4">
-                                <span class="mx-2"><i (click)="openViewDialog('2000ms', '2000ms', questions)"
-                                    class="fa-regular fa-eye text-iconSecondColor"></i></span>
-                                <span class="mx-2"><i (click)="openEditDialog('500ms', '500ms',questions)"
-                                        class="fa-regular fa-pen-to-square text-iconSecondColor"></i></span>
-                                <span class="mx-2"><i (click)="openDeleteDialog(questions)"
-                                        class="fa-regular fa-trash-can text-iconSecondColor"></i></span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      </div>
     </div>
+
+    <div class="quizze-item me-5">
+      <table class="table border rounded mt-3">
+        <thead class="bg-main p-3 text-secondaryColor">
+          <th>Question Title</th>
+          <th>Question Desc</th>
+          <th>Question difficulty level</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr class="border rounded" *ngFor="let item of questions">
+            <td>{{ item.title }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.difficulty }}</td>
+            <td>12 / 02 / 2023</td>
+            <td>
+              <div class="actions text-center fs-4">
+                <span class="mx-2"
+                  ><i
+                    (click)="openEditDialog('500ms', '500ms', item)"
+                    class="fa-regular fa-pen-to-square text-iconSecondColor"
+                  ></i
+                ></span>
+                <span class="mx-2"
+                  ><i
+                    (click)="openDeleteDialog(item)"
+                    class="fa-regular fa-trash-can text-iconSecondColor"
+                  ></i
+                ></span>
+                <span class="mx-2"
+                  ><i
+                    (click)="openViewDialog('2000ms', '2000ms', item)"
+                    class="fa-regular fa-eye text-iconSecondColor"
+                  ></i
+                ></span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+       
+    </div>
+  </div>
 </section>

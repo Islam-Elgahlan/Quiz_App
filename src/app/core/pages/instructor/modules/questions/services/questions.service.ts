@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IQuestions } from '../model/questions';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ getQuestionById(id:any):Observable<any>
 {
   return this._HttpClient.get(`question/${id}`)
 }
-addQuestion(data:any):Observable<any>
+addQuestion(data:IQuestions):Observable<any>
 {
   return this._HttpClient.post(`question`, data)
 }
