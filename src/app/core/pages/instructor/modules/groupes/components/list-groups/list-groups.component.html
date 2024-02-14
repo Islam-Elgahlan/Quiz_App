@@ -13,16 +13,13 @@
                 <div class="group py-2 px-3 d-flex justify-content-between align-items-center">
                     <div class="">
                         <p class="group-name mt-2">Group : {{group.name}}</p>
-                        <p class="text-muted group-student">No. of students : {{group.max_students}}</p>
+                        <p class="text-muted group-student">No. of students : {{group.students.length}}</p>
                     </div>
                     <div class="actions fs-4">
-                        <span class="mx-2"><i class="fa-regular fa-pen-to-square"></i></span>
-                        <span class="mx-2"><i class="fa-regular fa-trash-can"></i></span>
+                        <span class="mx-2"><i (click)="openEditDialog('500ms', '500ms',group)" class="fa-regular fa-pen-to-square"></i></span>
+                        <span class="mx-2"><i (click)="openDeleteDialog(group)" class="fa-regular fa-trash-can"></i></span>
                     </div>
                 </div>
-                
-            </div>
-            <div class="col-md-6">
             </div>
         </div>
     </div>

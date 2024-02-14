@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GroupesRoutingModule } from './groupes-routing.module';
 import { ListGroupsComponent } from './components/list-groups/list-groups.component';
 import { AddUpdateGroupComponent } from './components/add-update-group/add-update-group.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddUpdateGroupComponent } from './components/add-update-group/add-updat
   ],
   imports: [
     CommonModule,
-    GroupesRoutingModule
+    GroupesRoutingModule,
+    SharedModule
   ]
 })
 export class GroupesModule { }

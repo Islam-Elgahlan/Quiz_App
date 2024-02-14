@@ -4,5 +4,6 @@ export interface IStudents {
     last_name: string,
     email: string,
     status: string,
-    role: string
+    role: string,
+    length: number
 }
