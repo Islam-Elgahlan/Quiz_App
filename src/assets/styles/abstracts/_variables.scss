@@ -5,6 +5,7 @@ $white-color: rgba(255, 255, 255, 1);
 $btn-color: #333333;
 $btn-whiteColor: #F5F5F5;
 $iconColor: rgba(197, 216, 109, 1);
+$iconSecondColor: rgba(251, 124, 25, 1);
 
 $bg-main: $main-color;
 $bg-secondary: $secondary-color;
@@ -15,6 +16,7 @@ $text-main: $main-color;
 $text-secondary: $secondary-color;
 $text-third: $third-color;
 $text-iconColo: $iconColor;
+$icon-secondColor: $iconSecondColor;
 $btnColor: $btn-color;
 $btnWhiteColor: $btn-whiteColor;
 
@@ -51,6 +53,12 @@ $btnWhiteColor: $btn-whiteColor;
 
 .text-iconColor{
     color: $text-iconColo;
+}
+.text-iconColor{
+    color: $text-iconColo;
+}
+.text-iconSecondColor{
+    color: $icon-secondColor;
 }
 
 
