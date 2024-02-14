@@ -35,14 +35,7 @@ export class SidebarComponent {
   isStudent(): boolean {
     return this._AuthService.role == 'Student' ? true : false;
   }
-  ngOnInit() {
-    if (this.isInstructor()) {
-      this.router.navigate(['/quizwiz/instructor'])
-    }
-    else if (this.isStudent()) {
-      this.router.navigate(['/quizwiz/student'])
-    }
-  }
+  ngOnInit() {}
 
  menu:IMenu[]=[
    {

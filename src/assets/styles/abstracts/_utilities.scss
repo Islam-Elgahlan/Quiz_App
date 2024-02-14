@@ -108,14 +108,29 @@ th {
     .input-group{
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      input,select,textarea {
+      input,select,textarea,nz-select {
         border-radius: 0 10px 10px 0 !important;
         border-left: none !important;
+        width: 85%;
+      }
+      nz-select-top-control{
+        border-radius: 0 10px 10px 0 !important;
+        border: none !important;
+        width: 100%;
+        height: 100%;
+        color: #000 !important;
       }
       .input-group-text, .input-group-select,span {    
         background-color: $bg-secondary;
         border-radius: 10px !important;
         border-right: none !important;
       }
+    }
+  }
+  //dialog
+  .dialog-header{
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    i{
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
     }
   }

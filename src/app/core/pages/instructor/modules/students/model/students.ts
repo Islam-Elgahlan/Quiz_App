@@ -16,4 +16,5 @@ export interface IStudentsGroups {
     status: string,
     updatedAt: string,
     createdAt: string
+    length: number
 }

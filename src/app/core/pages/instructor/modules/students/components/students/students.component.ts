@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../services/students.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { AddUpdateStudentsComponent } from '../add-update-students/add-update-students.component';
-import { GroupsService } from '../../../groupes/sevice/groups.service';
 import { IStudents, IStudentsGroups } from '../../model/students';
 
 @Component({
@@ -28,10 +25,11 @@ export class StudentsComponent implements OnInit {
     this._studentService.getAllStudentsWithoutGroup().subscribe({
       next: (res) => {
         console.log(res);
-        this.studentList = res;
+
       }
     })
   }
+
 
   allStudents() {
     this._studentService.getAllStudents().subscribe({
@@ -52,5 +50,5 @@ export class StudentsComponent implements OnInit {
     });
   }
 
-
 }
+
