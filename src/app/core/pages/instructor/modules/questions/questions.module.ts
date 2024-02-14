@@ -10,7 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [
     QuestionsComponent,
-    AddUpdateQuestionComponent,
+    AddUpdateQuestionsComponent,
   ],
   imports: [
     CommonModule,
