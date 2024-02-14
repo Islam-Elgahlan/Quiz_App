@@ -14,5 +14,8 @@ constructor(
   onGetAllGroups():Observable<any>{
     return this._HttpClient.get('group')
   }
+  onGetGroupById(id:any):Observable<any>{
+    return this._HttpClient.get(`group/${id}`)
+  }
 
 }
