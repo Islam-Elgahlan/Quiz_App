@@ -17,7 +17,7 @@
         <form [formGroup]="groupForm" class="my-4 p-5">
             <div class="input-group input-group-lg mb-3 d-flex flex-nowrap">
                 <span class="input-group-text header" id="inputGroup-sizing-lg">Group Name:</span>
-                <input [(ngModel)]="groupName" formControlName="name" type="text" class="form-control" aria-label="title" aria-describedby="title">
+                <input formControlName="name" type="text" class="form-control" aria-label="title" aria-describedby="title">
                 <span class="text-danger px-3" *ngIf="
                   groupForm.get('name')?.errors &&
                   groupForm.get('name')?.touched
