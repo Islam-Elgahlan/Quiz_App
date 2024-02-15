@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <a class="btn btn-white py-3 px-4 ms-5 quizze-item" mat-raised-button (click)="openDialog('500ms', '500ms')" >
+                <a class="btn btn-white py-3 px-5 ms-5 quizze-item" (click)="openDialog('500ms', '500ms')">
                     <div class="mb-3">
                         <img src="../../../../../../../../assets/images/new-quiz-icon.svg" class="w-50">
                     </div>
@@ -20,46 +20,31 @@
             <div class="col-md-6">
                 <div class="quizze-item me-5">
                     <h2 class="m-3">Upcoming quizzes</h2>
-                    <div class="d-flex quizze-item-box">
-                        <div class="img-quizze-bg">
-                            <img src="../../../../../../../../assets/images/img-quizze2.png" alt="img-quizze2">
-                        </div>
-                        <div class="ms-3">
-                            <div class="mt-3">
-                                <h2 class="mb-1">Introduction to computer programming</h2>
-                                <p>12 / 03 / 2023 | 09:00 AM</p>
-                            </div>
+                    <ng-container *ngFor="let quiz of quizzeList">
+                        <div *ngIf="quiz.status == 'open'" class="d-flex quizze-item-box position-relative">
+                            <div class="ms-3">
+                                <div class="mt-3">
+                                    <h2 class="mb-1">{{quiz.title}}</h2>
+                                    <p>{{quiz.schadule | date: 'medium'}}</p>
+                                </div>
 
-                            <div class="mt-5 d-flex justify-content-between">
-                                <h4>No. of student’s enrolled: 32</h4>
-                                <h4 class="pointer" routerLink="/quizwiz/instructor/quizzes/quizDetails">Open <i class="fa-solid fa-circle-arrow-right text-iconColor"></i></h4>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex quizze-item-box mt-3">
-                        <div class="img-quizze-bg">
-                            <img src="../../../../../../../../assets/images/img-quizze1.png" alt="img-quizze2">
-                        </div>
-                        <div class="ms-3">
-                            <div class="mt-3">
-                                <h2 class="mb-1">Introduction to computer programming</h2>
-                                <p>12 / 03 / 2023 | 09:00 AM</p>
-                            </div>
-
-                            <div class="mt-5 d-flex justify-content-between">
-                                <h4>No. of student’s enrolled: 32</h4>
-                                <h4 class="pointer" routerLink="/quizwiz/instructor/quizzes/quizDetails">Open <i class="fa-solid fa-circle-arrow-right text-iconColor"></i></h4>
+                                <div class="mt-3">
+                                    <h4>No. of student’s enrolled: 32</h4>
+                                    <h4 class="pointer icon-end mx-2" routerLink="/quizwiz/instructor/quizzes/quizDetails">
+                                        {{quiz.status}} <i class="fa-solid fa-circle-arrow-right text-iconColor"></i>
+                                    </h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </ng-container>
+
                 </div>
 
                 <div class="quizze-item me-5">
                     <div class="d-flex justify-content-between mb-3">
                         <h2>Completed Quizzes</h2>
-                        <h4 class="pointer" routerLink="/quizwiz/instructor/results"> Results <i class="fa-solid fa-arrow-right-long text-iconColor"></i> </h4>
+                        <h4 class="pointer" routerLink="/quizwiz/instructor/results"> Results <i
+                                class="fa-solid fa-arrow-right-long text-iconColor"></i> </h4>
                     </div>
                     <table class="table table-striped">
                         <thead class="bg-main p-3 text-secondaryColor">

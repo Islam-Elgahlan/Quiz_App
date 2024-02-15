@@ -49,7 +49,7 @@ export class SetupComponent implements OnInit{
         this.toastr.error(err.error.message,'Error!')
       },complete:()=>{
         this.toastr.success('Create Quiz Successfully','Success')
-        
+        this.openSetupEndDialog();
       }
     })
   }
@@ -64,7 +64,6 @@ export class SetupComponent implements OnInit{
       }
     })
   }
-
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { IQuizzes } from '../../model/quizzes';
 
 @Component({
   selector: 'app-setup-end',
@@ -7,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./setup-end.component.scss']
 })
 export class SetupEndComponent {
-  constructor(public dialogRef: MatDialogRef<SetupEndComponent>){}
+  constructor(public dialogRef: MatDialogRef<SetupEndComponent>, @Inject(MAT_DIALOG_DATA) public data: any){}
   onClose(){
     this.dialogRef.close();
   }
