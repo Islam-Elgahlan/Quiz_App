@@ -52,21 +52,21 @@ export class SidebarComponent {
      isActive: this.isInstructor()
    },
    {
-     title: 'Quizzes',
-     icon: 'Quiz-icon.svg',
-     link: '/quizwiz/instructor/quizzes',
-     isActive: this.isInstructor()
-   },
-   {
-     title: 'Results',
-     icon: 'Results-icon.svg',
-     link: '/quizwiz/instructor/results',
-     isActive: this.isInstructor()
-   },
-   {
     title: 'Students',
     icon: 'Students-icon.svg',
     link: '/quizwiz/instructor/students',
+    isActive: this.isInstructor()
+  },
+  {
+    title: 'Quizzes',
+    icon: 'Quiz-icon.svg',
+    link: '/quizwiz/instructor/quizzes',
+    isActive: this.isInstructor()
+  },
+  {
+    title: 'Results',
+    icon: 'Results-icon.svg',
+    link: '/quizwiz/instructor/results',
     isActive: this.isInstructor()
   },
    {
