@@ -23,7 +23,7 @@
           <th>Question Desc</th>
           <th>Question difficulty level</th>
           <th>Date</th>
-          <th>Actions</th>
+          <th class="text-center">Actions</th>
         </thead>
         <tbody>
           <tr class="border rounded" *ngFor="let item of questions">
@@ -32,23 +32,23 @@
             <td>{{ item.difficulty }}</td>
             <td>12 / 02 / 2023</td>
             <td>
-              <div class="actions text-center fs-4">
+              <div class="actions text-center fs-5">
                 <span class="mx-2"
                   ><i
-                    (click)="openEditDialog('500ms', '500ms', item)"
-                    class="fa-regular fa-pen-to-square text-iconSecondColor"
+                    (click)="openEditDialog('500ms', '500ms', item._id)"
+                    class="fa-regular fa-pen-to-square text-iconSecondColor pointer"
                   ></i
                 ></span>
                 <span class="mx-2"
                   ><i
                     (click)="openDeleteDialog(item)"
-                    class="fa-regular fa-trash-can text-iconSecondColor"
+                    class="fa-regular fa-trash-can text-iconSecondColor pointer"
                   ></i
                 ></span>
                 <span class="mx-2"
                   ><i
-                    (click)="openViewDialog('2000ms', '2000ms', item)"
-                    class="fa-regular fa-eye text-iconSecondColor"
+                    (click)="openViewDialog('500ms', '500ms', item._id, true)"
+                    class="fa-regular fa-eye text-iconSecondColor pointer"
                   ></i
                 ></span>
               </div>

@@ -45,17 +45,17 @@ export class QuestionsComponent implements OnInit {
     this.dialog.open(AddUpdateQuestionComponent,
       {
         width: '60%',
-        data: data._id,
+        data: {data},
         enterAnimationDuration,
         exitAnimationDuration,
       }
     );
   }
   // View
-  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, questions: IQuestions): void {
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, data: IQuestions, view:boolean): void {
     this.dialog.open(AddUpdateQuestionComponent, {
       width: '60%',
-      data: questions,
+      data: {data,view},
       enterAnimationDuration,
       exitAnimationDuration,
     });
