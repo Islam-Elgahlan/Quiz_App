@@ -10,7 +10,7 @@ export interface IStudents {
 }
 
 export interface IStudentsGroups {
-    _id: string,
+    _id: any,
     instructor: string,
     max_students: number,
     name: string,
