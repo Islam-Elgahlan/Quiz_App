@@ -5,11 +5,14 @@ import { IQuizzes } from '../../model/quizzes';
 @Component({
   selector: 'app-setup-end',
   templateUrl: './setup-end.component.html',
-  styleUrls: ['./setup-end.component.scss']
+  styleUrls: ['./setup-end.component.scss'],
 })
 export class SetupEndComponent {
+
   constructor(public dialogRef: MatDialogRef<SetupEndComponent>, @Inject(MAT_DIALOG_DATA) public data: any){}
-  onClose(){
+
+
+  onClose() {
     this.dialogRef.close();
   }
 }

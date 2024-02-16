@@ -9,28 +9,26 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-list-groups',
   templateUrl: './list-groups.component.html',
-  styleUrls: ['./list-groups.component.scss']
+  styleUrls: ['./list-groups.component.scss'],
 })
 export class ListGroupsComponent implements OnInit {
-  groups: IGroup[]= [];
+  groups: IGroup[] = [];
   constructor(
-    private _GroupsService:GroupsService,
-    private dialog:MatDialog,
-    private toastr:ToastrService
-  ){}
-  ngOnInit(){
-    this.getAllGroups()
+    private _GroupsService: GroupsService,
+    private dialog: MatDialog,
+    private toastr: ToastrService
+  ) {}
+  ngOnInit() {
+    this.getAllGroups();
   }
 
-  getAllGroups(){
-    let params = {
-
-    }
+  getAllGroups() {
+    let params = {};
     this._GroupsService.onGetAllGroups().subscribe({
-      next:(res)=>{
-        this.groups = res        
-      }
-    })
+      next: (res) => {
+        this.groups = res;
+      },
+    });
   }
   //delete group
   openDeleteDialog(roomData: any): void {
@@ -47,35 +45,38 @@ export class ListGroupsComponent implements OnInit {
   }
   onDeleteRooms(id: string) {
     this._GroupsService.onDeleteGroup(id).subscribe({
-      next: (res) => {
-      },
+      next: (res) => {},
       error: (err) => {
         this.toastr.error(err.error.message, 'Error!');
       },
       complete: () => {
-        this.getAllGroups()
+        this.getAllGroups();
         this.toastr.success('Group Deleted Successfully');
       },
     });
   }
 
   //setup dialog
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
     this.dialog.open(AddUpdateGroupComponent, {
       width: '60%',
       enterAnimationDuration,
       exitAnimationDuration,
     });
   }
-  openEditDialog(enterAnimationDuration: string, exitAnimationDuration: string,data:any): void {
-    this.dialog.open(AddUpdateGroupComponent, 
-      {
+  openEditDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string,
+    data: any
+  ): void {
+    this.dialog.open(AddUpdateGroupComponent, {
       width: '60%',
-      data:data._id,
+      data: data._id,
       enterAnimationDuration,
       exitAnimationDuration,
-    }
-    );   
+    });
   }
-
 }

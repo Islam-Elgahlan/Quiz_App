@@ -7,14 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class QuizzesService {
 
-constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient: HttpClient) { }
 
-getAllQuizze():Observable<any>{
-  return this._HttpClient.get('quiz')
-}
+  getAllQuizze(): Observable<any> {
+    return this._HttpClient.get('quiz')
+  }
 
-createQuizze(data:any):Observable<any>{
-  return this._HttpClient.post('quiz', data)
-}
+  createQuizze(data: any): Observable<any> {
+    return this._HttpClient.post('quiz', data)
+  }
 
+  onGetFiveUpcommingQuizzes(): Observable<any> {
+    return this._HttpClient.get('quiz/incomming');
+  }
+  
 }

@@ -11,16 +11,16 @@ import { IGroup } from '../../../groupes/model/groups';
 @Component({
   selector: 'app-setup',
   templateUrl: './setup.component.html',
-  styleUrls: ['./setup.component.scss']
+  styleUrls: ['./setup.component.scss'],
 })
-export class SetupComponent implements OnInit{
+export class SetupComponent implements OnInit {
 
-  groups: IGroup[]= [];
+  groups: IGroup[] = [];
 
   constructor(public dialogRef: MatDialogRef<SetupComponent>,
-    private dialog: MatDialog, private _quizzesService:QuizzesService,
-    private _GroupsService:GroupsService,
-    private toastr:ToastrService, private _Router: Router, 
+    private dialog: MatDialog, private _quizzesService: QuizzesService,
+    private _GroupsService: GroupsService,
+    private toastr: ToastrService, private _Router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -39,46 +39,48 @@ export class SetupComponent implements OnInit{
     score_per_question: new FormControl(null, [Validators.required]),
   })
 
-  onSubmit(data: FormGroup){
+  onSubmit(data: FormGroup) {
     this._quizzesService.createQuizze(data.value).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
         // this.groups = res;
-        
-      }, error:(err)=>{
-        this.toastr.error(err.error.message,'Error!')
-      },complete:()=>{
-        this.toastr.success('Create Quiz Successfully','Success')
+
+      }, error: (err) => {
+        this.toastr.error(err.error.message, 'Error!')
+      }, complete: () => {
+        this.toastr.success('Create Quiz Successfully', 'Success')
         this.openSetupEndDialog();
       }
     })
   }
 
-  getAllGroups(){
+  getAllGroups() {
     let params = {
 
     }
     this._GroupsService.onGetAllGroups().subscribe({
-      next:(res)=>{
-        this.groups = res;      
+      next: (res) => {
+        this.groups = res;
       }
     })
   }
 
+
   onNoClick(): void {
     this.dialogRef.close();
   }
+  
   openSetupEndDialog(): void {
     const dialogRef = this.dialog.open(SetupEndComponent, {
       data: {},
-      width: '30%'
+      width: '30%',
     });
-    dialogRef.afterClosed().subscribe(result => {
+
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log(result.id);
       }
     });
-    this.onNoClick()
-  }
 
+  }
 }

@@ -8,7 +8,7 @@ import { IQuizzes } from '../../model/quizzes';
 @Component({
   selector: 'app-quizzes',
   templateUrl: './quizzes.component.html',
-  styleUrls: ['./quizzes.component.scss']
+  styleUrls: ['./quizzes.component.scss'],
 })
 export class QuizzesComponent implements OnInit{
 
@@ -30,13 +30,15 @@ export class QuizzesComponent implements OnInit{
     })
   }
 
-//setup dialog
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  //setup dialog
+  openDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
     this.dialog.open(SetupComponent, {
       width: '60%',
       enterAnimationDuration,
       exitAnimationDuration,
     });
   }
-
 }

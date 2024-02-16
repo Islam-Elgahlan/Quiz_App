@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardInstructComponent } from './components/dashboard-instruct/dashboard-instruct.component';
 
 const routes: Routes = [
-  { path: '', redirectTo:'dashboared', pathMatch:'full'},
+  { path: '', redirectTo: 'dashboared', pathMatch: 'full' },
   { path: 'dashboared', component: DashboardInstructComponent },
   {
     path: 'groups',
