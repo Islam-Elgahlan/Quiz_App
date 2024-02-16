@@ -6,7 +6,8 @@ export interface IStudents {
     status: string,
     role: string,
     group: IStudentsGroups,
-    length: number
+    length: number,
+    avg_score: number
 }
 
 export interface IStudentsGroups {

@@ -13,6 +13,8 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LoadingInterceptor } from './core/inerceptors/loading.interceptor';
 
 registerLocaleData(en);
 
@@ -33,11 +35,21 @@ registerLocaleData(en);
       progressBar: true,
     }),
     FormsModule,
+    NgxSpinnerModule.forRoot({
+     type: 'ball-scale-multiple',
+     
+    }),
+    
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true
     },
     { provide: NZ_I18N, useValue: en_US },
