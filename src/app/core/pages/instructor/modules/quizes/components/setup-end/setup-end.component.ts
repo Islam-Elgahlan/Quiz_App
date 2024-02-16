@@ -15,4 +15,5 @@ export class SetupEndComponent {
   onClose() {
     this.dialogRef.close();
   }
+  
 }
