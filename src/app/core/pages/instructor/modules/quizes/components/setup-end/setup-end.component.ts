@@ -12,11 +12,9 @@ export class SetupEndComponent implements OnInit{
   constructor(public dialogRef: MatDialogRef<SetupEndComponent>, @Inject(MAT_DIALOG_DATA) public data: any){}
 
   ngOnInit(): void {
-    // console.log(this.code);
+    console.log(this.data);
     
   }
-
-  // code:string=this.data;
   
 
 

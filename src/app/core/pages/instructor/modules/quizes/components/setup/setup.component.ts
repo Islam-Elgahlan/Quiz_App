@@ -131,9 +131,9 @@ export class SetupComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  openSetupEndDialog(dataEnd: string): void {
+  openSetupEndDialog(setupData: IQuizzes): void {
     const dialogRef = this.dialog.open(SetupEndComponent, {
-      data: this.code,
+      data: setupData,
       width: '30%',
     });
 
