@@ -1,8 +1,19 @@
-<section id="question">
-  <div class="container border rounded my-3">
-    <div class="d-flex justify-content-between mt-3">
-      <h3 class="mt-2">Bank Of Questions</h3>
-      <div class="pointer d-flex justify-content-end align-items-center mt-3">
+<section id="question" class="p-5">
+  <div class="container border rounded">
+    <div class="row justify-content-between align-items-center mt-3 me-3">
+      <h3 class="col-md-4">Bank Of Questions</h3>
+      <div
+        class="py-2 pointer d-flex justify-content-center align-items-center col-md-3 new-item"
+        (click)="openDialog('500ms', '500ms')"
+      >
+        <span
+          ><img src="../../../../../../../../assets/images/add-group-icon.svg"
+        /></span>
+        <span class="ps-3 text-nowrap">Add Quesion</span>
+      </div>
+    </div>
+    <!-- <div class="d-flex justify-content-between"> -->
+      <!-- <div class="pointer d-flex justify-content-end align-items-center mt-3">
         <div class="add-item p-2">
           <span
             ><img src="../../../../../../../../assets/images/add.png"
@@ -13,10 +24,10 @@
             >Add Question</span
           >
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
 
-    <div class="quizze-item me-5">
+    <div class="quizze-item me-3">
       <table class="table border rounded mt-3">
         <thead class="bg-main p-3 text-secondaryColor">
           <th>Question Title</th>
@@ -32,7 +43,7 @@
             <td>{{ item.difficulty }}</td>
             <td>12 / 02 / 2023</td>
             <td>
-              <div class="actions text-center fs-5">
+              <div class="actions text-center fs-5 text-nowrap">
                 <span class="mx-2"
                   ><i
                     (click)="openEditDialog('500ms', '500ms', item._id)"

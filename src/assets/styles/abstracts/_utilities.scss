@@ -72,25 +72,7 @@ th {
     .item-check{
       margin-left: 60%;
     }
-    .setup-item::after {
-      content: "";
-      width: 1px;
-      height: 80px;
-      position: absolute;
-      right: 30%;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-    .setup-item::before {
-      content: "";
-      width: 1px;
-      height: 80px;
-      position: absolute;
-      right: 15%;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-  
+
     //   form
     .form-control, .form-select {
       border: none;
