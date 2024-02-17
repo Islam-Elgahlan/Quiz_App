@@ -54,6 +54,8 @@ MatButtonToggleModule
     CommonModule,
     MaterialComponents
   ],
-  exports:[MaterialComponents],
+  exports:[
+    MaterialComponents
+  ],
 })
 export class MaterialModule { }
