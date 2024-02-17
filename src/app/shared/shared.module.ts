@@ -42,7 +42,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     SidebarComponent,
     VectorComponent,
     NzDropDownModule,
-    NzSelectModule
+    NzSelectModule,
+    MaterialModule
   ]
 })
 export class SharedModule { }

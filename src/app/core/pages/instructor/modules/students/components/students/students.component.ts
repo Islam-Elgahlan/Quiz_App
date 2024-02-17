@@ -11,11 +11,13 @@ import { GroupsService } from '../../../groupes/sevice/groups.service';
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.scss'],
 })
+
 export class StudentsComponent implements OnInit {
   studentList: IGroup[] | any;
   studentGroups: IStudents | any;
   groups: IGroup[] = [];
   groupName: string = '';
+  // studentList: IStudents[] | any;
 
   constructor(
     private _studentService: StudentsService,

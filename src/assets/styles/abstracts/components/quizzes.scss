@@ -34,6 +34,11 @@
   .dropdown-toggle::after {
       display: none;
     }
+    .icon-end{
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+    }
 }
 
 //Quizzes

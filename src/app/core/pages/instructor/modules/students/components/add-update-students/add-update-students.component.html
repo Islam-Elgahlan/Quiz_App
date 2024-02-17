@@ -1,47 +1,32 @@
 <section id="add-group" class="px-5 pt-4 pb-5 setup">
   <div class="container">
-    <div class="d-flex justify-content-between mb-5 pb-5">
-      <h2 *ngIf="isUpdatePage == false">Add student</h2>
-      <h2 *ngIf="isUpdatePage == true">Edit student</h2>
-      <div class="d-flex justify-content-center">
-        <div class="setup-item pointer" (click)="onSubmit(studentForm)">
-          <span class="item-check"
-            ><i class="fa-solid fa-check fs-1 fw-bold"></i
-          ></span>
-        </div>
+    <div class="container">
+      <div class="d-flex justify-content-between mb-5 pb-5">
+        <h2 *ngIf="isUpdatePage == false">Add student</h2>
+        <h2 *ngIf="isUpdatePage == true">Edit student</h2>
+        <div class="d-flex justify-content-center">
+          <div class="setup-item pointer" (click)="onSubmit(studentForm)">
+            <span class="item-check"><i class="fa-solid fa-check fs-1 fw-bold"></i></span>
+          </div>
 
-        <div class="setup-item pointer" (click)="onNoClick()">
-          <span><i class="fa-solid fa-xmark fs-1 fw-bold"></i></span>
+          <div class="setup-item pointer" (click)="onNoClick()">
+            <span><i class="fa-solid fa-xmark fs-1 fw-bold"></i></span>
+          </div>
         </div>
       </div>
+
+      <form class="my-5" [formGroup]="studentForm">
+        <div class="input-group input-group-lg mb-3">
+          <span class="input-group-text header" id="inputGroup-sizing-lg">Name</span>
+          <input type="text" class="form-control" formControlName="name" aria-label="name" aria-describedby="name" />
+        </div>
+
+        <div class="input-group select-group">
+          <label class="input-group-select p-3 header" for="inputGroupSelect01">Phone</label>
+          <input type="number" class="form-control" formControlName="phone" aria-label="phone"
+            aria-describedby="phone" />
+        </div>
+      </form>
     </div>
-
-    <form class="my-5" [formGroup]="studentForm">
-      <div class="input-group input-group-lg mb-3">
-        <span class="input-group-text header" id="inputGroup-sizing-lg"
-          >Name</span
-        >
-        <input
-          type="text"
-          class="form-control"
-          formControlName="name"
-          aria-label="name"
-          aria-describedby="name"
-        />
-      </div>
-
-      <div class="input-group select-group">
-        <label class="input-group-select p-3 header" for="inputGroupSelect01"
-          >Phone</label
-        >
-        <input
-          type="number"
-          class="form-control"
-          formControlName="phone"
-          aria-label="phone"
-          aria-describedby="phone"
-        />
-      </div>
-    </form>
   </div>
 </section>

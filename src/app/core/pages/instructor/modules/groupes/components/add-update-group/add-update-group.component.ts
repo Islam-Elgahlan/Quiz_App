@@ -35,7 +35,7 @@ export class AddUpdateGroupComponent implements OnInit {
     private _GroupsService: GroupsService,
     private toastr: ToastrService,
     private _StudentsService: StudentsService
-  ) {}
+  ) { }
   ngOnInit() {
     this.getAllStudents();
     if (this.data !== null) {
@@ -106,9 +106,11 @@ export class AddUpdateGroupComponent implements OnInit {
     });
     this.onNoClick();
   }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
+
   //update group
   getGroupById(id: string) {
     this._GroupsService.onGetGroupById(id).subscribe({
