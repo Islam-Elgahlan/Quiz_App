@@ -31,7 +31,6 @@ export class QuestionsComponent implements OnInit {
     })
   }
 
-
   //add 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(AddUpdateQuestionComponent, {
@@ -60,7 +59,7 @@ export class QuestionsComponent implements OnInit {
       exitAnimationDuration,
     });
   }
-  //delete group
+  //delete Question
   openDeleteDialog(questionData: any): void {
     const dialogRef = this.dialog.open(DeleteComponent, {
       data: questionData,

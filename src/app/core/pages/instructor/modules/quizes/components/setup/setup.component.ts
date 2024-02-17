@@ -1,12 +1,13 @@
 import { QuizzesService } from './../../services/quizzes.service';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SetupEndComponent } from '../setup-end/setup-end.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GroupsService } from '../../../groupes/sevice/groups.service';
 import { IGroup } from '../../../groupes/model/groups';
+import { IQuizzes } from '../../model/quizzes';
 
 @Component({
   selector: 'app-setup',
@@ -16,15 +17,38 @@ import { IGroup } from '../../../groupes/model/groups';
 export class SetupComponent implements OnInit {
 
   groups: IGroup[] = [];
+  quizzeId: any;
+  isUpdateQuiz: boolean = true;
+  isAddQuiz: boolean = true;
+  quizze: IQuizzes|any;
+  code:string|any;
 
-  constructor(public dialogRef: MatDialogRef<SetupComponent>,
+
+  constructor(public dialogRef: MatDialogRef<SetupComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     private dialog: MatDialog, private _quizzesService: QuizzesService,
     private _GroupsService: GroupsService,
-    private toastr: ToastrService, private _Router: Router,
-  ) { }
+    private toastr: ToastrService, private _Router: Router, private _ActivatedRoute: ActivatedRoute
+  ) {
+    // this.quizzeId = _ActivatedRoute.snapshot.params['_id'];
+    // if (this.quizzeId) {
+    //   this.isUpdateQuiz = true;
+    //   this.quizzeById(this.quizzeId);
+    // } else {
+    //   this.isUpdateQuiz = false;
+    // }
+  }
 
   ngOnInit(): void {
     this.getAllGroups();
+   
+    if (this.data !== null) {
+      this.quizzeById(this.data.data);
+      this.isUpdateQuiz = true;
+      this.isAddQuiz = false;
+    } else {
+      this.isAddQuiz = true;
+      this.isUpdateQuiz = false;
+    }
   }
 
   setupForm = new FormGroup({
@@ -40,24 +64,61 @@ export class SetupComponent implements OnInit {
   })
 
   onSubmit(data: FormGroup) {
-    this._quizzesService.createQuizze(data.value).subscribe({
+    if (this.data !== null) {
+      this._quizzesService.updateQuizze(data.value, this.data.data).subscribe({
+        next: (res) => {
+          console.log(res);
+
+        }, error: (err) => {
+          this.toastr.error(err.error.message, 'Error!')
+        }, complete: () => {
+          this.toastr.success('Update Quiz Successfully', 'Success');
+          this.onNoClick();
+          this.openSetupEndDialog(this.data);
+        }
+      })
+    } else {
+      this._quizzesService.createQuizze(data.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.code = res.code;
+        }, error: (err) => {
+          this.toastr.error(err.error.message, 'Error!')
+        }, complete: () => {
+          this.toastr.success('Create Quiz Successfully', 'Success');
+          this.onNoClick();
+          this.openSetupEndDialog(this.data);
+        }
+      })
+    }
+  }
+
+  quizzeById(id: string) {
+    this._quizzesService.getQuizzeById(id).subscribe({
       next: (res) => {
         console.log(res);
-        // this.groups = res;
+        this.quizze = res;
+        // this.quizzeList = this.quizze.data;
 
       }, error: (err) => {
         this.toastr.error(err.error.message, 'Error!')
       }, complete: () => {
-        this.toastr.success('Create Quiz Successfully', 'Success')
-        this.openSetupEndDialog();
+        this.setupForm.patchValue({
+          title: this.quizze?.title,
+          description: this.quizze?.description,
+          group: this.quizze?.group,
+          questions_number: this.quizze?.questions_number,
+          difficulty: this.quizze?.difficulty,
+          type: this.quizze?.type,
+          schadule: this.quizze?.schadule,
+          duration: this.quizze?.duration,
+          score_per_question: this.quizze?.score_per_question
+        })
       }
     })
   }
 
   getAllGroups() {
-    let params = {
-
-    }
     this._GroupsService.onGetAllGroups().subscribe({
       next: (res) => {
         this.groups = res;
@@ -69,10 +130,10 @@ export class SetupComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  
-  openSetupEndDialog(): void {
+
+  openSetupEndDialog(dataEnd: string): void {
     const dialogRef = this.dialog.open(SetupEndComponent, {
-      data: {},
+      data: this.code,
       width: '30%',
     });
 

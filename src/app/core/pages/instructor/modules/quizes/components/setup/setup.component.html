@@ -2,7 +2,8 @@
   <div class="container">
     <div class="row justify-content-between dialog-header">
       <div class="col-md-6 px-4 pt-4">
-        <h2>Set up a new quiz</h2>
+        <h2 *ngIf="isUpdateQuiz == false">Set up a new quiz</h2>
+        <h2 *ngIf="isUpdateQuiz == true">Update quiz</h2>
       </div>
       <div class="col-md-3">
         <div class="d-flex justify-content-end">
@@ -24,21 +25,21 @@
         <div class="d-flex mt-3">
           <div class="input-group mb-3 me-2 select-group header">
             <label class="input-group-select p-3" for="inputGroupSelect01">Duration (in minutes)</label>
-            <select class="form-select p-3 header" formControlName="duration" id="inputGroupSelect01">
+            <select class="form-select p-3 header"  formControlName="duration" id="inputGroupSelect01">
               <option selected>30</option>
               <option value="1">60</option>
             </select>
           </div>
           <div class="input-group mb-3 mx-2 select-group header">
             <label class="input-group-select p-3 " for="inputGroupSelect01">No. of questions</label>
-            <select class="form-select p-3 header" formControlName="questions_number" id="inputGroupSelect01">
+            <select class="form-select p-3 header"  formControlName="questions_number" id="inputGroupSelect01">
               <option selected>1</option>
               <option value="1">2</option>
             </select>
           </div>
           <div class="input-group mb-3 ms-2 select-group header">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Score per question</label>
-            <select class="form-select p-3 header" formControlName="score_per_question" id="inputGroupSelect01">
+            <select class="form-select p-3 header"  formControlName="score_per_question" id="inputGroupSelect01">
               <option selected>5</option>
               <option value="1">10</option>
             </select>
@@ -47,20 +48,20 @@
 
         <div class="input-group">
           <span class="input-group-text header">Description:</span>
-          <textarea class="form-control header" formControlName="description" rows="3"
+          <textarea class="form-control header"  formControlName="description" rows="3"
             aria-label="With textarea"></textarea>
         </div>
 
         <div class="input-group input-group-lg my-3 w-75">
           <span class="input-group-text header" id="inputGroup-sizing-lg">Schedule</span>
-          <input type="datetime-local" formControlName="schadule" id="birthdaytime" name="birthdaytime"
+          <input type="datetime-local"  formControlName="schadule" id="birthdaytime" name="birthdaytime"
             class="form-control">
         </div>
 
         <div class="d-flex mt-3">
           <div class="input-group mb-3 me-2 select-group header">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Difficulty level</label>
-            <select class="form-select p-3 header" formControlName="difficulty" id="inputGroupSelect01">
+            <select class="form-select p-3 header"  formControlName="difficulty" id="inputGroupSelect01">
               <option value="easy" selected>easy</option>
               <option value="medium">medium</option>
               <option value="hard">hard</option>
@@ -68,7 +69,7 @@
           </div>
           <div class="input-group mb-3 mx-2 select-group header">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Category type</label>
-            <select class="form-select p-3 header" formControlName="type" id="inputGroupSelect01">
+            <select class="form-select p-3 header"  formControlName="type" id="inputGroupSelect01">
               <option value="FE" selected>FE</option>
               <option value="BE">BE</option>
               <option value="DO">DO</option>
@@ -76,7 +77,7 @@
           </div>
           <div class="input-group mb-3 ms-2 select-group header">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Group name</label>
-            <select class="form-select p-3 header" formControlName="group" id="inputGroupSelect01">
+            <select class="form-select p-3 header"  formControlName="group" id="inputGroupSelect01">
               <option *ngFor="let item of groups" [value]="item._id">{{item.name}}</option>
             </select>
           </div>
