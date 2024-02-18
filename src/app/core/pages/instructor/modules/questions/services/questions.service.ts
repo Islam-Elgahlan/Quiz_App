@@ -14,23 +14,21 @@ getAllQuestions():Observable<any>
 {
   return this._HttpClient.get('question')
 }
-getQuestionById(id:any):Observable<any>
+getQuestionById(id:string):Observable<IQuestions>
 {
-  return this._HttpClient.get(`question/${id}`)
+  return this._HttpClient.get<IQuestions>(`question/${id}`)
 }
-addQuestion(data:IQuestions):Observable<any>
+addQuestion(data:IQuestions):Observable<IQuestions>
 {
-  return this._HttpClient.post(`question`, data)
+  return this._HttpClient.post<IQuestions>(`question`, data)
 }
-
-updateQuestion(data:IQuestions,id:string):Observable<any>
+updateQuestion(data:IQuestions,id:string):Observable<IQuestions>
 {
-  debugger
-  return this._HttpClient.put(`question/${id}`, data)
+  return this._HttpClient.put<IQuestions>(`question/${id}`, data)
 }
-deleteQuestion(id:string):Observable<any>
+deleteQuestion(id:string):Observable<IQuestions>
 {
-  return this._HttpClient.delete(`question/${id}`)
+  return this._HttpClient.delete<IQuestions>(`question/${id}`)
 }
 searchQuestion(data:any):Observable<any>
 {

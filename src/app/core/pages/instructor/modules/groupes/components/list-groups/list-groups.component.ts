@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./list-groups.component.scss'],
 })
 export class ListGroupsComponent implements OnInit {
-  groups: IGroup[] = [];
+  groups: IGroup[]=[];
   constructor(
     private _GroupsService: GroupsService,
     private dialog: MatDialog,
@@ -23,9 +23,9 @@ export class ListGroupsComponent implements OnInit {
   }
 
   getAllGroups() {
-    let params = {};
     this._GroupsService.onGetAllGroups().subscribe({
       next: (res) => {
+        console.log(res);
         this.groups = res;
       },
     });

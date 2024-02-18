@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
-import { IChangePassword } from '../model/auth';
+import { IChangePassword, ILogin, IRegister, IResetPassword } from '../model/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -34,24 +34,23 @@ export class AuthService {
     }
   }
 
-  onLogIn(data: any): Observable<any> {
-    return this._HttpClient.post('auth/login', data);
+  onLogIn(data: ILogin): Observable<ILogin> {
+    return this._HttpClient.post<ILogin>('auth/login', data);
   }
-  onRegister(data: any):Observable<any>
+  onRegister(data: IRegister):Observable<IRegister>
   {
-    return this._HttpClient.post('auth/register' , data)
+    return this._HttpClient.post<IRegister>('auth/register' , data)
   }
-  onChangePassword(data: any):Observable<any>
+  onChangePassword(data: IChangePassword):Observable<IChangePassword>
   {
-    return this._HttpClient.post('auth/change-password' , data)
+    return this._HttpClient.post<IChangePassword>('auth/change-password' , data)
   }
   onResetPassword(data:string):Observable<any>
   {
     return this._HttpClient.post('auth/forgot-password', {email: data})
   }
-  onRestPassword(data:any)
+  onRestPassword(data:IResetPassword):Observable<IResetPassword>
  {
-  return this._HttpClient.post('auth/reset-password', data)
-
+  return this._HttpClient.post<IResetPassword>('auth/reset-password', data)
  }
 }

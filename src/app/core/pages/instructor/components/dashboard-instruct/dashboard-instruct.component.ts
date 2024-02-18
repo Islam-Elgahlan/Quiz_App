@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../modules/students/services/students.service';
 import { IStudents } from '../../modules/students/model/students';
 import { QuizzesService } from '../../modules/quizes/services/quizzes.service';
+import { IQuizzes } from '../../modules/quizes/model/quizzes';
 
 @Component({
   selector: 'app-dashboard-instruct',
@@ -10,7 +11,7 @@ import { QuizzesService } from '../../modules/quizes/services/quizzes.service';
 })
 export class DashboardInstructComponent implements OnInit {
   students: IStudents[] = [];
-  quizzes: any;
+  quizzes: IQuizzes[]=[];
   constructor(
     private _StudentsService: StudentsService,
     private _QuizzesService: QuizzesService
@@ -22,7 +23,6 @@ export class DashboardInstructComponent implements OnInit {
   getUpcommingQuizzes() {
     this._QuizzesService.onGetFiveUpcommingQuizzes().subscribe({
       next: (res) => {
-        console.log(res);
         this.quizzes = res;
       },
     });
@@ -30,7 +30,6 @@ export class DashboardInstructComponent implements OnInit {
   getTopFiveStudents() {
     this._StudentsService.onGetTopFiveStudents().subscribe({
       next: (res) => {
-        console.log(res);
         this.students = res;
       },
     });
