@@ -125,6 +125,7 @@ export class AddUpdateGroupComponent implements OnInit {
           name: this.groupDetails?.name,
           // students: this.groupDetails.students
         });
+        
       },
     });
   }

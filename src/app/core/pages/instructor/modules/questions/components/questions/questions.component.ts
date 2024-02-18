@@ -49,6 +49,7 @@ export class QuestionsComponent implements OnInit {
         exitAnimationDuration,
       }
     );
+    // call questions after closed
   }
   // View
   openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, data: IQuestions, view:boolean): void {

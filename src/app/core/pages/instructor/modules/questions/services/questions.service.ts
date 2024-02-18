@@ -22,8 +22,10 @@ addQuestion(data:IQuestions):Observable<any>
 {
   return this._HttpClient.post(`question`, data)
 }
+
 updateQuestion(data:IQuestions,id:string):Observable<any>
 {
+  debugger
   return this._HttpClient.put(`question/${id}`, data)
 }
 deleteQuestion(id:string):Observable<any>

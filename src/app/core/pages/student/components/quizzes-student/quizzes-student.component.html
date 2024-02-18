@@ -1,1 +1,66 @@
-<p>quizzes-student works!</p>
+<section id="quizzes-student" class="p-4">
+    <div class="container border rounded">
+        <div class="row m-3">
+            <div class="col-md-2 ">
+                <a class="btn btn-white quizze-item border rounded px-4" (click)="openJoinDialog('500ms', '500ms')">
+                    <img src="../../../../../../../../assets/images/new-quiz-icon.svg" class="w-50 mt-3">
+                    <h2 class="text-nowrap text-center">Join Quiz</h2>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-between mb-3">
+            <div class="col-md-5">
+                <div class="border rounded px-4 py-2">
+                    <h3 class="fs-5">Upcoming 5 quizzes</h3>
+                  <div
+                    *ngFor="let quiz of upcommingQuizzes"
+                    class="item border my-2 rounded d-flex justify-content-start align-items-center"
+                  >
+                    <!-- <img src="../../../../../../assets/images/upcome-quiz.svg" class="image rounded bg-secondaryColor"> -->
+                    <div class="caption py-2 px-3">
+                      <h4 class="fw-bold fs-5">{{ quiz.title }}</h4>
+                      <p>
+                        {{ quiz.schadule | date : "dd/MM/YYYY" }} |
+                        {{ quiz.schadule | date : "hh:mm a" }}
+                      </p>
+                      <h4>Number of Questions: {{ quiz.questions.length }}</h4>
+                    </div>
+                    <h4
+                      class="pointer ms-auto pe-3 fw-bold"
+                      routerLink="/quizwiz/instructor/quizzes/quizDetails"
+                    >
+                      Open <i class="fa-solid fa-circle-arrow-right text-third"></i>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="border rounded quizze-item  px-4 py-2">
+                        <div class="d-flex justify-content-between">
+                            <h2>Completed Quizzes</h2>
+                            <h4 class="pointer" routerLink="/quizwiz/student/results">
+                                Results
+                                <i class="fa-solid fa-arrow-right-long text-iconColor"></i>
+                            </h4>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="bg-main p-3 text-secondaryColor">
+                                <th>Title</th>
+                                <th>Group name</th>
+                                <th>No. of persons in group</th>
+                                <th>Date</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let quiz of completedQuizzes">
+                                    <td>{{quiz.title}}</td>
+                                    <td>Group 1</td>
+                                    <td>23 persons</td>
+                                    <td>12 / 02 / 2023</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
