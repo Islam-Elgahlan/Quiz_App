@@ -24,6 +24,9 @@ export class StudentsService {
   deleteStudent(id: string): Observable<IStudents> {
     return this._HttpClient.delete<IStudents>(`student/${id}`);
   }
+  deleteStudentFromGroup(studentId: string,groupId:string):Observable<IStudents>{
+    return this._HttpClient.delete<IStudents>(`student/${studentId}/${groupId}`)
+  }
   // Group
   addToGroup(studentId: string, groupId: string): Observable<IStudents> {
     return this._HttpClient.get<IStudents>(`student/${studentId}/${groupId}`);

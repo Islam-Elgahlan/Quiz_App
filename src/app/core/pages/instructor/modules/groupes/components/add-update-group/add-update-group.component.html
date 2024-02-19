@@ -26,15 +26,15 @@
         </span>
       </div>
 
-      <div class="input-group select-group d-flex flex-nowrap">
+      <!-- <div class="input-group select-group d-flex flex-nowrap">
         <label class="input-group-select p-3 header text-nowrap" for="students">List Students</label>
         <nz-select nzShowSearch nzAllowClear formControlName="students" nzValue="large" [nzMaxTagCount]="2"
           [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple">
-          <nz-option *ngFor="let item of studentsList" [nzLabel]="item.first_name + ' ' + item.last_name"
-            [nzValue]="item._id"></nz-option>
+          <nz-option *ngFor="let item of studentsList" [nzLabel]="item?.first_name + ' ' + item?.last_name"
+            [nzValue]="item?._id"></nz-option>
           <ng-container *ngFor="let student of groupStudents">
-            <nz-option [(ngModel)]="student.first_name" aria-selected="true" *ngIf="updateMode == true"
-              [nzLabel]="student.first_name + ' ' + student.last_name" [nzValue]="student._id"></nz-option>
+            <nz-option aria-selected="true" *ngIf="updateMode == true"
+              [nzLabel]="student?.first_name + ' ' + student?.last_name" [nzValue]="student?._id"></nz-option>
           </ng-container>
         </nz-select>
 
@@ -45,7 +45,25 @@
           ">
           <span *ngIf="groupForm.get('students')?.getError('required')">students is required</span>
         </span>
-      </div>
+      </div> -->
+        <mat-form-field class="w-100">
+        <mat-label class="bg-secondaryColor py-5">
+          <span  class="bg-secondaryColor ps-3 pe-4 py-5 fs-5 fw-medium">Students</span>
+        </mat-label>
+        <mat-select class="text-center" formControlName="students" multiple>
+        <mat-option #selected *ngFor="let student of studentsList" [value]="student._id">{{student.first_name}} {{student.last_name}}</mat-option>
+        <ng-container *ngFor="let student of groupStudents">
+            <mat-option *ngIf="updateMode == true" [value]="student._id">{{student.first_name}} {{student.last_name}}</mat-option>
+        </ng-container>
+        </mat-select>
+      </mat-form-field> 
+      <span *ngIf="studentsList.length==0" class="text-danger p-3"><i class="fa-solid fa-triangle-exclamation"></i> No students without group</span>
+      <span class="text-danger px-3" *ngIf="
+            groupForm.get('students')?.errors &&
+            groupForm.get('students')?.touched
+          ">
+          <span *ngIf="groupForm.get('students')?.getError('required')">students is required</span>
+        </span>     
     </form>
   </div>
 </section>

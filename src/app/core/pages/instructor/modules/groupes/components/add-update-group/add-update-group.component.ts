@@ -20,6 +20,7 @@ import { IGroup } from '../../model/groups';
 export class AddUpdateGroupComponent implements OnInit {
   addMode: boolean = true;
   updateMode: boolean = true;
+  selectedValue:string='';
   studentsList: IStudents[] = [];
   groupStudents: IStudents[] | any = [];
   groupDetails: IGroup | undefined | any;
@@ -123,9 +124,8 @@ export class AddUpdateGroupComponent implements OnInit {
       complete: () => {
         this.groupForm.patchValue({
           name: this.groupDetails?.name,
-          // students: this.groupDetails.students
+          students: this.groupDetails.students
         });
-        
       },
     });
   }
