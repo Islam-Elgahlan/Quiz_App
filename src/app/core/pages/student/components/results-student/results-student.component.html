@@ -15,9 +15,15 @@
             <tbody>
                 <tr *ngFor="let result of resultsData">
                     <td>{{result.quiz.title}}</td>
-                    <td>Group 1</td>
-                    <td>23 persons</td>
-                    <td>20 Participants</td>
+                    <td>
+                        <!-- <ng-container *ngIf="result.length > 0"> -->
+                        <span *ngFor="let group of groups">{{group?.name}}</span>
+                        <!-- </ng-container> -->
+                    </td>
+                    <td>
+                        <span *ngFor="let group of groups">{{group?.students?.length}}</span>
+                    </td>
+                    <td>20 Participants {{result?.Participants?.length}}</td>
                     <td>{{result.quiz.schadule | date: 'medium'}}</td>
                     <td>
                         <button class="border-0 rounded bg-third fw-bold">View</button>
