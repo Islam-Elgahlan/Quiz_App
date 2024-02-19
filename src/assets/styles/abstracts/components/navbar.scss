@@ -1,4 +1,5 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
+@import "/src/assets/styles/abstracts/mixins";
 
 #navbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -14,8 +15,8 @@
     border-radius: 30px;
   }
 }
-
-@media (max-width: 1000px) {
+//responsive
+@include response(tablet) {
   #navbar {
     padding: 5px 5px !important;
     transition: all 0.1s ease !important;
@@ -26,8 +27,9 @@
     }
   }
 }
-@media (max-width: 760px) {
+@include response(mobile) {
   #navbar {
     padding: 20px 5px !important;
   }
 }
+

@@ -49,6 +49,7 @@ export class QuestionsComponent implements OnInit {
         exitAnimationDuration,
       }
     );
+    // call questions after closed
   }
   // View
   openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, data: IQuestions, view:boolean): void {
@@ -60,15 +61,15 @@ export class QuestionsComponent implements OnInit {
     });
   }
   //delete Question
-  openDeleteDialog(questionData: any): void {
+  openDeleteDialog(id: string,name:string): void {
     const dialogRef = this.dialog.open(DeleteComponent, {
-      data: questionData,
+      data: {id,name},
       width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.deleteRooms(result._id);
+        this.deleteRooms(result.id);
       }
     });
   }

@@ -1,4 +1,5 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
+@import "/src/assets/styles/abstracts/mixins";
 
 * {
   transition: all 0.4s;
@@ -41,7 +42,6 @@
         border: 1px solid $main-color;
       }
     }
-    
   }
 }
 //active link style
@@ -51,21 +51,38 @@
     border: 1px solid $main-color;
   }
 }
-//media query
-@media (max-width: 970px) {
-  .logo {
-    width: 50% !important;
+
+//responsive
+@include response(tablet) {
+  #sidebar {
+    .logo {
+      width: 50% !important;
+    }
+    .image {
+      width: 100% !important;
+    }
+    .item {
+      padding: 20px 25px !important;
+    }
+    .icon-name {
+      display: none !important;
+    }
+    .icon {
+      margin: auto !important;
+    }
   }
-  .image {
-    width: 100% !important;
-  }
-  .item {
-    padding: 20px 25px !important;
-  }
-  .icon-name {
+}
+@include response(mobile) {
+  #sidebar {
     display: none !important;
   }
-  .icon {
-    margin: auto !important;
+  #navbar {
+    .dash-head,
+    .new-item {
+      display: none !important;
+    }
+    .info {
+      border-left: none !important;
+    }
   }
 }

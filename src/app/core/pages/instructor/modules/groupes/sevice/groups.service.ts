@@ -15,18 +15,17 @@ constructor(
   onGetAllGroups():Observable<any>{
     return this._HttpClient.get('group')
   }
-  onAddGroup(data:any):Observable<any>{
-    return this._HttpClient.post('group',data)
+  onAddGroup(data:IGroup):Observable<IGroup>{
+    return this._HttpClient.post<IGroup>('group',data)
   }
-  onDeleteGroup(id:string):Observable<any>{
-    return this._HttpClient.delete(`group/${id}`)
+  onDeleteGroup(id:string):Observable<string>{
+    return this._HttpClient.delete<string>(`group/${id}`)
   }
-  onGetGroupById(id:string):Observable<any>{
-    return this._HttpClient.get(`group/${id}`)
+  onGetGroupById(id:string):Observable<IGroup>{
+    return this._HttpClient.get<IGroup>(`group/${id}`)
   }
-  onUpdateGroup(id:string,data:IGroup):Observable<any>{
-    return this._HttpClient.put(`group/${id}`,data)
+  onUpdateGroup(id:string,data:IGroup):Observable<IGroup>{
+    return this._HttpClient.put<IGroup>(`group/${id}`,data)
   }
-
 
 }

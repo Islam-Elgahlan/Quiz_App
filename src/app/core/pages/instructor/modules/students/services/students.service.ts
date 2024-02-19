@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IStudents } from '../model/students';
 
 @Injectable({
   providedIn: 'root',
@@ -14,21 +15,24 @@ export class StudentsService {
   getAllStudentsWithoutGroup(): Observable<any> {
     return this._HttpClient.get('student/without-group');
   }
-  getStudentById(_id: any): Observable<any> {
-    return this._HttpClient.get(`student/${_id}`);
+  getStudentById(_id: string): Observable<IStudents> {
+    return this._HttpClient.get<IStudents>(`student/${_id}`);
   }
-  updateStudent(data: any): Observable<any> {
-    return this._HttpClient.put('student', data);
+  updateStudent(data: IStudents): Observable<IStudents> {
+    return this._HttpClient.put<IStudents>('student', data);
   }
-  deleteStudent(id: any): Observable<any> {
-    return this._HttpClient.delete(`student/${id}`);
+  deleteStudent(id: string): Observable<IStudents> {
+    return this._HttpClient.delete<IStudents>(`student/${id}`);
+  }
+  deleteStudentFromGroup(studentId: string,groupId:string):Observable<IStudents>{
+    return this._HttpClient.delete<IStudents>(`student/${studentId}/${groupId}`)
   }
   // Group
-  addToGroup(studentId: any, groupId: any): Observable<any> {
-    return this._HttpClient.get(`student/${studentId}/${groupId}`);
+  addToGroup(studentId: string, groupId: string): Observable<IStudents> {
+    return this._HttpClient.get<IStudents>(`student/${studentId}/${groupId}`);
   }
-  updateStudentGroup(studentId: any, groupId: any, data: any): Observable<any> {
-    return this._HttpClient.put(`student/${studentId}/${groupId}`, data);
+  updateStudentGroup(studentId: string, groupId: string, data: IStudents): Observable<IStudents> {
+    return this._HttpClient.put<IStudents>(`student/${studentId}/${groupId}`, data);
   }
   onGetTopFiveStudents(): Observable<any> {
     return this._HttpClient.get('student/top-five');

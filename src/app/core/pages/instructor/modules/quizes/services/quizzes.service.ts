@@ -13,25 +13,24 @@ export class QuizzesService {
   getAllQuizze(): Observable<IQuizzes> {
     return this._HttpClient.get<IQuizzes>('quiz')
   }
-  getQuizzeById(id:string): Observable<string> {
+  getQuizzeById(id: string): Observable<string> {
     return this._HttpClient.get<string>(`quiz/${id}`)
   }
 
   createQuizze(data: IQuizzes): Observable<IQuizzes> {
     return this._HttpClient.post<IQuizzes>('quiz', data)
   }
-  updateQuizze(id:string, data: IQuizzes): Observable<IQuizzes> {
+  updateQuizze(id: string, data: IQuizzes): Observable<IQuizzes> {
     return this._HttpClient.put<IQuizzes>(`quiz/${id}`, data)
   }
-  deleteQuizze(id:string): Observable<string> {
+  deleteQuizze(id: string): Observable<string> {
     return this._HttpClient.delete<string>(`quiz/${id}`)
   }
-
   onGetFiveUpcommingQuizzes(): Observable<any> {
     return this._HttpClient.get('quiz/incomming');
   }
   onGetlastFiveCompeletedQuizzes(): Observable<any> {
     return this._HttpClient.get('quiz/completed');
   }
-  
+
 }

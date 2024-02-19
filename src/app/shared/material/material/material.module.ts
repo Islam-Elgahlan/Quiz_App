@@ -24,7 +24,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
-
 const MaterialComponents = [
   MatButtonModule,
   MatIconModule,
