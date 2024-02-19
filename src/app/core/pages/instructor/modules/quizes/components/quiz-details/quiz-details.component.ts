@@ -45,7 +45,7 @@ export class QuizDetailsComponent implements OnInit {
   ): void {
     this.dialog.open(SetupComponent, {
       width: '60%',
-      data: {data},
+      data: data._id,
       enterAnimationDuration,
       exitAnimationDuration,
     });

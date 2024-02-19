@@ -86,6 +86,7 @@ export class StudentsComponent implements OnInit {
       exitAnimationDuration,
     });
   }
+
   //delete
   openDeleteDialog(
     enterAnimationDuration: string, exitAnimationDuration: string, id: string, name: string
@@ -143,4 +144,5 @@ export class StudentsComponent implements OnInit {
       }
     })
   }
+  
 }
