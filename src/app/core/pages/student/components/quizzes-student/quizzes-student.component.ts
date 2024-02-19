@@ -12,7 +12,7 @@ import { StudentService } from '../../service/student.service';
 })
 export class QuizzesStudentComponent implements OnInit {
   upcommingQuizzes: IQuizzes[]=[];
-  completedQuizzes:IQuizzes[]=[]
+  completedQuizzes:IQuizzes[]=[];
 
   constructor(
     private dialog: MatDialog,
@@ -34,8 +34,8 @@ openJoinDialog(
     exitAnimationDuration,
   });
 }
-//get quizzes 
 
+//get quizzes 
 getUpcommingQuizzes() {
   this._QuizzesService.onGetFiveUpcommingQuizzes().subscribe({
     next: (res) => {
@@ -44,6 +44,7 @@ getUpcommingQuizzes() {
     },
   });
 }
+
 getCompletedQuiz(){
   this._StudentService.onGetCompletedQuiz().subscribe({
     next:(res)=>{

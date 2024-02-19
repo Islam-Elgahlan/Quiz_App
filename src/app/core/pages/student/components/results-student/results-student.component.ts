@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../service/student.service';
 import { ViewResultsComponent } from '../view-results/view-results.component';
 import { MatDialog } from '@angular/material/dialog';
+import { IAllResults } from '../../model/student';
 
 @Component({
   selector: 'app-results-student',
@@ -10,7 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ResultsStudentComponent implements OnInit{
 
-  resultsData:any;
+  resultsData:IAllResults[]|any;
+  quizData:IAllResults|any
 
   constructor(private _StudentService:StudentService, private dialog: MatDialog,){}
 
@@ -22,8 +24,10 @@ export class ResultsStudentComponent implements OnInit{
     this._StudentService.getAllResults().subscribe({
       next:(res)=>{
         console.log(res);
+
+        this.resultsData = res;
+        console.log(this.resultsData);
         
-        this.resultsData = res.result;
       }
     })
   }
