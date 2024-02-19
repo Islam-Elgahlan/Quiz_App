@@ -14,4 +14,9 @@ constructor(
   onJoinQuiz(data:string):Observable<any>{
     return this._HttpClient.post('quiz/join',data)
   }
+
+  getAllResults():Observable<any>
+  {
+    return this._HttpClient.get('quiz/result')
+  }
 }

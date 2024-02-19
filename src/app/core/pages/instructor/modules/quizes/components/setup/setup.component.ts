@@ -20,29 +20,22 @@ export class SetupComponent implements OnInit {
   quizzeId: any;
   isUpdateQuiz: boolean = true;
   isAddQuiz: boolean = true;
-  quizze: IQuizzes|any;
-  code:string|any;
+  quizze: IQuizzes | any;
+  quizzeList: IQuizzes | any;
+  code: string = '';
 
 
   constructor(public dialogRef: MatDialogRef<SetupComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     private dialog: MatDialog, private _quizzesService: QuizzesService,
     private _GroupsService: GroupsService,
     private toastr: ToastrService, private _Router: Router, private _ActivatedRoute: ActivatedRoute
-  ) {
-    // this.quizzeId = _ActivatedRoute.snapshot.params['_id'];
-    // if (this.quizzeId) {
-    //   this.isUpdateQuiz = true;
-    //   this.quizzeById(this.quizzeId);
-    // } else {
-    //   this.isUpdateQuiz = false;
-    // }
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getAllGroups();
-   
+
     if (this.data !== null) {
-      this.quizzeById(this.data.data);
+      this.quizzeById(this.data);
       this.isUpdateQuiz = true;
       this.isAddQuiz = false;
     } else {
@@ -65,29 +58,31 @@ export class SetupComponent implements OnInit {
 
   onSubmit(data: FormGroup) {
     if (this.data !== null) {
-      this._quizzesService.updateQuizze(data.value, this.data.data).subscribe({
+      this._quizzesService.updateQuizze(this.data, data.value).subscribe({
         next: (res) => {
           console.log(res);
-
+          this.quizze = res;
+          this.code = this.quizze.data.code;
         }, error: (err) => {
           this.toastr.error(err.error.message, 'Error!')
         }, complete: () => {
           this.toastr.success('Update Quiz Successfully', 'Success');
           this.onNoClick();
-          this.openSetupEndDialog(this.data);
+          this.openSetupEndDialog(this.code);
         }
       })
     } else {
       this._quizzesService.createQuizze(data.value).subscribe({
         next: (res) => {
           console.log(res);
-          this.code = res.code;
+          this.quizze = res;
+          this.code = this.quizze.data.code;
         }, error: (err) => {
           this.toastr.error(err.error.message, 'Error!')
         }, complete: () => {
           this.toastr.success('Create Quiz Successfully', 'Success');
           this.onNoClick();
-          this.openSetupEndDialog(this.data);
+          this.openSetupEndDialog(this.code);
         }
       })
     }
@@ -126,20 +121,31 @@ export class SetupComponent implements OnInit {
     })
   }
 
+  allQuizze() {
+    this._quizzesService.getAllQuizze().subscribe({
+      next: (res) => {
+        console.log(res);
+        // this.quizzeList = res;
+
+      }
+    })
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  openSetupEndDialog(setupData: IQuizzes): void {
+  openSetupEndDialog(quizData: string): void {
     const dialogRef = this.dialog.open(SetupEndComponent, {
-      data: setupData,
+      data: quizData,
       width: '30%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+
       if (result) {
         console.log(result.id);
+        this.allQuizze()
       }
     });
 

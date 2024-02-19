@@ -5,9 +5,9 @@
         <span class="fs-1 fw-bold"><i class="fa-solid fa-circle-check text-main mb-3"></i></span>
         <h3 class="fw-semibold fs-5">Quiz was successfully created</h3>
         <div class="w-50 code m-auto d-flex justify-content-between align-items-center">
-          <span class="bg-secondaryColor code-title">Code: </span>
-          <span>{{data?.data.code}}</span>
-          <span><i class="fa-solid fa-copy"></i></span>
+          <span class="bg-secondaryColor code-title p-4">Code: </span>
+          <span class="fw-bold fs-6">{{data}}</span>
+          <a [cdkCopyToClipboard]="data" class="text-black" ><i class="fa-solid fa-copy fs-2 fw-bold pointer"></i></a>
         </div>
       </div>
       <button (click)="onClose()" cdkFocusInitial class="w-25 mt-5 third">Close</button>

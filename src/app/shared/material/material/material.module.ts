@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 
@@ -44,7 +45,8 @@ const MaterialComponents = [
 MatDatepickerModule,
 MatNativeDateModule,
 MatStepperModule,
-MatButtonToggleModule
+MatButtonToggleModule,
+ClipboardModule
 ]
 
 

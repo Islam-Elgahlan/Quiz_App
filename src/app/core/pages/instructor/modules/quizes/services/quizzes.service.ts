@@ -10,25 +10,28 @@ export class QuizzesService {
 
   constructor(private _HttpClient: HttpClient) { }
 
-  getAllQuizze(): Observable<any> {
-    return this._HttpClient.get('quiz')
+  getAllQuizze(): Observable<IQuizzes> {
+    return this._HttpClient.get<IQuizzes>('quiz')
   }
-  getQuizzeById(id:string): Observable<any> {
-    return this._HttpClient.get(`quiz/${id}`)
+  getQuizzeById(id:string): Observable<string> {
+    return this._HttpClient.get<string>(`quiz/${id}`)
   }
 
-  createQuizze(data: any): Observable<any> {
-    return this._HttpClient.post('quiz', data)
+  createQuizze(data: IQuizzes): Observable<IQuizzes> {
+    return this._HttpClient.post<IQuizzes>('quiz', data)
   }
-  updateQuizze(data: IQuizzes, id:string): Observable<any> {
-    return this._HttpClient.put(`quiz/${id}`, data)
+  updateQuizze(id:string, data: IQuizzes): Observable<IQuizzes> {
+    return this._HttpClient.put<IQuizzes>(`quiz/${id}`, data)
   }
-  deleteQuizze(id:string): Observable<any> {
-    return this._HttpClient.delete(`quiz/${id}`)
+  deleteQuizze(id:string): Observable<string> {
+    return this._HttpClient.delete<string>(`quiz/${id}`)
   }
 
   onGetFiveUpcommingQuizzes(): Observable<any> {
     return this._HttpClient.get('quiz/incomming');
+  }
+  onGetlastFiveCompeletedQuizzes(): Observable<any> {
+    return this._HttpClient.get('quiz/completed');
   }
   
 }
