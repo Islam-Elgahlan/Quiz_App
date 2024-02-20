@@ -6,8 +6,8 @@
         <table class="table table-striped">
             <thead class="bg-main p-3 text-secondaryColor">
                 <th>Title</th>
-                <th>Group name</th>
-                <th>No. of persons in group</th>
+                <th>Score</th>
+                <th>No. of question in quiz</th>
                 <th>Participants</th>
                 <th>Date</th>
                 <th>Action</th>
@@ -15,15 +15,9 @@
             <tbody>
                 <tr *ngFor="let result of resultsData">
                     <td>{{result.quiz.title}}</td>
-                    <td>
-                        <!-- <ng-container *ngIf="result.length > 0"> -->
-                        <span *ngFor="let group of groups">{{group?.name}}</span>
-                        <!-- </ng-container> -->
-                    </td>
-                    <td>
-                        <span *ngFor="let group of groups">{{group?.students?.length}}</span>
-                    </td>
-                    <td>20 Participants {{result?.Participants?.length}}</td>
+                    <td>{{result.result.score}}</td>
+                    <td>{{result.quiz.questions_number}}</td>
+                    <td>{{result.result.Participants.first_name}}</td>
                     <td>{{result.quiz.schadule | date: 'medium'}}</td>
                     <td>
                         <button class="border-0 rounded bg-third fw-bold">View</button>
