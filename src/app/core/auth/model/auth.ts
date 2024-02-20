@@ -15,7 +15,8 @@ export interface IProfile {
   first_name:string,
   last_name:string,
   email:string,
-  _id:string
+  _id:string,
+  status:string
 }
 //register
 export interface IRegister {

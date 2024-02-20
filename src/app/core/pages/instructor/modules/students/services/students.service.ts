@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IStudents } from '../model/students';
+import { IRegister } from 'src/app/core/auth/model/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +37,11 @@ export class StudentsService {
   }
   onGetTopFiveStudents(): Observable<any> {
     return this._HttpClient.get('student/top-five');
+  }
+  onUpdateInstructorAccount(data:IRegister):Observable<IRegister>{
+    return this._HttpClient.put<IRegister>('instructor',data)
+  }
+  onUpdateStudentAccount(data:IRegister):Observable<IRegister>{
+    return this._HttpClient.put<IRegister>('student',data)
   }
 }
