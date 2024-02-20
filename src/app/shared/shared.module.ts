@@ -11,6 +11,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     SidebarComponent,
     VectorComponent,
     LogoutComponent,
-    DeleteComponent
+    DeleteComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     VectorComponent,
     NzDropDownModule,
     NzSelectModule,
-    MaterialModule
+    MaterialModule,
+    UserProfileComponent
   ]
 })
 export class SharedModule { }

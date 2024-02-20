@@ -48,18 +48,21 @@
                   ><i
                     (click)="openEditDialog('500ms', '500ms', item._id)"
                     class="fa-regular fa-pen-to-square text-iconSecondColor pointer"
+                    matTooltip="Edit"
                   ></i
                 ></span>
                 <span class="mx-2"
                   ><i
                     (click)="openDeleteDialog(item._id,item.title)"
                     class="fa-regular fa-trash-can text-iconSecondColor pointer"
+                    matTooltip="Delete"
                   ></i
                 ></span>
                 <span class="mx-2"
                   ><i
                     (click)="openViewDialog('500ms', '500ms', item._id, true)"
                     class="fa-regular fa-eye text-iconSecondColor pointer"
+                    matTooltip="View"
                   ></i
                 ></span>
               </div>
