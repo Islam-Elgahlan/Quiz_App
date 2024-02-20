@@ -15,8 +15,8 @@ export class StudentsService {
   getAllStudentsWithoutGroup(): Observable<any> {
     return this._HttpClient.get('student/without-group');
   }
-  getStudentById(_id: string): Observable<IStudents> {
-    return this._HttpClient.get<IStudents>(`student/${_id}`);
+  getStudentById(id: string): Observable<IStudents> {
+    return this._HttpClient.get<IStudents>(`student/${id}`);
   }
   updateStudent(data: IStudents): Observable<IStudents> {
     return this._HttpClient.put<IStudents>('student', data);
@@ -29,7 +29,7 @@ export class StudentsService {
   }
   // Group
   addToGroup(studentId: string, groupId: string): Observable<IStudents> {
-    return this._HttpClient.get<IStudents>(`student/${studentId}/${groupId}`);
+    return this._HttpClient.get<IStudents>(`student/${studentId}/${groupId}`,{params:{studentId,groupId}});
   }
   updateStudentGroup(studentId: string, groupId: string, data: IStudents): Observable<IStudents> {
     return this._HttpClient.put<IStudents>(`student/${studentId}/${groupId}`, data);

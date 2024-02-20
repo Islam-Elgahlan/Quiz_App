@@ -12,7 +12,8 @@ import { JoinQuizComponent } from 'src/app/core/pages/student/components/join-qu
 })
 export class NavbarComponent {
   userName: string|null = localStorage.getItem('userName');
-  role: string|null = localStorage.getItem('role')
+  role: string|null = localStorage.getItem('role');
+  userId:string|null= localStorage.getItem('userId');
   constructor(
     public dialog: MatDialog,
     private router:Router

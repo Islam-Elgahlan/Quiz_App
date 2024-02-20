@@ -51,7 +51,7 @@
           <span  class="bg-secondaryColor ps-3 pe-4 py-5 fs-5 fw-medium">Students</span>
         </mat-label>
         <mat-select class="text-center" formControlName="students" multiple>
-        <mat-option #selected *ngFor="let student of studentsList" [value]="student._id">{{student.first_name}} {{student.last_name}}</mat-option>
+        <mat-option #selected *ngFor="let student of studentsList" [value]="student._id">{{student.first_name}} {{student.last_name}} / without group</mat-option>
         <ng-container *ngFor="let student of groupStudents">
             <mat-option *ngIf="updateMode == true" [value]="student._id">{{student.first_name}} {{student.last_name}}</mat-option>
         </ng-container>
