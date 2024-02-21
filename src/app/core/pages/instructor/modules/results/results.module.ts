@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ResultsRoutingModule } from './results-routing.module';
 import { ResultsComponent } from './components/results/results.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,7 @@ import { ResultsComponent } from './components/results/results.component';
   ],
   imports: [
     CommonModule,
-    ResultsRoutingModule
+    ResultsRoutingModule,
   ]
 })
 export class ResultsModule { }
