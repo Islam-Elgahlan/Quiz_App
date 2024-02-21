@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IJoin } from '../../model/student';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SetupEndComponent } from '../../../instructor/modules/quizes/components/setup-end/setup-end.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-join-quiz',
@@ -13,26 +14,31 @@ import { SetupEndComponent } from '../../../instructor/modules/quizes/components
 })
 export class JoinQuizComponent {
   // code: any;
+  quizId:string='';
   joinQuizForm=new FormGroup({
     code: new FormControl(null,Validators.required)
-  })
+  });
   constructor(
     public dialogRef: MatDialogRef<JoinQuizComponent>,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _StudentService:StudentService,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+    private router:Router
   ){}
 
   joinQuiz(data:FormGroup){
     this._StudentService.onJoinQuiz(data.value).subscribe({
       next:(res)=>{
         console.log(res);
-        this.openSetupEndDialog(res)
+        this.quizId=res.data?.quiz
       },error:(err)=>{
         this.toastr.error(err.error.message,'Error!')
       },complete:()=>{
+        this.toastr.success('Joined successfully','Answer now!')
         this.onNoClick()
+        console.log(this.quizId);
+        this.router.navigate([`/quizwiz/student/answer/${this.quizId}`]);
       }
     })
   }

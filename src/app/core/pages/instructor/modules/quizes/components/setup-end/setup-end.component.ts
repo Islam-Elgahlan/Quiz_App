@@ -10,7 +10,10 @@ import { QuizzesService } from '../../services/quizzes.service';
 
 export class SetupEndComponent implements OnInit{
   role:string|null=localStorage.getItem('role')
-  constructor(public dialogRef: MatDialogRef<SetupEndComponent>, @Inject(MAT_DIALOG_DATA) public data: any){}
+  constructor(
+    public dialogRef: MatDialogRef<SetupEndComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ){}
 
   ngOnInit(): void {
     // console.log(this.code);
