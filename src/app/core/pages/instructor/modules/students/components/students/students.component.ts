@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../services/students.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AddUpdateStudentsComponent } from '../add-update-students/add-update-students.component';
 import { IStudents, IStudentsGroups } from '../../model/students';
 import { IGroup } from '../../../groupes/model/groups';
 import { GroupsService } from '../../../groupes/sevice/groups.service';

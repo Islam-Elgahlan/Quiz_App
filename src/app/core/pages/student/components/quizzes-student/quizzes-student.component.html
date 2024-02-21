@@ -23,14 +23,13 @@
                         {{ quiz.schadule | date : "dd/MM/YYYY" }} |
                         {{ quiz.schadule | date : "hh:mm a" }}
                       </p>
-                      <h4>Number of Questions: {{ quiz.questions.length }}</h4>
+                      <p>Code: {{quiz.code}} 
+                        <a [cdkCopyToClipboard]="quiz.code" matTooltip="Copy" class="text-third mx-2" >
+                            <i class="fa-solid fa-copy fs-5 fw-bold pointer"></i>
+                          </a>
+                      </p>
+                      <h4 class="mb-0">Number of Questions: {{ quiz.questions.length }}</h4>
                     </div>
-                    <h4
-                      class="pointer ms-auto pe-3 fw-bold"
-                      routerLink="/quizwiz/instructor/quizzes/quizDetails"
-                    >
-                      Open <i class="fa-solid fa-circle-arrow-right text-third"></i>
-                    </h4>
                   </div>
                 </div>
             </div>

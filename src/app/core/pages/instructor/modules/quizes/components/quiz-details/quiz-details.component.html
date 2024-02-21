@@ -18,11 +18,18 @@
         <div class="header">
           <h3 class="h2">Data Structures <span class="text-third">{{quizze?.title}}</span></h3>
           <p class="mt-0 h6">
-            <i class="fa-solid fa-calendar-days me-2"></i>{{quizze?.schadule}}
+            <i class="fa-solid fa-calendar-days me-2"></i>{{quizze?.schadule|date:'dd-MM-yyyy | hh:mm a'}}
           </p>
         </div>
         <div class="row">
           <div class="col-md-10">
+            <div class="info">
+              <span class="name">Code</span>
+              <span class="value">{{quizze?.code}}</span>
+              <a [cdkCopyToClipboard]="quizze?.code" matTooltip="Copy" class="text-black ms-auto me-2" >
+                <i class="fa-solid fa-copy fs-4 fw-bold pointer"></i>
+              </a>
+            </div>
             <div class="info">
               <span class="name">Duration</span>
               <span class="value">{{quizze?.duration}}</span>

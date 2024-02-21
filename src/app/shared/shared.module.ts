@@ -12,6 +12,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UpdateAccountComponent } from './components/update-account/update-account.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     VectorComponent,
     LogoutComponent,
     DeleteComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UpdateAccountComponent
   ],
   imports: [
     CommonModule,
