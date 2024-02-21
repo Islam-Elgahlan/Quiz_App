@@ -17,14 +17,19 @@ export class ResultsStudentComponent implements OnInit {
   quizData: IAllResults | any
   groups: IGroup[] = [];
 
+  groupName: string = '';
+  studentList: IGroup[] | any;
+
+
+
 
   constructor(private _StudentService: StudentService, private dialog: MatDialog,
-    private _GroupsService: GroupsService,
+    private _GroupsService: GroupsService, 
   ) { }
 
   ngOnInit(): void {
     this.allResults();
-    this.getAllGroups();
+    // this.getAllGroups();
   }
 
   allResults() {
@@ -38,11 +43,14 @@ export class ResultsStudentComponent implements OnInit {
     })
   }
 
-  getAllGroups() {
-    this._GroupsService.onGetAllGroups().subscribe({
+  getGroupById(id: string) {
+    this._GroupsService.onGetGroupById(id).subscribe({
       next: (res) => {
         console.log(res);
-        this.groups = res;
+        this.groupName = res.name;
+        // this.groupId=res._id;
+        this.studentList = res.students;
+        // this.studentsWithoutGroup=null
       },
     });
   }

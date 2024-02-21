@@ -64,7 +64,7 @@
     <div class="pointer d-flex justify-content-end align-items-center mt-3">
       <div class="add-item p-2">
         <span><img src="../../../../../../../../assets/images/add.png" /></span>
-        <span class="px-3 text-nowrap h6" >Add Student</span>
+        <span class="px-3 text-nowrap h6">Add Student</span>
       </div>
     </div>
 
@@ -101,8 +101,8 @@
             </div>
             <div class="icon-end ms-auto me-2 fs-6 text-nowrap">
               <span class="pointer mx-2">
-                <i class="fa-regular fa-pen-to-square text-third" 
-                (click)="openDialog('500ms', '500ms',item)" matTooltip="Add to group">
+                <i class="fa-regular fa-pen-to-square text-third" (click)="openDialog('500ms', '500ms',item)"
+                  matTooltip="Add to group">
                 </i>
               </span>
               <span class="pointer mx-2">
@@ -111,8 +111,7 @@
                       '500ms',
                       '500ms',
                       item._id,
-                      item.first_name)"
-                      matTooltip="Delete">
+                      item.first_name)" matTooltip="Delete">
                 </i>
               </span>
               <span class="pointer mx-2">
@@ -184,8 +183,7 @@
               </span>
               <span class="pointer mx-2">
                 <i class="fa-solid fa-circle-arrow-right text-third" matTooltip="View"
-                [routerLink]="['/quizwiz/profile', item._id]"
-                ></i>
+                  [routerLink]="['/quizwiz/profile', item._id]"></i>
               </span>
             </div>
           </div>

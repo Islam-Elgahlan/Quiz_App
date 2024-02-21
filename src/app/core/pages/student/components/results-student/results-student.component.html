@@ -17,7 +17,7 @@
                     <td>{{result.quiz.title}}</td>
                     <td>{{result.result.score}}</td>
                     <td>{{result.quiz.questions_number}}</td>
-                    <td>{{result.result.Participants.first_name}}</td>
+                    <td>{{result.result.participant?.first_name}} {{result.result.participant?.last_name}}</td>
                     <td>{{result.quiz.schadule | date: 'medium'}}</td>
                     <td>
                         <button class="border-0 rounded bg-third fw-bold">View</button>
