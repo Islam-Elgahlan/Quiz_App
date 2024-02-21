@@ -20,4 +20,10 @@ export class StudentService {
   onGetCompletedQuiz(): Observable<any> {
     return this._HttpClient.get('quiz/completed')
   }
+  onGetQuestionsWithoutAnswers(id:string):Observable<any>{
+    return this._HttpClient.get(`quiz/without-answers/${id}`)
+  }
+  onSubmitQuestion(data:any,id:string):Observable<any>{
+    return this._HttpClient.post(`quiz/submit/${id}`,data)
+  }
 }

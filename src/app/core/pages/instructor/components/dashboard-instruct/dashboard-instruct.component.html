@@ -27,7 +27,7 @@
           </div>
           <h4
             class="pointer ms-auto pe-5 fw-bold"
-            routerLink="/quizwiz/instructor/quizzes/quizDetails"
+            [routerLink]="['/quizwiz/instructor/quizzes/quizDetails',quiz._id]"
           >
             Open <i class="fa-solid fa-circle-arrow-right text-third"></i>
           </h4>

@@ -7,6 +7,7 @@ import { ResultsStudentComponent } from './components/results-student/results-st
 import { SharedModule } from 'src/app/shared/shared.module';
 import { QuizzesStudentComponent } from './components/quizzes-student/quizzes-student.component';
 import { ViewResultsComponent } from './components/view-results/view-results.component';
+import { AnswerQuestionsComponent } from './components/answer-questions/answer-questions.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ViewResultsComponent } from './components/view-results/view-results.com
     JoinQuizComponent,
     ResultsStudentComponent,
     QuizzesStudentComponent,
-    ViewResultsComponent
+    ViewResultsComponent,
+    AnswerQuestionsComponent
   ],
   imports: [
     CommonModule,
