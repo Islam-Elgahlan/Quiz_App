@@ -41,7 +41,7 @@ export class SidebarComponent {
    {
      title: 'Dashboard',
      icon: 'Dashboard-icon.svg',
-     link: '/quizwiz/instructor/dashboared',
+     link: '/quizwiz/instructor/dashboard',
      isActive: this.isInstructor()
    },
 

@@ -8,13 +8,13 @@
         </h3>
         <div class="d-flex">
           <button
-            class="btn primary mx-2"
+            class="btn primary mx-2 bg-secondaryColor"
             (click)="studentsWithoutGroup = null"
             (click)="studentList = null"
           >
             All Students
           </button>
-          <button class="btn primary mx-2" (click)="allStudentsWithoutGroups()">
+          <button class="btn primary mx-2 bg-secondaryColor" (click)="allStudentsWithoutGroups()">
             Students without group
           </button>
           <div *ngFor="let group of groups">

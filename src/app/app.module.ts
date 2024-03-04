@@ -31,7 +31,7 @@ registerLocaleData(en);
     SharedModule,
     ToastrModule.forRoot({
       closeButton: true,
-      timeOut: 4000,
+      timeOut: 3000,
       progressBar: true,
     }),
     FormsModule,
