@@ -92,6 +92,8 @@ export class QuizzesComponent implements OnInit {
       complete: () => {
         this.getUpcommingQuizzes();
         this.toastr.success('Quiz Deleted Successfully');
+        this.getAllQuizzes()
+        this.getUpcommingQuizzes()
       },
     });
   }

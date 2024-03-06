@@ -6,3 +6,7 @@ export interface IGroup {
     max_students: number,
     students: IStudents[],
 }
+export interface AddGroup {
+    name: string,
+    students: IStudents[]
+}

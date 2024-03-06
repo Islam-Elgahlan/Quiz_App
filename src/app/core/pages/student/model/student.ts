@@ -26,3 +26,7 @@ export interface IParticipant {
     last_name: string,
     email: string
 }
+ export interface IAnswers {
+    question: string,
+    answer:string
+ }

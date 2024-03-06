@@ -23,6 +23,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 const MaterialComponents = [
@@ -47,7 +48,8 @@ const MaterialComponents = [
   MatStepperModule,
   MatButtonToggleModule,
   ClipboardModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatRadioModule
 ]
 
 

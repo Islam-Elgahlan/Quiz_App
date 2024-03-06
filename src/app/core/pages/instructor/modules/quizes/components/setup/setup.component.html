@@ -26,22 +26,30 @@
           <div class="input-group mb-3 me-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3" for="inputGroupSelect01">Duration (in minutes)</label>
             <select class="form-select p-3 header"  formControlName="duration" id="inputGroupSelect01">
-              <option selected>30</option>
-              <option value="1">60</option>
+              <option selected value="60">1min</option>
+              <option selected value="180">3min</option>
+              <option value="300">5min</option>
+              <option value="600">10min</option>
+
             </select>
           </div>
           <div class="input-group mb-3 mx-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">No. of questions</label>
             <select class="form-select p-3 header"  formControlName="questions_number" id="inputGroupSelect01">
-              <option selected>1</option>
-              <option value="1">2</option>
+              <option selected value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
             </select>
           </div>
           <div class="input-group mb-3 ms-2 select-group header d-flex flex-nowrap">
             <label class="input-group-select p-3 " for="inputGroupSelect01">Score per question</label>
             <select class="form-select p-3 header"  formControlName="score_per_question" id="inputGroupSelect01">
-              <option selected>5</option>
-              <option value="1">10</option>
+              <option selected value="5">5</option>
+              <option value="10">10</option>
+              <option value="10">15</option>
             </select>
           </div>
         </div>
