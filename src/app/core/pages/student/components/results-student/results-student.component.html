@@ -10,7 +10,7 @@
                 <th>No. of question in quiz</th>
                 <th>Participants</th>
                 <th>Date</th>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
             </thead>
             <tbody>
                 <tr *ngFor="let result of resultsData">
@@ -19,12 +19,8 @@
                     <td>{{result.quiz.questions_number}}</td>
                     <td>{{result.result.participant?.first_name}} {{result.result.participant?.last_name}}</td>
                     <td>{{result.quiz.schadule | date: 'medium'}}</td>
-                    <td>
-                        <button class="border-0 rounded bg-third fw-bold">View</button>
-                    </td>
                     <!-- <td>
-                        <span class="mx-2"><i (click)="openViewDialog('500ms', '500ms', item._id, true)"
-                                class="fa-regular fa-eye text-iconSecondColor pointer"></i></span>
+                        <button class="border-0 rounded bg-third fw-bold">View</button>
                     </td> -->
                 </tr>
             </tbody>

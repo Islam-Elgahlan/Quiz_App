@@ -13,17 +13,17 @@ export class ViewResultsComponent implements OnInit{
 
   constructor(private _StudentService: StudentService,){}
   ngOnInit(): void {
-    // this.allResults()
+    this.allResults()
   }
 
-  //  allResults() {
-  //   this._StudentService.getAllResults().subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //       this.resultsInstructor = res;
+   allResults() {
+    this._StudentService.getAllResults().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.resultsInstructor = res;
 
-  //     }
-  //   })
-  // }
+      }
+    })
+  }
 
 }

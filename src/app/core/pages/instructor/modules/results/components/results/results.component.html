@@ -13,15 +13,23 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <tr *ngFor="let result of resultsInstructor">
-                    <td>{{result.quiz.title}}</td>
+                <tr *ngFor="let result of completedQuizzes">
+                    <td>{{result.title}}</td>
                     <td>{{groupName}}</td>
                     <td>{{studentList}}</td>
-                    <td>{{result.participants?.length}} participants</td>
-                    <td>{{result.quiz.schadule | date: 'medium'}}</td>
-                    <td>
-                        <button class="border-0 rounded bg-third fw-bold" (click)="openViewDialog('500ms', '500ms', result._id, true)">View</button>
-                    </td>
+                    <td>{{result.participants}} participants</td>
+                    <td>{{result.schadule | date: 'medium'}}</td>
+                    <td class="text-center">
+                        <button
+                          style="background-color: #c5d86d"
+                          class="btn"
+                          [routerLink]="
+                            '/quizwiz/instructor/results/view-result/' + result._id
+                          "
+                        >
+                          View
+                        </button>
+                      </td>
                 </tr>
             </tbody>
         </table>
