@@ -32,7 +32,6 @@ export class LoginComponent {
     this._AuthService.onLogIn(data.value).subscribe({
       next: (res) => {
         localStorage.setItem('userToken', res.data.accessToken);
-        localStorage.setItem('role', res.data.profile.role);
         localStorage.setItem('userName',res.data.profile.first_name + ' ' + res.data.profile.last_name);
         localStorage.setItem('email', res.data.profile.email);
         localStorage.setItem('userId', res.data.profile._id);

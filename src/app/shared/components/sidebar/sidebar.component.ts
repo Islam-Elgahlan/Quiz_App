@@ -35,7 +35,7 @@ export class SidebarComponent {
   isStudent(): boolean {
     return this._AuthService.role == 'Student' ? true : false;
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
  menu:IMenu[]=[
    {
@@ -44,7 +44,6 @@ export class SidebarComponent {
      link: '/quizwiz/instructor/dashboard',
      isActive: this.isInstructor()
    },
-
    {
      title: 'Groups',
      icon: 'Students-icon.svg',
@@ -69,12 +68,12 @@ export class SidebarComponent {
     link: '/quizwiz/instructor/results',
     isActive: this.isInstructor()
   },
-  //  {
-  //   title: 'Dashboard',
-  //   icon: 'Dashboard-icon.svg',
-  //   link: '/quizwiz/student/dashboard',
-  //   isActive: this.isStudent()
-  // },
+   {
+    title: 'Dashboard',
+    icon: 'Dashboard-icon.svg',
+    link: '/quizwiz/student/dashboard',
+    isActive: this.isStudent()
+  },
   {
     title: 'quizzes',
     icon: 'Quiz-icon.svg',

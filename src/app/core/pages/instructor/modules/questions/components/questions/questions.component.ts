@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { IQuestions } from '../../model/questions';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { ToastrService } from 'ngx-toastr';
+import { TypeEnum, DifficultyEnum } from '../../model/difficulty.enum';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -15,6 +17,8 @@ import { ToastrService } from 'ngx-toastr';
 export class QuestionsComponent implements OnInit {
 
   questions: IQuestions | any;
+  type: TypeEnum[] = [TypeEnum.FE, TypeEnum.BE, TypeEnum.DO]
+  difficulty: DifficultyEnum[] = [DifficultyEnum.easy, DifficultyEnum.medium, DifficultyEnum.hard]
   constructor(private _questionService: QuestionsService, private dialog: MatDialog, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -85,6 +89,21 @@ export class QuestionsComponent implements OnInit {
         this.toastr.success('Question Deleted Successfully');
       },
     });
+  }
+  //search
+  difficultySearch:string='';
+  typeSearch:string='';
+  searchQuestion(){
+    // let params = {
+    //   difficulty: this.difficultySearch,
+    //   type: this.typeSearch
+    // }
+    this._questionService.onSearchQuestion(this.difficultySearch,this.typeSearch).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.questions=res
+      }
+    })
   }
 
 }

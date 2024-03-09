@@ -30,9 +30,9 @@ deleteQuestion(id:string):Observable<IQuestions>
 {
   return this._HttpClient.delete<IQuestions>(`question/${id}`)
 }
-searchQuestion(data:any):Observable<any>
+onSearchQuestion(difficulty:string,type:string):Observable<any>
 {
-  return this._HttpClient.post(`question`, data)
+  return this._HttpClient.post(`question/search?difficulty=${difficulty}&type=${type}`,{})
 }
 
 }
