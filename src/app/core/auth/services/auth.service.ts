@@ -20,8 +20,7 @@ export class AuthService {
   getProfile() {
     let encoded: any = localStorage.getItem('userToken');
     let decoded: any = jwtDecode(encoded);
-    console.log(decoded);
-    
+    localStorage.setItem('role', decoded.role);
     this.getRole();
   }
   getRole() {
