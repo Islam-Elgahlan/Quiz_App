@@ -1,3 +1,5 @@
+import { Group } from "../../groupes/model/groups"
+
 export interface IStudents {
     _id: string,
     first_name: string,
@@ -20,3 +22,13 @@ export interface IStudentsGroups {
     createdAt: string
     length: number
 }
+
+export interface Student {
+    email: string,
+    first_name: string,
+    last_name: string,
+    role: "Student",
+    status: string,
+    _id: string,
+    group: Group[],
+  }
