@@ -15,6 +15,8 @@ export interface IQuizzes {
     difficulty: string,
     updatedAt: string,
     createdAt: string,
+    participants:number,
+    closed_at: Date
     // __v: number
 }
 

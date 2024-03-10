@@ -18,6 +18,7 @@ export class UserProfileComponent implements OnInit {
   role: string | null = localStorage.getItem('role');
   status: string | null = localStorage.getItem('status');
   student: IStudents | undefined;
+  accountGroupName:string|null=localStorage.getItem('groupName')
   accountMode: boolean = true;
   studentViewMode: boolean = true;
   constructor(

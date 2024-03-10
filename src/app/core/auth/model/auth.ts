@@ -1,3 +1,5 @@
+import { IGroup } from "../../pages/instructor/modules/groupes/model/groups"
+
 export interface Auth {
 }
 //login
@@ -16,7 +18,8 @@ export interface IProfile {
   last_name:string,
   email:string,
   _id:string,
-  status:string
+  status:string,
+  group:IGroup
 }
 //register
 export interface IRegister {

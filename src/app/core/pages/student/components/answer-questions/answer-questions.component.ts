@@ -25,7 +25,7 @@ export class AnswerQuestionsComponent implements OnInit {
     answer: new FormControl(null),
   });
   answers: IAnswers[] = [];
-
+  submitted:boolean=false;
   constructor(
     private ActivatedRoute: ActivatedRoute,
     private _StudentService: StudentService,
@@ -55,8 +55,8 @@ export class AnswerQuestionsComponent implements OnInit {
       },
       complete: () => {
         this.timeRemaining$.subscribe((n: any) => {
-          if (n <= 0) {
-            this.submitAllAnswers();
+          if (n <= 0 && this.submitted==false) {
+            this.submitAllAnswers();        
           }
         });
       },
@@ -79,7 +79,8 @@ export class AnswerQuestionsComponent implements OnInit {
         this.toastr.error(err.error.message);
       },
       complete: () => {
-        this.router.navigate(['/quizwiz/student/results'])
+        this.router.navigate(['/quizwiz/student/results']);
+        this.submitted=true;
       },
     });
   }

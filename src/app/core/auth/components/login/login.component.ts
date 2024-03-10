@@ -31,11 +31,14 @@ export class LoginComponent {
   onSubmit(data: FormGroup) {
     this._AuthService.onLogIn(data.value).subscribe({
       next: (res) => {
+        console.log(res);
+        
         localStorage.setItem('userToken', res.data.accessToken);
         localStorage.setItem('userName',res.data.profile.first_name + ' ' + res.data.profile.last_name);
         localStorage.setItem('email', res.data.profile.email);
         localStorage.setItem('userId', res.data.profile._id);
-        localStorage.setItem('status',res.data.profile.status)
+        localStorage.setItem('status',res.data.profile.status);
+        localStorage.setItem('groupName',res.data.profile.group.name)
       },
       error: (err) => {
         this.toastr.error(err.error.message, 'Error!');

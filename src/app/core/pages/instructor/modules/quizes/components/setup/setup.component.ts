@@ -58,7 +58,7 @@ export class SetupComponent implements OnInit {
 
   onSubmit(data: FormGroup) {
     if (this.data !== null) {
-      this._quizzesService.updateQuizze(this.data, data.value).subscribe({
+      this._quizzesService.updateQuizze(this.data, data.value.title).subscribe({
         next: (res) => {
           console.log(res);
           this.quizze = res;
@@ -66,7 +66,7 @@ export class SetupComponent implements OnInit {
         }, error: (err) => {
           this.toastr.error(err.error.message, 'Error!')
         }, complete: () => {
-          this.toastr.success('Update Quiz Successfully', 'Success');
+          this.toastr.success('Quiz Updated Successfully', 'Success');
           this.onNoClick();
           this.openSetupEndDialog(this.code);
         }
