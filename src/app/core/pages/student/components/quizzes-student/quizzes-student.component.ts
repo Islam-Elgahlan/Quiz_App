@@ -12,7 +12,6 @@ import { StudentService } from '../../service/student.service';
 })
 export class QuizzesStudentComponent implements OnInit {
   upcommingQuizzes: IQuizzes[]=[];
-  completedQuizzes:IQuizzes[]=[];
 
   constructor(
     private dialog: MatDialog,
@@ -21,7 +20,6 @@ export class QuizzesStudentComponent implements OnInit {
   ){}
   ngOnInit(): void {
     this.getUpcommingQuizzes()
-    this.getCompletedQuiz()
   }
 //join quiz dialog
 openJoinDialog(
@@ -45,12 +43,5 @@ getUpcommingQuizzes() {
   });
 }
 
-getCompletedQuiz(){
-  this._StudentService.onGetCompletedQuiz().subscribe({
-    next:(res)=>{
-      console.log(res);
-      this.completedQuizzes=res
-    }
-  })
-}
+
 }

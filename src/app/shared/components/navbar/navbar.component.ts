@@ -14,6 +14,7 @@ export class NavbarComponent {
   userName: string|null = localStorage.getItem('userName');
   role: string|null = localStorage.getItem('role');
   userId:string|null= localStorage.getItem('userId');
+  userGroup:string|null= localStorage.getItem('groupName')
   constructor(
     public dialog: MatDialog,
     private router:Router

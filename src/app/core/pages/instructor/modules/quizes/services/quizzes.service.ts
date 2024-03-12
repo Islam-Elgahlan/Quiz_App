@@ -21,7 +21,7 @@ export class QuizzesService {
     return this._HttpClient.post<IQuizzes>('quiz', data)
   }
   updateQuizze(id: string, data: IQuizzes): Observable<IQuizzes> {
-    return this._HttpClient.put<IQuizzes>(`quiz/${id}`, data)
+    return this._HttpClient.put<IQuizzes>(`quiz/${id}`, {"title":data})
   }
   deleteQuizze(id: string): Observable<string> {
     return this._HttpClient.delete<string>(`quiz/${id}`)
