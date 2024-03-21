@@ -38,7 +38,7 @@ export class LoginComponent {
         localStorage.setItem('email', res.data.profile.email);
         localStorage.setItem('userId', res.data.profile._id);
         localStorage.setItem('status',res.data.profile.status);
-        localStorage.setItem('groupName',res.data.profile.group.name)
+        localStorage.setItem('groupName',res.data.profile.group?.name)
       },
       error: (err) => {
         this.toastr.error(err.error.message, 'Error!');

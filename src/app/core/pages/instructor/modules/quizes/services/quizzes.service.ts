@@ -32,5 +32,8 @@ export class QuizzesService {
   onGetlastFiveCompeletedQuizzes(): Observable<any> {
     return this._HttpClient.get('quiz/completed');
   }
+  onReassignQuiz(quizId:string,data: any): Observable<any> {
+    return this._HttpClient.post(`quiz/reassign/${quizId}`, data);
+  }
 
 }
