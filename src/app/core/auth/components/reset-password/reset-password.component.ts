@@ -26,7 +26,7 @@ export class ResetPasswordComponent {
   passwordMatchValidator(control: any) {
     let password =control.get('password');
     let confirmPassword=control.get('confirmPassword')
-    if (password.value == confirmPassword.value) {
+    if (password?.value == confirmPassword?.value) {
       return null;
     } else {
       control
@@ -36,8 +36,7 @@ export class ResetPasswordComponent {
     }
   }
   onSubmit(data:FormGroup){
-    console.log(data);
-     this._AuthService.onRestPassword(data.value).subscribe({
+     this._AuthService.onRestPassword(data?.value).subscribe({
       next:(res:any)=>{
         console.log(res);
         this.Message=res.message;
